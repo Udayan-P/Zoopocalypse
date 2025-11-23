@@ -1,0 +1,88 @@
+{
+  "challenge_type": "feature_challenge",
+  "animal": "Platypus",
+  "attributes": [
+    {
+      "category": "Descriptive Profile",
+      "label": "Color",
+      "value": "Brown"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Height",
+      "value": "10–15 cm"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Weight",
+      "value": "0.7–2.4 kg"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Lifespan",
+      "value": "10–17 years"
+    },
+    {
+      "category": "Geographic & Conservation",
+      "label": "Countries Found",
+      "value": "Australia"
+    },
+    {
+      "category": "Geographic & Conservation",
+      "label": "Conservation Status",
+      "value": "Near Threatened"
+    },
+    {
+      "category": "Diet",
+      "label": "Diet Type",
+      "value": "Carnivore, Insectivore"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Hair",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Tail",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Produces Milk",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Has Backbone",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Breathes Air",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Lays Eggs",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Warm-Blooded",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Habitat",
+      "value": "Eastern Australia"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Aquatic",
+      "value": "Yes"
+    }
+  ],
+  "initial_hints": [0, 7, 12],
+  "max_additional_hints": 5
+}
