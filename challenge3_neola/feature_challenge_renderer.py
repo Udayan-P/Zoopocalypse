@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Feature Challenge Renderer
+Feature Challenge Renderer Final
 
 """
 
