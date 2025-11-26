@@ -1,14 +1,14 @@
 from generators.hangman_generator import get_random_animal
-from renderers.hangman_renderer import render_hangman_markdown
+from renderers.hangman_renderer import render_hangman_markdown, render_zombie_stack
 
 DEFAULT_LIVES = 5
 
 
 def play_hangman():
     """
-    Console based hangman game loop for testing the challenge.
-    Uses the random animal generator and updates lives with each guess.
-    Reveals a new hint each time the player guesses wrong.
+    Interactive markdown based hangman loop.
+    Zombies stack upward, hints revealed on wrong guesses.
+    Output remains clean and markdown formatted.
     """
     word, all_hints = get_random_animal()
     lives_left = DEFAULT_LIVES
@@ -16,64 +16,76 @@ def play_hangman():
     guessed_letters = set()
     correct_letters = set(word)
 
-    # Start by showing only the first hint, then reveal more on wrong guesses
     hint_items = list(all_hints.items())
     visible_hint_count = 1
 
-    print("Starting Hangman Game")
-    print("The animal word has", len(word), "letters.")
+    print("# Hangman Challenge\n")
+    print("Start guessing the animal.\n")
 
     while lives_left > 0:
-        # Build the subset of hints to show this round
-        visible_hints = dict(hint_items[:visible_hint_count])
-
-        # Show the game status using the renderer
-        current_state = render_hangman_markdown(
-            word=word,
-            hints=visible_hints,
-            lives_left=lives_left
-        )
-        print(current_state)
-
-        # Build the masked word for display
+        # Build masked word
         masked = " ".join(
             letter if letter in guessed_letters else "_"
             for letter in word
         )
-        print("Word:", masked)
 
+        # Choose visible hints
+        visible_hints = dict(hint_items[:visible_hint_count])
+
+        # Clear turn block separation
+        print("\n---\n")
+
+        # ZOMBIE STACK (Markdown block)
+        print("## Zombie Stack\n")
+        print("If you lose all lives, zombies will reach the monkey.\n")
+
+        print("```")
+        print(render_zombie_stack(lives_left))
+        print("```")
+
+        # WORD AND LIVES IN MARKDOWN
+        print(f"\n**Word:** `{masked}`")
+        print(f"**Lives left:** {lives_left}\n")
+
+        # HINTS IN MARKDOWN
+        print("### Hints")
+        for label, value in visible_hints.items():
+            print(f"- **{label}:** {value}")
+        print()
+
+        # USER LETTER INPUT
         guess = input("Guess a letter: ").strip().lower()
 
         if len(guess) != 1 or not guess.isalpha():
-            print("Please guess one letter at a time.")
+            print("\nPlease enter one valid letter.\n")
             continue
 
         if guess in guessed_letters:
-            print("You already guessed that letter.")
+            print("\nYou already guessed that letter.\n")
             continue
 
         guessed_letters.add(guess)
 
         if guess in correct_letters:
-            print("Correct guess.")
+            print("\nCorrect.\n")
         else:
             lives_left -= 1
-            print("Wrong guess. Lives left:", lives_left)
+            print("\nWrong guess.\n")
 
-            # Reveal one more hint on each wrong guess, up to the total number
             if visible_hint_count < len(hint_items):
                 visible_hint_count += 1
-                print("Revealing an extra hint.")
+                print("A new hint has been revealed.\n")
 
-        # Check win condition
+        # WIN CONDITION
         if all(letter in guessed_letters for letter in word):
-            print("\nYou win. The animal was:", word)
+            print("\n## You win")
+            print(f"The animal was **{word}**")
             return
 
-    # Lose condition
-    print("\nYou lost. The zombies reached the monkey.")
-    print("The animal was:", word)
-
+    # LOSE CONDITION
+    print("\n## Game Over")
+    print("The zombies reached the monkey.")
+    print(f"The animal was **{word}**")
 
 def build_hangman_challenge():
     """
