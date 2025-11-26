@@ -8,13 +8,14 @@ def play_hangman():
     """
     Interactive markdown based hangman loop.
     Zombies stack upward, hints revealed on wrong guesses.
-    Output remains clean and markdown formatted.
+    Shows wrong letters under Lives Left for clarity.
     """
     word, all_hints = get_random_animal()
     lives_left = DEFAULT_LIVES
 
     guessed_letters = set()
     correct_letters = set(word)
+    wrong_letters = set()
 
     hint_items = list(all_hints.items())
     visible_hint_count = 1
@@ -29,13 +30,12 @@ def play_hangman():
             for letter in word
         )
 
-        # Choose visible hints
+        # Select visible hints
         visible_hints = dict(hint_items[:visible_hint_count])
 
-        # Clear turn block separation
         print("\n---\n")
 
-        # ZOMBIE STACK (Markdown block)
+        # ZOMBIE STACK
         print("## Zombie Stack\n")
         print("If you lose all lives, zombies will reach the monkey.\n")
 
@@ -43,17 +43,24 @@ def play_hangman():
         print(render_zombie_stack(lives_left))
         print("```")
 
-        # WORD AND LIVES IN MARKDOWN
+        # Word and lives
         print(f"\n**Word:** `{masked}`")
-        print(f"**Lives left:** {lives_left}\n")
+        print(f"**Lives left:** {lives_left}")
 
-        # HINTS IN MARKDOWN
+        # Wrong letters section
+        if wrong_letters:
+            wrong_string = ", ".join(sorted(wrong_letters))
+            print(f"**Wrong letters:** {wrong_string}\n")
+        else:
+            print("**Wrong letters:** None\n")
+
+        # Hints in markdown
         print("### Hints")
         for label, value in visible_hints.items():
             print(f"- **{label}:** {value}")
         print()
 
-        # USER LETTER INPUT
+        # Player input
         guess = input("Guess a letter: ").strip().lower()
 
         if len(guess) != 1 or not guess.isalpha():
@@ -70,19 +77,21 @@ def play_hangman():
             print("\nCorrect.\n")
         else:
             lives_left -= 1
+            wrong_letters.add(guess)
             print("\nWrong guess.\n")
 
+            # Reveal new hint if available
             if visible_hint_count < len(hint_items):
                 visible_hint_count += 1
                 print("A new hint has been revealed.\n")
 
-        # WIN CONDITION
+        # Win condition
         if all(letter in guessed_letters for letter in word):
             print("\n## You win")
             print(f"The animal was **{word}**")
             return
 
-    # LOSE CONDITION
+    # Lose condition
     print("\n## Game Over")
     print("The zombies reached the monkey.")
     print(f"The animal was **{word}**")
