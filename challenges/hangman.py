@@ -8,21 +8,29 @@ def play_hangman():
     """
     Console based hangman game loop for testing the challenge.
     Uses the random animal generator and updates lives with each guess.
+    Reveals a new hint each time the player guesses wrong.
     """
-    word, hints = get_random_animal()
+    word, all_hints = get_random_animal()
     lives_left = DEFAULT_LIVES
 
     guessed_letters = set()
     correct_letters = set(word)
 
+    # Start by showing only the first hint, then reveal more on wrong guesses
+    hint_items = list(all_hints.items())
+    visible_hint_count = 1
+
     print("Starting Hangman Game")
     print("The animal word has", len(word), "letters.")
 
     while lives_left > 0:
+        # Build the subset of hints to show this round
+        visible_hints = dict(hint_items[:visible_hint_count])
+
         # Show the game status using the renderer
         current_state = render_hangman_markdown(
-            word="".join(guessed_letters.intersection(correct_letters)),
-            hints=hints,
+            word=word,
+            hints=visible_hints,
             lives_left=lives_left
         )
         print(current_state)
@@ -51,6 +59,11 @@ def play_hangman():
         else:
             lives_left -= 1
             print("Wrong guess. Lives left:", lives_left)
+
+            # Reveal one more hint on each wrong guess, up to the total number
+            if visible_hint_count < len(hint_items):
+                visible_hint_count += 1
+                print("Revealing an extra hint.")
 
         # Check win condition
         if all(letter in guessed_letters for letter in word):
