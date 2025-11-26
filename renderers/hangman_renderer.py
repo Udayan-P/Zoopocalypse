@@ -38,8 +38,8 @@ def render_hangman_markdown(word, hints, lives_left):
     md += "\n## Zombie Stack\n"
     md += "If you lose all five lives, the zombies stack tall enough to reach the monkey.\n\n"
     md += "```\n"
-    # BUG HERE: lives_remaining does not exist
-    md += render_zombie_stack(lives_remaining)
+    # Fixed lives_left instead of undefined lives_remaining
+    md += render_zombie_stack(lives_left)
     md += "\n```\n"
 
     return md
