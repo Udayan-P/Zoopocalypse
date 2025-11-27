@@ -1,5 +1,5 @@
 from generators.hangman_generator import get_random_animal
-from renderers.hangman_renderer import render_hangman_markdown, render_zombie_stack
+from misc.prototypes.hangman_renderer import render_hangman_markdown, render_zombie_stack
 
 DEFAULT_LIVES = 5
 
