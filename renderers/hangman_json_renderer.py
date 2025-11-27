@@ -1,3 +1,10 @@
+"""
+Hangman JSON Renderer
+
+This script reads a Hangman JSON challenge and converts it into a markdown file.
+The markdown output is used for the escape-room style challenge documents.
+"""
+
 import json
 from pathlib import Path
 from typing import Dict, Any

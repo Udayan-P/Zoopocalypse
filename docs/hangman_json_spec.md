@@ -1,3 +1,5 @@
+<!-- Specification for Hangman JSON format (Challenge by Udayan) -->
+
 ## Top level structure
 
 ```json

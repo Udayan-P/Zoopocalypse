@@ -1,3 +1,9 @@
+"""
+Dataset Loader
+
+Loads the Zoo Animals dataset from CSV and returns it as a pandas DataFrame.
+Used by hangman_generator.py.
+"""
 import csv
 from pathlib import Path
 

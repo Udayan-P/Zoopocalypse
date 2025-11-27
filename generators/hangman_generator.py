@@ -1,3 +1,11 @@
+"""
+Hangman Challenge Generator
+
+This script loads the Zoo Animals dataset and generates a Hangman challenge.
+It selects a random animal, extracts a few hints, and saves them into a JSON
+file that follows the format described in docs/hangman_json_spec.md.
+"""
+
 import random
 import json
 from pathlib import Path
