@@ -1,0 +1,32 @@
+{
+    "challenge_id": "hangman-auto-frog",
+    "challenge_type": "hangman",
+    "word": "frog",
+    "max_lives": 5,
+    "hints": [
+        {
+            "label": "Big cat sized",
+            "text": "No",
+            "source_column": "Big cat sized"
+        },
+        {
+            "label": "Venomous",
+            "text": "No",
+            "source_column": "Venomous"
+        },
+        {
+            "label": "Has a tail",
+            "text": "No",
+            "source_column": "Has a tail"
+        },
+        {
+            "label": "Predator",
+            "text": "Yes",
+            "source_column": "Predator"
+        }
+    ],
+    "dataset_metadata": {
+        "dataset_name": "Zoo Animals Dataset",
+        "row_index": 19
+    }
+}
