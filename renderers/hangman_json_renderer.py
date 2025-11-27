@@ -1,45 +1,77 @@
 import json
-import os
+from pathlib import Path
+from typing import Dict, Any
 
 
-def render_hangman_from_json(json_path: str) -> str:
-    """Reads a hangman JSON challenge and returns markdown text."""
-    if not os.path.exists(json_path):
-        return f"Error: JSON file not found: {json_path}"
+def load_json(path: str) -> Dict[str, Any]:
+    """
+    Loads a JSON hangman challenge file.
+    """
+    with open(path, "r") as f:
+        return json.load(f)
 
-    try:
-        with open(json_path, "r") as f:
-            data = json.load(f)
-    except json.JSONDecodeError:
-        return "Error: JSON is not valid."
 
-    # Basic validation (simple + imperfect = realistic)
-    if "word" not in data or "hints" not in data:
-        return "Error: JSON missing required fields."
+def render_markdown(challenge: Dict[str, Any]) -> str:
+    """
+    Convert a JSON hangman challenge into a markdown document.
+    """
 
-    word = data["word"]
-    max_lives = data.get("max_lives", 5)
-    hints = data["hints"]
+    word_display = " ".join("_" for _ in challenge["word"])
+    hints_list = "\n".join([f"- **{h['label']}**: {h['text']}" for h in challenge["hints"]])
 
-    # Render markdown (not too fancy yet)
-    md = []
-    md.append("# Hangman Challenge (From JSON)\n")
-    md.append(f"**Word length:** {len(word)} letters\n")
-    md.append(f"**Max lives:** {max_lives}\n")
+    md = f"""# Challenge 1: Hangman
 
-    md.append("\n## Hints\n")
-    for h in hints:
-        label = h.get("label", "Hint")
-        text = h.get("text", "")
-        md.append(f"- **{label}:** {text}")
+Guess the animal before the zombies reach the monkey.
 
-    md.append("\n\n*(JSON challenge rendered)*\n")
+**Word:** {word_display}  
+**Lives:** {challenge.get("max_lives", 5)}
 
-    return "\n".join(md)
+## Hints
+{hints_list}
+
+## Dataset Metadata
+- Dataset: {challenge["dataset_metadata"]["dataset_name"]}
+- Row index: {challenge["dataset_metadata"]["row_index"]}
+"""
+
+    return md
+
+
+def save_markdown(content: str, out_path: str):
+    """
+    Save markdown content to file.
+    """
+    out_file = Path(out_path)
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+
+    with out_file.open("w", encoding="utf-8") as f:
+        f.write(content)
+
+
+def render_and_save(input_json: str, out_md: str):
+    """
+    High-level helper that loads JSON, renders markdown,
+    and writes it to the output folder.
+    """
+    challenge = load_json(input_json)
+    md = render_markdown(challenge)
+    save_markdown(md, out_md)
+    print(f"Markdown written to: {out_md}")
 
 
 if __name__ == "__main__":
-    # Hardcoded test path - realistic for early development
-    example_path = "json_examples/hangman_example.json"
-    output = render_hangman_from_json(example_path)
-    print(output)
+    # Render hand-coded example JSON
+    render_and_save(
+        "json_examples/hangman_example.json",
+        "output/hangman_example.md"
+    )
+
+    # Render generated JSON if it exists
+    gen_json = Path("json_examples/generated_hangman.json")
+    if gen_json.exists():
+        render_and_save(
+            "json_examples/generated_hangman.json",
+            "output/hangman_generated.md"
+        )
+    else:
+        print("Note: No generated_hangman.json found. Run the generator first.")
