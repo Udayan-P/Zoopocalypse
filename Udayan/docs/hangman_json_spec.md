@@ -1,0 +1,27 @@
+<!-- Specification for Hangman JSON format (Challenge by Udayan) -->
+
+## Top level structure
+
+```json
+{
+  "challenge_id": "hangman-example-001",
+  "challenge_type": "hangman",
+  "word": "lion",
+  "max_lives": 5,
+  "hints": [
+    {
+      "label": "Has hair",
+      "text": "This animal has hair",
+      "source_column": "hair"
+    },
+    {
+      "label": "Number of legs",
+      "text": "This animal has 4 legs",
+      "source_column": "legs"
+    }
+  ],
+  "dataset_metadata": {
+    "dataset_name": "Zoo Animals Dataset",
+    "row_index": 12
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "challenge_id": "hangman-auto-gorilla",
+    "challenge_type": "hangman",
+    "word": "gorilla",
+    "max_lives": 5,
+    "hints": [
+        {
+            "label": "Number of legs",
+            "text": "2",
+            "source_column": "Number of legs"
+        },
+        {
+            "label": "Domestic animal",
+            "text": "No",
+            "source_column": "Domestic animal"
+        },
+        {
+            "label": "Has feathers",
+            "text": "No",
+            "source_column": "Has feathers"
+        },
+        {
+            "label": "Has fins",
+            "text": "No",
+            "source_column": "Has fins"
+        }
+    ],
+    "dataset_metadata": {
+        "dataset_name": "Zoo Animals Dataset",
+        "row_index": 36
+    }
+}
