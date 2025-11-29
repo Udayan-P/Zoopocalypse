@@ -5,26 +5,40 @@ import random
 import sys
 
 def load_dataset(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except:
+        print("Error loading dataset")
+        sys.exit(1)
 
 def build_attributes(animal):
     attributes = []
 
-    fields = {
+    desc = {
         "Color": "Color",
         "Height (cm)": "Height",
         "Weight (kg)": "Weight",
-        "Lifespan (years)": "Lifespan",
+        "Lifespan (years)": "Lifespan"
+    }
+    geo = {
         "Countries Found": "Countries Found",
         "Conservation Status": "Conservation Status",
         "Habitat": "Habitat"
     }
 
-    for src, label in fields.items():
-        if src in animal and animal[src]:
+    for src, label in desc.items():
+        if src in animal:
             attributes.append({
-                "category": "Descriptive Profile" if "cm" in src or "kg" in src or "Color" in src or "Lifespan" in src else "Geographic & Conservation",
+                "category": "Descriptive Profile",
+                "label": label,
+                "value": str(animal[src])
+            })
+
+    for src, label in geo.items():
+        if src in animal:
+            attributes.append({
+                "category": "Geographic & Conservation",
                 "label": label,
                 "value": str(animal[src])
             })
@@ -36,28 +50,48 @@ def build_attributes(animal):
             "value": animal["Diet"]
         })
 
-    binary = ["hair", "feathers", "tail", "milk"]
-    for field in binary:
+    physical_binary = {
+        "hair": "Has Hair",
+        "feathers": "Has Feathers",
+        "tail": "Has Tail",
+        "milk": "Produces Milk"
+    }
+    for field, label in physical_binary.items():
         if animal.get(field) == 1:
             attributes.append({
                 "category": "Physical Features",
-                "label": f"Has {field.capitalize()}",
+                "label": label,
                 "value": "Yes"
             })
 
+    if animal.get("hair") == 1 or animal.get("milk") == 1:
+        attributes.append({
+            "category": "Biological Traits",
+            "label": "Warm-Blooded",
+            "value": "Yes"
+        })
+
     return attributes
 
-def generate_challenge(dataset):
-    animal = random.choice(dataset)
-    attributes = build_attributes(animal)
-
+def pick_initial_hints(attributes):
     idxs = list(range(len(attributes)))
     random.shuffle(idxs)
-    initial = sorted(idxs[:5])
+    return sorted(idxs[:5])
+
+def generate_challenge(dataset, animal_name=None):
+    if animal_name:
+        selected = next((a for a in dataset if a["Animal"] == animal_name), None)
+        if not selected:
+            raise RuntimeError("Animal not found.")
+    else:
+        selected = random.choice(dataset)
+
+    attributes = build_attributes(selected)
+    initial = pick_initial_hints(attributes)
 
     return {
         "challenge_type": "feature_challenge",
-        "animal": animal["Animal"],
+        "animal": selected["Animal"],
         "attributes": attributes,
         "initial_hints": initial,
         "max_additional_hints": 5
