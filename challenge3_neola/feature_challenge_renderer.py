@@ -9,11 +9,8 @@ def load_json(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-    except FileNotFoundError:
-        print("Error: The input JSON file was not found.")
-        sys.exit(1)
-    except json.JSONDecodeError:
-        print("Error: Could not decode JSON. Please check formatting.")
+    except:
+        print("Error: Could not load JSON.")
         sys.exit(1)
 
     needed = ["challenge_type", "animal", "attributes", "initial_hints", "max_additional_hints"]
@@ -32,8 +29,8 @@ def group_by_category(attributes):
 
 def build_mcq_section(correct_animal):
     distractors = [
-        "Lion","Otter","Beaver","Wombat","Koala","Fox","Cheetah","Capybara",
-        "Hedgehog","Red Panda","Jaguar"
+        "Lion","Otter","Beaver","Wombat","Koala","Fox","Cheetah",
+        "Capybara","Hedgehog","Red Panda","Jaguar"
     ]
 
     distractors = [d for d in distractors if d.lower() != correct_animal.lower()]
@@ -49,9 +46,17 @@ def build_mcq_section(correct_animal):
 
     return "".join(out)
 
-def render_to_markdown(data):
+def render_to_markdown(data, stage):
     attributes = data["attributes"]
     initial = set(data["initial_hints"])
+
+    all_indices = list(range(len(attributes)))
+    random.shuffle(all_indices)
+
+    reveal_queue = [i for i in all_indices if i not in initial]
+
+    extra_revealed = set(reveal_queue[:stage])
+
     grouped = group_by_category(attributes)
 
     category_order = [
@@ -68,6 +73,8 @@ def render_to_markdown(data):
     md.append("## Instructions\n")
     md.append("Use the revealed attributes to guess the hidden animal.\n\n")
 
+    md.append(f"### Current Hint Stage: {stage}\n\n")
+
     md.append("## Species\n`[CENSORED]`\n\n")
     md.append("---\n\n")
 
@@ -78,14 +85,22 @@ def render_to_markdown(data):
         for idx, attr in enumerate(attributes):
             if attr["category"] != cat:
                 continue
-            if idx in initial:
-                md.append(f"- **{attr['label']}**: {attr['value']} *(initial hint)*\n")
+
+            if idx in initial or idx in extra_revealed:
+                md.append(f"- **{attr['label']}**: {attr['value']}\n")
             else:
                 md.append(f"- **{attr['label']}**: `[CENSORED]`\n")
+
         md.append("\n")
 
-    md.append("## Revealed Hints\n")
+    md.append("## Revealed Initial Hints\n")
     for idx in data["initial_hints"]:
+        a = attributes[idx]
+        md.append(f"- {a['category']} → {a['label']}: {a['value']}\n")
+
+    md.append("\n")
+    md.append("## Additional Hints\n")
+    for idx in extra_revealed:
         a = attributes[idx]
         md.append(f"- {a['category']} → {a['label']}: {a['value']}\n")
 
@@ -99,12 +114,14 @@ def render_to_markdown(data):
     return "".join(md)
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python renderer.py input.json output.md")
+    if len(sys.argv) < 4:
+        print("Usage: python renderer.py input.json output.md stage")
         sys.exit(1)
 
+    stage = int(sys.argv[3])
+
     data = load_json(sys.argv[1])
-    out = render_to_markdown(data)
+    out = render_to_markdown(data, stage)
 
     with open(sys.argv[2], "w", encoding="utf-8") as f:
         f.write(out)
