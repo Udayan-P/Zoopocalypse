@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-frog",
+    "challenge_id": "hangman-auto-gorilla",
     "challenge_type": "hangman",
-    "word": "frog",
+    "word": "gorilla",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Big cat sized",
-            "text": "No",
-            "source_column": "Big cat sized"
+            "label": "Number of legs",
+            "text": "2",
+            "source_column": "Number of legs"
         },
         {
-            "label": "Venomous",
+            "label": "Domestic animal",
             "text": "No",
-            "source_column": "Venomous"
+            "source_column": "Domestic animal"
         },
         {
-            "label": "Has a tail",
+            "label": "Has feathers",
             "text": "No",
-            "source_column": "Has a tail"
+            "source_column": "Has feathers"
         },
         {
-            "label": "Predator",
-            "text": "Yes",
-            "source_column": "Predator"
+            "label": "Has fins",
+            "text": "No",
+            "source_column": "Has fins"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 19
+        "row_index": 36
     }
 }
