@@ -2,6 +2,7 @@
 
 import json
 import sys
+import random
 from pathlib import Path
 
 def load_json(path):
@@ -29,6 +30,25 @@ def group_by_category(attributes):
         grouped.setdefault(attr["category"], []).append(attr)
     return grouped
 
+def build_mcq_section(correct_animal):
+    distractors = [
+        "Lion","Otter","Beaver","Wombat","Koala","Fox","Cheetah","Capybara",
+        "Hedgehog","Red Panda","Jaguar"
+    ]
+
+    distractors = [d for d in distractors if d.lower() != correct_animal.lower()]
+    random.shuffle(distractors)
+
+    options = [correct_animal] + distractors[:3]
+    random.shuffle(options)
+
+    out = []
+    out.append("## Guess the Animal\n")
+    for opt in options:
+        out.append(f"- {opt}\n")
+
+    return "".join(out)
+
 def render_to_markdown(data):
     attributes = data["attributes"]
     initial = set(data["initial_hints"])
@@ -49,7 +69,6 @@ def render_to_markdown(data):
     md.append("Use the revealed attributes to guess the hidden animal.\n\n")
 
     md.append("## Species\n`[CENSORED]`\n\n")
-
     md.append("---\n\n")
 
     for cat in category_order:
@@ -70,7 +89,11 @@ def render_to_markdown(data):
         a = attributes[idx]
         md.append(f"- {a['category']} → {a['label']}: {a['value']}\n")
 
-    md.append("\n## Correct Answer\n")
+    md.append("\n")
+    md.append(build_mcq_section(data["animal"]))
+    md.append("\n")
+
+    md.append("## Correct Answer\n")
     md.append(f"**{data['animal']}**\n")
 
     return "".join(md)
