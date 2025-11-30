@@ -4,7 +4,8 @@ from pathlib import Path
 
 import pandas as pd
 
-DATASET_DIR = Path("Dataset")     
+# Folder that contains CSV and Images folder, make sure linked proper
+DATASET_DIR = Path("Dataset")
 CSV_PATH = DATASET_DIR / "Zoo Animals Dataset.csv"
 
 
@@ -14,7 +15,7 @@ def load_dataset() -> pd.DataFrame:
     """
     df = pd.read_csv(CSV_PATH)
 
-    # We only need the label and the image path
+    #only need the label and the image path
     df = df[["animal_name", "Image 1 Path"]].rename(
         columns={
             "animal_name": "label",
@@ -24,30 +25,34 @@ def load_dataset() -> pd.DataFrame:
     return df
 
 
-def make_single_challenge(df: pd.DataFrame) -> dict:
+def make_single_challenge(df: pd.DataFrame, challenge_id: int = 1) -> dict:
     """
     Pick ONE random animal from the dataset and build a single challenge dict.
-    (For now using only placeholder hints.)
     """
     row = df.sample(1).iloc[0]
 
-    label = row["label"]                     # e.g. "elephant"
-    image_rel = row["image_rel_path"]        # e.g. "Images/African Elephant.jpg"
+    label = str(row["label"])              # e.g. "elephant"
+    image_rel = str(row["image_rel_path"]) # e.g. "Images/Seal.jpg"
 
-    # might build full path later (optional!! but useful for checking files exist)
-    image_path = str(DATASET_DIR / image_rel)
+    # This is the path from the project root to the image file,
+    # which is what the markdown needs:
+    # Dataset/Images/Seal.jpg
+    image_for_markdown = str(DATASET_DIR / image_rel)
 
-    # For now, i use just 2 fake distractors can mprove this later
+    #  distractor labels (all labels except the correct one)
     all_labels = df["label"].unique().tolist()
     all_labels = [l for l in all_labels if l != label]
-    distractors = random.sample(all_labels, 3)
+
+    #  be safe about how many we sample
+    num_distractors = min(3, len(all_labels))
+    distractors = random.sample(all_labels, num_distractors)
 
     options = [label] + distractors
     random.shuffle(options)
 
     challenge = {
-        "challenge_id": "animal_001",
-        "image": image_rel,  # keeping it relative for the escape room
+        "challenge_id": f"animal_{challenge_id:03d}",
+        "image": image_for_markdown,  # this will be "Dataset/Images/Seal.jpg"
         "question": "Which animal is shown in this picture?",
         "options": options,
         "answer": label,

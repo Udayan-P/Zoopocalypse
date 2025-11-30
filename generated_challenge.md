@@ -1,15 +1,15 @@
 # Guess the Animal – animal_001
 
-![Animal image](Images/Water Buffalo.jpg)
+![Animal image](Dataset/Images/Bear.jpg)
 
 **Question:** Which animal is shown in this picture?
 
 ### Options
 
-- boar
 - vulture
-- kiwi
-- buffalo
+- gorilla
+- bear
+- seal
 
 ---
 ### Hints (for game master only)
@@ -21,4 +21,4 @@
 ---
 ### Answer (for game master only)
 
-- **Correct answer:** buffalo
+- **Correct answer:** bear

@@ -1,14 +1,14 @@
 {
     "challenge_id": "animal_001",
-    "image": "Images/Water Buffalo.jpg",
+    "image": "Dataset/Images/Bear.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "boar",
         "vulture",
-        "kiwi",
-        "buffalo"
+        "gorilla",
+        "bear",
+        "seal"
     ],
-    "answer": "buffalo",
+    "answer": "bear",
     "hints": [
         "The animal's name starts with 'B'.",
         "Think about common zoo animals.",
