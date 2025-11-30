@@ -1,0 +1,17 @@
+{
+    "challenge_id": "animal_001",
+    "image": "Images/Water Buffalo.jpg",
+    "question": "Which animal is shown in this picture?",
+    "options": [
+        "boar",
+        "vulture",
+        "kiwi",
+        "buffalo"
+    ],
+    "answer": "buffalo",
+    "hints": [
+        "The animal's name starts with 'B'.",
+        "Think about common zoo animals.",
+        "Look carefully at the shape and size of the animal."
+    ]
+}
