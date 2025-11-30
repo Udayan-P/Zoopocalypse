@@ -106,8 +106,8 @@ class AnimalSortingGenerator:
 
 
 if __name__ == "__main__":
-    generator = AnimalSortingGenerator(dataset_path = "Dataset/Zoo_Animals_Dataset.csv", valid_columns= ["Weight (kg)", "Height (cm)", "Lifespan (years)", "Average Speed (km/h)", "Gestation Period (days)"])
+    generator = AnimalSortingGenerator(dataset_path = "ARMAN/Dataset/Zoo_Animals_Dataset.csv", valid_columns= ["Weight (kg)", "Height (cm)", "Lifespan (years)", "Average Speed (km/h)", "Gestation Period (days)"])
 
     generator.load_dataset()
-    path = generator.generate_json("challenge1.json")
+    path = generator.generate_json("ARMAN/challenge1.json")
     print(f"Generated challenge saved to: {path}")

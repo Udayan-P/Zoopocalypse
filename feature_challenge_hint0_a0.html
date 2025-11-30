@@ -1,16 +1,4 @@
-#!/usr/bin/env python3
-
-import sys
-import re
-from pathlib import Path
-
-try:
-    import markdown
-except ImportError:
-    print("Error: markdown library not installed. Install with: pip install markdown")
-    sys.exit(1)
-
-HTML_TEMPLATE = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -18,69 +6,69 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <title>Feature Challenge</title>
 
 <style>
-body {{
+body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #eef1f4;
     margin: 0;
     padding: 30px 10px;
     line-height: 1.6;
-}}
+}
 
-.container {{
+.container {
     max-width: 940px;
     margin: auto;
     background: #ffffff;
     padding: 40px 48px;
     border-radius: 14px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-}}
+}
 
-.header-card {{
+.header-card {
     border-radius: 16px;
     padding: 36px 40px;
     margin-bottom: 40px;
     border: 1px solid #e5e7eb;
     background: #ffffff;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}}
+}
 
-.header-title-block {{
+.header-title-block {
     text-align: center;
     background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
     padding: 24px;
     border-radius: 14px;
     border: 1px solid #e2e8f0;
-}}
+}
 
-.header-title {{
+.header-title {
     font-size: 2.1rem;
     font-weight: 800;
     color: #1e293b;
     margin: 0;
-}}
+}
 
-.header-sub {{
+.header-sub {
     font-size: 1.05rem;
     color: #475569;
     margin-top: 6px;
-}}
+}
 
-.header-divider {{
+.header-divider {
     width: 100%;
     height: 1px;
     background: #d4d7db;
     margin: 26px 0 26px;
-}}
+}
 
-.instructions {{
+.instructions {
     background: #fff7d6;
     padding: 18px 22px;
     border-left: 5px solid #f1c40f;
     border-radius: 8px;
     font-size: 0.95rem;
-}}
+}
 
-.category-card {{
+.category-card {
     background: linear-gradient(180deg, #ffffff 0%, #f7f9fb 100%);
     padding: 22px 26px;
     border-radius: 14px;
@@ -88,16 +76,16 @@ body {{
     margin-top: 32px;
     margin-bottom: 32px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-}}
+}
 
-.category-card h3 {{
+.category-card h3 {
     margin-top: 0;
     font-size: 1.15rem;
     color: #111827;
     font-weight: 700;
-}}
+}
 
-.species-block {{
+.species-block {
     margin: 32px auto 36px;
     padding: 32px 32px;
     background: rgba(236, 245, 255, 0.65);
@@ -107,23 +95,23 @@ body {{
     border: 1px solid rgba(46, 119, 204, 0.35);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-}}
+}
 
-.species-title {{
+.species-title {
     font-size: 0.95rem;
     color: #3b4a5a;
     letter-spacing: 0.18em;
     margin-bottom: 12px;
     font-weight: 600;
-}}
+}
 
-.species-value {{
+.species-value {
     font-size: 1.7rem;
     font-weight: 700;
     color: #1f2937;
-}}
+}
 
-.censored {{
+.censored {
     display: inline-block;
     vertical-align: middle;
     padding: 4px 14px;
@@ -134,34 +122,34 @@ body {{
     border-radius: 8px;
     color: transparent;
     margin: 4px 6px;
-}}
+}
 
-.revealed-tag {{
+.revealed-tag {
     background: #27ae60;
     color: white;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.75rem;
     margin-left: 8px;
-}}
+}
 
-.hint-tag {{
+.hint-tag {
     background: #0ea5e9;
     color: white;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.75rem;
     margin-left: 8px;
-}}
+}
 
-.mcq-grid {{
+.mcq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px 18px;
     margin: 22px 0 30px;
-}}
+}
 
-.mcq-card {{
+.mcq-card {
     display: block;
     padding: 16px 20px;
     text-align: center;
@@ -175,48 +163,48 @@ body {{
     text-decoration: none;
     transition: 0.2s ease;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}}
+}
 
-.mcq-card:hover {{
+.mcq-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}}
+}
 
-.status-card {{
+.status-card {
     margin: 26px 0;
     padding: 20px 24px;
     border-radius: 16px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}}
+}
 
-.status-card--wrong {{
+.status-card--wrong {
     background: #fef2f2;
     border-color: #fecaca;
     color: #991b1b;
-}}
+}
 
-.status-card--fail {{
+.status-card--fail {
     background: #fff7ed;
     border-color: #fed7aa;
     color: #9a3412;
-}}
+}
 
-.status-card--correct {{
+.status-card--correct {
     background: #ecfdf3;
     border-color: #bbf7d0;
     color: #166534;
-}}
+}
 
-.button-row {{
+.button-row {
     margin-top: 28px;
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
-}}
+}
 
-.btn {{
+.btn {
     padding: 10px 20px;
     border-radius: 12px;
     font-size: 0.93rem;
@@ -226,132 +214,76 @@ body {{
     background: rgba(248,249,251,0.95);
     border: 1px solid rgba(209,213,219,0.9);
     backdrop-filter: blur(6px);
-}}
+}
 
 </style>
 </head>
 <body>
 <div class="container">
-<div class="header-card">{header_content}</div>
-{content}
-</div>
-</body>
-</html>
-"""
-
-def convert_markdown_to_html(md_content):
-
-    html = markdown.markdown(md_content, extensions=["extra"])
-
-    header_match = re.search(
-        r"<h1>Feature Challenge: Identify the Animal</h1>(.*?)<hr />",
-        html,
-        flags=re.DOTALL,
-    )
-
-    if header_match:
-        raw = header_match.group(1)
-        html_body = html.replace(header_match.group(0), "")
-    else:
-        raw = "<strong>Instructions</strong><br><br>Use the revealed attributes to guess the species."
-        html_body = html
-
-    header_html = f"""
+<div class="header-card">
         <div class="header-title-block">
             <h1 class="header-title">Feature Challenge: Identify the Animal</h1>
             <p class="header-sub">Test your knowledge by revealing hints and guessing the species.</p>
         </div>
         <div class="header-divider"></div>
-        <div class="instructions">{raw}</div>
-    """
+        <div class="instructions">
+<h2>Instructions</h2>
+<p>Use the revealed attributes to guess the hidden species.
+You have up to 3 wrong attempts before failure.</p>
+</div>
+    </div>
 
-    # ---------------------------------------------------
-    # UNIFIED SPECIES BLOCK (same HTML for ALL pages)
-    # ---------------------------------------------------
+<h2>Species</h2>
+<h3><span class="censored">[CENSORED]</span></h3>
+<hr />
+<div class="category-card"><h3>Descriptive Profile</h3>
+<ul>
+<li><strong>Color:</strong> <span class="censored">[CENSORED]</span></li>
+<li><strong>Height:</strong> 140-188 <span class="revealed-tag">revealed</span></li>
+<li><strong>Weight:</strong> <span class="censored">[CENSORED]</span></li>
+<li><strong>Lifespan:</strong> <span class="censored">[CENSORED]</span></li>
+</ul></div>
+<div class="category-card"><h3>Geographic &amp; Conservation</h3>
+<ul>
+<li><strong>Countries Found:</strong> <span class="censored">[CENSORED]</span></li>
+<li><strong>Conservation Status:</strong> <span class="censored">[CENSORED]</span></li>
+<li><strong>Habitat:</strong> <span class="censored">[CENSORED]</span></li>
+</ul></div>
+<div class="category-card"><h3>Diet</h3>
+<ul>
+<li><strong>Diet Type:</strong> Herbivore <span class="revealed-tag">revealed</span></li>
+</ul></div>
+<div class="category-card"><h3>Physical Features</h3>
+<ul>
+<li><strong>Has Hair:</strong> Yes <span class="revealed-tag">revealed</span></li>
+<li><strong>Has Teeth:</strong> <span class="censored">[CENSORED]</span></li>
+<li><strong>Produces Milk:</strong> <span class="censored">[CENSORED]</span></li>
+</ul></div>
+<div class="category-card"><h3>Biological Traits</h3>
+<ul>
+<li><strong>Has Backbone:</strong> Yes <span class="revealed-tag">revealed</span></li>
+<li><strong>Breathes Air:</strong> Yes <span class="revealed-tag">revealed</span></li>
+<li><strong>Warm-Blooded:</strong> <span class="censored">[CENSORED]</span></li>
+</ul></div>
+<div class="category-card"><h3>Habitat &amp; Environment</h3>
+<ul>
+<li><strong>Social Structure:</strong> <span class="censored">[CENSORED]</span></li>
+</ul></div>
+<p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 5</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 0 / 3</span></p>
 
-    # Replace censored species header
-    html_body = re.sub(
-        r"<h3>\[CENSORED\]</h3>",
-        (
-            '<div class="species-block">'
-            '<div class="species-title">Species</div>'
-            '<div class="species-value">[CENSORED]</div>'
-            '</div>'
-        ),
-        html_body,
-    )
+<h2>Choose the Species</h2>
+<div class="mcq-grid">
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Koala</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Wolf</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Fox</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Kangaroo</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Cheetah</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint0_a1.html">Capybara</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Eastern Gorilla</a>
+</div>
 
-    # Replace answer page text with the SAME species block
-    html_body = re.sub(
-        r"The animal was:\s*<strong>(.*?)</strong>",
-        (
-            '<div class="species-block">'
-            '<div class="species-title">Species</div>'
-            '<div class="species-value">\\1</div>'
-            '</div>'
-        ),
-        html_body,
-        flags=re.DOTALL,
-    )
-
-    # Convert censored inline tag
-    html_body = html_body.replace("<code>[CENSORED]</code>", '<span class="censored">[CENSORED]</span>')
-
-    # Tag replacements
-    html_body = re.sub(r"\(revealed\)", '<span class="revealed-tag">revealed</span>', html_body)
-    html_body = re.sub(r"\(hint\)", '<span class="hint-tag">hint</span>', html_body)
-
-    # Wrap category cards
-    html_body = re.sub(
-        r"(<h3>[^<]+</h3>\s*<ul>[\s\S]*?</ul>)",
-        r'<div class="category-card">\1</div>',
-        html_body,
-    )
-
-    # Convert button rows
-    def convert_buttons(match):
-        block = match.group(0)
-        links = re.findall(r'<a href="([^"]+)">(.*?)</a>', block)
-        out = ["<div class='button-row'>"]
-        for href, label in links:
-            out.append(f"<a class='btn' href='{href}'>{label}</a>")
-        out.append("</div>")
-        return "".join(out)
-
-    html_body = re.sub(
-        r"<p>\s*(?:<a href=\"[^\"]+\">.*?</a>\s*\|\s*)*<a href=\"[^\"]+\">.*?</a>\s*</p>",
-        convert_buttons,
-        html_body,
-        flags=re.DOTALL,
-    )
-
-    return header_html, html_body
-
-
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python markdown_to_html.py <input.md> [output.html]")
-        sys.exit(1)
-
-    md_path = sys.argv[1]
-    out_path = sys.argv[2] if len(sys.argv) > 2 else md_path.replace(".md", ".html")
-    
-
-    with open(md_path, "r", encoding="utf-8") as f:
-        md = f.read()
-
-    header_html, body_html = convert_markdown_to_html(md)
-
-    rendered = HTML_TEMPLATE.format(
-        header_content=header_html,
-        content=body_html
-    )
-
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(rendered)
-
-    print("Generated HTML:", out_path)
-
-
-if __name__ == "__main__":
-    main()
+<div class='button-row'><a class='btn' href='feature_challenge_hint0_a0.html'>Try Again</a><a class='btn' href='feature_challenge_hint1_a0.html'>Reveal Next Hint</a><a class='btn' href='feature_challenge_answer.html'>Reveal Answer</a></div>
+</div>
+</body>
+</html>

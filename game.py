@@ -5,9 +5,9 @@ import os
 import time
 
 SCRIPTS = [
-    r"ARMAN/json_generator.py",
-    r"ARMAN/order_game_renderer.py",
-    r"ARMAN/html_generator.py",
+    r"ARMAN/GAME.py",
+    r"challenge3_neola/feature_challenge_pipeline.py",
+    r"Udayan/run_hangman_pipeline.py",
 ]
 
 
@@ -28,6 +28,13 @@ def main():
     for script in SCRIPTS:
         run_script(script)
         time.sleep(1)
+
+    time.sleep(1)
+    html_path = os.path.abspath("game.html")
+    print(f"\nOpening {html_path}")
+    webbrowser.open(f"file://{html_path}")
+
+    print("\nAll tasks completed successfully!\n")
 
 
 if __name__ == "__main__":

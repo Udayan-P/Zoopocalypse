@@ -6,7 +6,7 @@ import glob
 
 PYTHON = "python3"  # Adjust if needed
 
-OUTPUT_JSON = "feature_challenge.json"
+OUTPUT_JSON = "challenge3_neola/feature_challenge.json"
 
 def run(cmd):
     print(f"\nRunning: {cmd}")
@@ -18,10 +18,10 @@ def run(cmd):
 
 def main():
     # Step 1: Generate challenge JSON
-    run(f"{PYTHON} feature_challenge_generator.py animals.json {OUTPUT_JSON}")
+    run(f"{PYTHON} challenge3_neola/feature_challenge_generator.py challenge3_neola/animals.json {OUTPUT_JSON}")
 
     # Step 2: Render markdown files
-    run(f"{PYTHON} feature_challenge_renderer.py {OUTPUT_JSON} --multi")
+    run(f"{PYTHON} challenge3_neola/feature_challenge_renderer.py {OUTPUT_JSON} --multi")
 
     # Step 3: Convert all markdown files to HTML
     md_files = glob.glob("*.md")
@@ -31,7 +31,7 @@ def main():
 
     for f in md_files:
         print(f"\nConverting {f} to HTML")
-        run(f"/opt/anaconda3/bin/python3 markdown_to_html.py \"{f}\"")
+        run(f"python3 challenge3_neola/markdown_to_html.py \"{f}\"")
 
     print("\nPipeline completed successfully.")
 

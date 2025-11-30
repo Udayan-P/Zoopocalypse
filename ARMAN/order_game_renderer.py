@@ -38,4 +38,4 @@ def render_markdown_file(json_path: str, output_path: str):
 
 
 if __name__ == "__main__":
-    render_markdown_file("challenge1.json", "challenge1.md")
+    render_markdown_file("ARMAN/challenge1.json", "ARMAN/challenge1.md")

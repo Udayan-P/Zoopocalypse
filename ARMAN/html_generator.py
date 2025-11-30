@@ -8,8 +8,8 @@ def generate_patterns(randomized_list, correct_order):
         patterns.append(rank)
     return patterns
 
-MD_FILE = "challenge1.md"
-OUT_DIR = "html"
+MD_FILE = "ARMAN/challenge1.md"
+OUT_DIR = "ARMAN/html"
 
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -58,6 +58,8 @@ challenge_html = f"""<!DOCTYPE html>
 </head>
 <body>
 
+<a class="back-main" href="../../game.html">← Main Menu</a>
+
 <h1>Animal Sorting Challenge</h1>
 <p>Sort the animals by <strong>smallest → largest</strong> weight.</p>
 
@@ -82,7 +84,7 @@ challenge_html += """
 #    )
 
 for i, p in enumerate(pattern, start=1):
-    challenge_html += f'<input type="text" placeholder="Enter only the number" pattern="{p}" required>\n'
+    challenge_html += f'<input type="text" placeholder="Number Only" pattern="{p}" required>\n'
 
 
 challenge_html += """    </div>
@@ -114,6 +116,8 @@ hints_html = """<!DOCTYPE html>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<a class="back-main" href="../../game.html">← Main Menu</a>
 
 <h1>Hints</h1>
 <p>Here are the animals with images.</p>
@@ -151,6 +155,8 @@ results_html = f"""<!DOCTYPE html>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<a class="back-main" href="../../game.html">← Main Menu</a>
 
 <h1>Correct Order</h1>
 <p>The correct order by <strong>{challenge_type}</strong> (smallest → largest) is:</p>
