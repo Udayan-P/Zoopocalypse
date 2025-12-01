@@ -1,16 +1,16 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Bear.jpg",
+    "image": "Dataset/Images/Seal.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "vulture",
-        "gorilla",
-        "bear",
-        "seal"
+        "lion",
+        "seal",
+        "frog",
+        "aardvark"
     ],
-    "answer": "bear",
+    "answer": "seal",
     "hints": [
-        "The animal's name starts with 'B'.",
+        "The animal's name starts with 'S'.",
         "Think about common zoo animals.",
         "Look carefully at the shape and size of the animal."
     ]
