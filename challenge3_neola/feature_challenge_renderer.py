@@ -6,10 +6,6 @@ import random
 from pathlib import Path
 import os
 
-OUTPUT_DIR = "pages"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-
 def load_json(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -25,13 +21,11 @@ def load_json(path):
             sys.exit(1)
     return data
 
-
 def group_by_category(attributes):
     grouped = {}
     for attr in attributes:
         grouped.setdefault(attr["category"], []).append(attr)
     return grouped
-
 
 def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
     distractors = [
@@ -63,6 +57,28 @@ def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
     out.append("</div>\n\n")
     return "".join(out)
 
+def main_menu_button():
+    return (
+        '<a class="back-main" href="../../game.html">← Main Menu</a>\n'
+        '<style>'
+        '.back-main {'
+        'display:inline-block;'
+        'padding:6px 14px;'
+        'background:#3266d6;'
+        'color:white !important;'
+        'text-decoration:none;'
+        'font-size:15px;'
+        'border-radius:8px;'
+        'font-weight:500;'
+        'position:absolute;'
+        'top:14px;'
+        'left:18px;'
+        'box-shadow:0 2px 4px rgba(0,0,0,0.15);'
+        '}'
+        '.back-main:hover{background:#2854b8;}'
+        '</style>\n\n'
+    )
+
 
 def render_state_md(data, initial_indices, remaining_order, stage, attempts, file_prefix, max_stage, max_attempts):
     attributes = data["attributes"]
@@ -82,6 +98,10 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
     ]
 
     md = []
+
+    # 🔥 BLUE BUTTON
+    md.append(main_menu_button())
+
     md.append("# Feature Challenge: Identify the Animal\n")
     md.append("## Instructions\n")
     md.append("Use the revealed attributes to guess the hidden species.\n")
@@ -129,10 +149,13 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
     md.append("\n" + " | ".join(links) + "\n")
     return "".join(md)
 
-
 def render_wrong_page(data, file_prefix, stage, attempts, max_attempts):
     attempts_left = max(0, max_attempts - attempts)
     md = []
+
+    # 🔥 BLUE BUTTON
+    md.append(main_menu_button())
+
     md.append("# Wrong Answer\n\n")
     md.append(
         "<div class=\"status-card status-card--wrong\">"
@@ -140,15 +163,15 @@ def render_wrong_page(data, file_prefix, stage, attempts, max_attempts):
         f"<p class=\"status-text\">Try again! You have <strong>{attempts_left}</strong> attempts remaining.</p>"
         "</div>\n\n"
     )
-    links = []
-    links.append(f"[Try Again]({file_prefix}_hint{stage}_a{attempts}.html)")
-    links.append(f"[Reveal Answer]({file_prefix}_answer.html)")
-    md.append(" | ".join(links) + "\n")
+    md.append(f"[Try Again]({file_prefix}_hint{stage}_a{attempts}.html) | [Reveal Answer]({file_prefix}_answer.html)\n")
     return "".join(md)
-
 
 def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_order):
     md = []
+
+    # 🔥 BLUE BUTTON
+    md.append(main_menu_button())
+
     md.append("# Correct Answer\n")
     md.append(f"## The animal was: **{data['animal']}**\n")
     md.append("---\n\n")
@@ -169,9 +192,12 @@ def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_
     md.append(f"[Play Again from Start]({file_prefix}_hint0_a0.html)\n")
     return "".join(md)
 
-
 def render_fail_page(data, file_prefix):
     md = []
+
+    # 🔥 BLUE BUTTON
+    md.append(main_menu_button())
+
     md.append("# Challenge Failed\n")
     md.append("## You used all your attempts.\n\n")
     md.append(f"The correct species was: **{data['animal']}**.\n")
@@ -193,8 +219,9 @@ def render_fail_page(data, file_prefix):
     md.append(f"[Try Again from Start]({file_prefix}_hint0_a0.html)\n")
     return "".join(md)
 
+def generate_multi_files(data, input_file, outdir):
+    os.makedirs(outdir, exist_ok=True)
 
-def generate_multi_files(data, input_file):
     base = Path(input_file).stem
     attributes = data["attributes"]
     num_attrs = len(attributes)
@@ -208,44 +235,53 @@ def generate_multi_files(data, input_file):
     initial_indices = set(all_idx[:min(5, num_attrs)])
     remaining_order = all_idx[min(5, num_attrs):]
 
+    # Generate main hint pages
     for stage in range(max_stage + 1):
         for attempts in range(max_attempts):
-            filename = f"{base}_hint{stage}_a{attempts}.md"
-            out_path = os.path.join(OUTPUT_DIR, filename)
+            fname = f"{base}_hint{stage}_a{attempts}.md"
+            out = os.path.join(outdir, fname)
             content = render_state_md(data, initial_indices, remaining_order, stage, attempts, base, max_stage, max_attempts)
-            with open(out_path, "w", encoding="utf-8") as f:
+            with open(out, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out_path)
+            print("Created", out)
 
+    # Wrong pages
     for stage in range(max_stage + 1):
         for attempts in range(1, max_attempts):
-            filename = f"{base}_wrong_hint{stage}_a{attempts}.md"
-            out_path = os.path.join(OUTPUT_DIR, filename)
+            fname = f"{base}_wrong_hint{stage}_a{attempts}.md"
+            out = os.path.join(outdir, fname)
             content = render_wrong_page(data, base, stage, attempts, max_attempts)
-            with open(out_path, "w", encoding="utf-8") as f:
+            with open(out, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out_path)
+            print("Created", out)
 
-    ans_path = os.path.join(OUTPUT_DIR, f"{base}_answer.md")
-    with open(ans_path, "w", encoding="utf-8") as f:
+    # Answer page
+    ans = os.path.join(outdir, f"{base}_answer.md")
+    with open(ans, "w", encoding="utf-8") as f:
         f.write(render_answer_page(data, base, max_stage, initial_indices, remaining_order))
 
-    fail_path = os.path.join(OUTPUT_DIR, f"{base}_fail.md")
-    with open(fail_path, "w", encoding="utf-8") as f:
+    # Fail page
+    fail = os.path.join(outdir, f"{base}_fail.md")
+    with open(fail, "w", encoding="utf-8") as f:
         f.write(render_fail_page(data, base))
 
-
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python feature_challenge_renderer.py input.json --multi")
+    if len(sys.argv) < 4:
+        print("Usage: python feature_challenge_renderer.py input.json --multi --outdir <folder>")
         sys.exit(1)
+
     data = load_json(sys.argv[1])
-    if sys.argv[2] == "--multi":
-        generate_multi_files(data, sys.argv[1])
-    else:
+
+    if "--multi" not in sys.argv:
         print("Error: use --multi")
         sys.exit(1)
 
+    if "--outdir" in sys.argv:
+        outdir = sys.argv[sys.argv.index("--outdir") + 1]
+    else:
+        outdir = "challenge3_neola/pages"
+
+    generate_multi_files(data, sys.argv[1], outdir)
 
 if __name__ == "__main__":
     main()
