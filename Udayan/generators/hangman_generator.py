@@ -11,6 +11,14 @@ import json
 from pathlib import Path
 from typing import Dict, Any, List, Tuple, Optional
 
+from pathlib import Path
+import sys
+
+# Make sure the project root (Udayan folder) is on sys.path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from datasets.dataset_loader import load_animals
 
 # Columns from the zoo dataset that make good yes or no style hints

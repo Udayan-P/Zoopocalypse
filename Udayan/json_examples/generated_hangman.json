@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-gorilla",
+    "challenge_id": "hangman-auto-lion",
     "challenge_type": "hangman",
-    "word": "gorilla",
+    "word": "lion",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Number of legs",
-            "text": "2",
-            "source_column": "Number of legs"
+            "label": "Produces milk",
+            "text": "Yes",
+            "source_column": "Produces milk"
         },
         {
-            "label": "Domestic animal",
-            "text": "No",
-            "source_column": "Domestic animal"
+            "label": "Has a tail",
+            "text": "Yes",
+            "source_column": "Has a tail"
         },
         {
-            "label": "Has feathers",
+            "label": "Lays eggs",
             "text": "No",
-            "source_column": "Has feathers"
+            "source_column": "Lays eggs"
         },
         {
-            "label": "Has fins",
-            "text": "No",
-            "source_column": "Has fins"
+            "label": "Has hair",
+            "text": "Yes",
+            "source_column": "Has hair"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 36
+        "row_index": 2
     }
 }

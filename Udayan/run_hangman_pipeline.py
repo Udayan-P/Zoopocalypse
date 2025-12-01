@@ -46,37 +46,22 @@
 #if __name__ == "__main__":
 #    main()
 
+
+#!/usr/bin/env python3
+
 import subprocess
-import webbrowser
-import sys
-import os
-import time
+from pathlib import Path
 
-SCRIPTS = [
-    r"Udayan/generators/hangman_generator.py",
-    r"udayan/renderers/hangman_json_renderer.py",
-    r"Udayan/renderers/hangman_markdown_to_html.py",
-]
+ROOT = Path(__file__).resolve().parent
 
+print("1. Generating Hangman JSON…")
+subprocess.run(["python3", "generators/hangman_generator.py"], cwd=ROOT)
 
+print("2. Rendering markdown…")
+subprocess.run(["python3", "renderers/hangman_json_renderer.py"], cwd=ROOT)
 
-def run_script(path):
-    print(f"\n▶ Running: {path}")
-    result = subprocess.run([sys.executable, path])
+print("3. Rendering interactive HTML game…")
+subprocess.run(["python3", "renderers/hangman_markdown_to_html.py"], cwd=ROOT)
 
-    if result.returncode != 0:
-        print(f"ERROR: Script failed -> {path}")
-        sys.exit(1)
-
-    print(f"Completed: {path}")
-
-
-def main():
-
-    for script in SCRIPTS:
-        run_script(script)
-        time.sleep(1)
-
-
-if __name__ == "__main__":
-    main()
+print("\n✔ Pipeline complete!")
+print("Check output/hangman_generated.html")
