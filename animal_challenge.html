@@ -35,8 +35,40 @@
       margin-bottom: 0.6rem;
       font-size: 1.3rem;
     }
-    ul {
-      margin-top: 0.2rem;
+    .points {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+    .option-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #444;
+      background: #222;
+      color: #f5f5f5;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+    .option-btn:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+    .option-btn:active {
+      transform: translateY(0);
+    }
+    .option-btn.correct {
+      background: #2d6a4f;
+      border-color: #40916c;
+    }
+    .option-btn.incorrect {
+      background: #6a2d2d;
+      border-color: #c0392b;
     }
     details {
       margin: 0.3rem 0;
@@ -48,40 +80,126 @@
       cursor: pointer;
       font-weight: 600;
     }
-    .answer {
-      margin-top: 0.6rem;
-      font-weight: 700;
+    .message {
+      margin-top: 0.8rem;
+      font-weight: 600;
       color: #ffd166;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Guess the Animal Challenge</h1>
+  <!-- data-answer holds the correct answer but is never shown directly -->
+  <div class="card" id="challenge" data-answer="penguin">
+    <h1>Guess the Animal – animal_001</h1>
 
-    <img src="Dataset/Images/Seal.jpg" alt="Animal challenge image">
+    <img src="Dataset/Images/Penguin.jpg" alt="Animal challenge image">
+
+    <div class="points">
+      Points remaining: <span id="points-value">3</span>
+    </div>
 
     <h2>Question</h2>
     <p>Which animal is shown in this picture?</p>
 
     <h2>Options</h2>
-    <ul>
-      <li>lion</li>
-      <li>seal</li>
-      <li>frog</li>
-      <li>aardvark</li>
-    </ul>
+    <div class="options">
+      <button class="option-btn" data-option="buffalo">buffalo</button>
+      <button class="option-btn" data-option="seal">seal</button>
+      <button class="option-btn" data-option="penguin">penguin</button>
+      <button class="option-btn" data-option="frog">frog</button>
+    </div>
 
-    <h2>Hints (for game master only)</h2>
-    <details><summary>Show Hint 1</summary><p>The animal's name starts with 'S'.</p></details>
-    <details><summary>Show Hint 2</summary><p>Think about common zoo animals.</p></details>
-    <details><summary>Show Hint 3</summary><p>Look carefully at the shape and size of the animal.</p></details>
+    <h2>Hints</h2>
+    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'P'.</p></details>
+    <details class="hint"><summary>Show Hint 2</summary><p>Think about common zoo animals.</p></details>
+    <details class="hint"><summary>Show Hint 3</summary><p>Look carefully at the shape and size of the animal.</p></details>
 
-    <h2>Answer (for game master only)</h2>
-    <details>
-      <summary>Reveal answer</summary>
-      <p class="answer">seal</p>
-    </details>
+    <div class="message" id="message-area"></div>
   </div>
+
+  <script>
+    // Points / hints logic
+    let points = 3;
+    const pointsSpan = document.getElementById("points-value");
+    const messageArea = document.getElementById("message-area");
+    const hintDetails = document.querySelectorAll("details.hint");
+
+    hintDetails.forEach((detailsEl) => {
+      const summary = detailsEl.querySelector("summary");
+      detailsEl.dataset.used = "false";
+
+      summary.addEventListener("click", () => {
+        // Only deduct a point the FIRST time this hint is opened
+        if (detailsEl.dataset.used === "true") {
+          return;
+        }
+        detailsEl.dataset.used = "true";
+
+        if (points > 0) {
+          points -= 1;
+          pointsSpan.textContent = points;
+        }
+
+        if (points <= 0) {
+          points = 0;
+          pointsSpan.textContent = points;
+          messageArea.textContent =
+            "You have used all your hints. Restarting with a new animal...";
+          restartChallenge();
+        }
+      });
+    });
+
+    // Option button logic
+    const challengeCard = document.getElementById("challenge");
+    const correctAnswer = challengeCard.dataset.answer;
+    const optionButtons = document.querySelectorAll(".option-btn");
+
+    optionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Clear previous visual state
+        optionButtons.forEach((b) => {
+          b.classList.remove("correct", "incorrect");
+        });
+
+        const chosen = btn.dataset.option;
+
+        if (chosen === correctAnswer) {
+          btn.classList.add("correct");
+          messageArea.textContent = "Correct! Well done.";
+        } else {
+          btn.classList.add("incorrect");
+          messageArea.textContent = "Not quite. Try again or use a hint.";
+
+          // Deduct 1 point for choosing a wrong option
+          if (points > 0) {
+            points -= 1;
+            pointsSpan.textContent = points;
+          }
+
+          // If points reach 0, restart with a new animal
+          if (points <= 0) {
+            points = 0;
+            pointsSpan.textContent = points;
+            messageArea.textContent =
+              "You have used all your points. Restarting with a new animal...";
+            restartChallenge();
+          }
+        }
+      });
+    });
+
+    // When points reach 0, move to the next animal challenge.
+    // In the full escape-room game, the group can update this function
+    // to actually load the next challenge's HTML page.
+    function restartChallenge() {
+      // TODO: in the full group game, this should trigger a *new* animal challenge
+      // (e.g. by navigating to a different HTML file or by loading new data).
+      // For now, it simply reloads this page so the same template can be reused.
+      window.location.reload();
+      // Example for later:
+      // window.location.href = "animal_challenge_002.html";
+    }
+  </script>
 </body>
 </html>
