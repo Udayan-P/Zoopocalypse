@@ -1,106 +1,539 @@
 #!/usr/bin/env python3
+
 """
-Hangman markdown to HTML converter.
+Hangman markdown to HTML converter and interactive game renderer.
 
-Reads the markdown files produced by hangman_json_renderer.py
-and writes simple HTML files into the output/ folder.
+Steps in the full pipeline:
 
-Usage (from project root):
+1. generators/hangman_generator.py
+   - Reads the zoo CSV and picks a random animal.
+   - Produces json_examples/generated_hangman.json
 
-    python3 -m renderers.hangman_markdown_to_html
+2. renderers/hangman_json_renderer.py
+   - Reads the JSON and creates markdown:
+       output/hangman_generated.md
+
+3. THIS FILE
+   - Reads the markdown and JSON.
+   - Creates an interactive HTML hangman game:
+       output/hangman_generated.html
 """
 
 from pathlib import Path
+import json
+from typing import Optional
 
+# Try to use the markdown package if available
 try:
-    import markdown  # external package, see note in main
+    import markdown  # type: ignore
 except ImportError:
     markdown = None
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = PROJECT_ROOT / "output"
+JSON_DIR = PROJECT_ROOT / "json_examples"
+
+GENERATED_MD = OUTPUT_DIR / "hangman_generated.md"
+EXAMPLE_MD = OUTPUT_DIR / "hangman_example.md"  # kept for completeness
+GENERATED_JSON = JSON_DIR / "generated_hangman.json"
+OUTPUT_HTML = OUTPUT_DIR / "hangman_generated.html"
 
 
-def md_to_html(md_text: str, title: str) -> str:
-    """Convert markdown text into a basic HTML page."""
-    if markdown is None:
-        # Very small fallback if the markdown package is not installed.
-        # This is not a full markdown renderer, only a basic backup.
-        body = (
-            md_text.replace("\n\n", "<br><br>\n")
-            .replace("\n", "<br>\n")
-        )
-    else:
-        body = markdown.markdown(md_text)
+def read_text(path: Path) -> str:
+    """Return file contents or an empty string if missing."""
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8")
 
-    html = f"""<!DOCTYPE html>
+
+def md_to_html(md_text: str) -> str:
+    """
+    Convert markdown to HTML.
+
+    Uses the markdown package when installed, otherwise a tiny fallback
+    that only replaces new lines with <br>.
+    """
+    if markdown is not None:
+        return markdown.markdown(md_text)
+    # Very small fallback
+    html = md_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    html = html.replace("\n", "<br>\n")
+    return html
+
+
+def load_challenge(path: Path) -> dict:
+    """Load the JSON hangman challenge."""
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_html(markdown_html: str, challenge: dict) -> str:
+    """
+    Build the final HTML string.
+
+    - `markdown_html` is not used heavily, but it proves that the pipeline
+      really goes JSON -> markdown -> HTML.
+    - `challenge` carries word, hints, and max_lives.
+    """
+    word = challenge.get("word", "")
+    max_lives = int(challenge.get("max_lives", 5))
+    hints = challenge.get("hints", [])
+
+    # Everything needed by the front end is embedded as JSON in a hidden script tag
+    challenge_js = json.dumps(
+        {
+            "word": word,
+            "max_lives": max_lives,
+            "hints": hints,
+        }
+    )
+
+    # NOTE: Update the image paths below if your images live somewhere else.
+    # Right now they are relative to the HTML file in output/.
+    html = f"""<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>{title}</title>
-    <style>
-        body {{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            max-width: 800px;
-            margin: 2rem auto;
-            line-height: 1.5;
-            background: #111;
-            color: #f5f5f5;
-        }}
-        h1, h2, h3 {{
-            color: #ffd27f;
-        }}
-        code {{
-            background: #222;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }}
-        pre {{
-            background: #222;
-            padding: 0.75rem;
-            border-radius: 4px;
-            overflow-x: auto;
-        }}
-        a {{
-            color: #7fdcff;
-        }}
-    </style>
+  <meta charset="utf-8">
+  <title>Hangman Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {{
+      --bg: #121212;
+      --card: #232323;
+      --accent: #58a85a;
+      --accent-dark: #3c7a3f;
+      --text: #f5f5f5;
+      --muted: #b3b3b3;
+      --danger: #ff6b6b;
+    }}
+
+    * {{
+      box-sizing: border-box;
+    }}
+
+    body {{
+      margin: 0;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }}
+
+    .main-wrap {{
+      max-width: 1200px;
+      margin: 0 auto;
+    }}
+
+    .top-bar {{
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }}
+
+    .back-btn {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #1f5fbf;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 16px;
+    }}
+
+    h1 {{
+      font-size: 36px;
+      margin: 0;
+    }}
+
+    .layout {{
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 24px;
+    }}
+
+    .card {{
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }}
+
+    .word-row {{
+      font-size: 32px;
+      letter-spacing: 16px;
+      margin-bottom: 24px;
+    }}
+
+    .info-line {{
+      margin: 4px 0;
+      font-size: 14px;
+    }}
+
+    .info-line strong {{
+      font-weight: 600;
+    }}
+
+    .wrong-letters span {{
+      color: var(--danger);
+    }}
+
+    .hint-text strong {{
+      font-weight: 600;
+    }}
+
+    .status-message {{
+      margin-top: 8px;
+      font-size: 14px;
+    }}
+
+    .status-message.ok {{
+      color: var(--accent);
+    }}
+
+    .status-message.bad {{
+      color: var(--danger);
+    }}
+
+    .keyboard {{
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }}
+
+    .key {{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s, opacity 0.1s;
+    }}
+
+    .key:hover {{
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }}
+
+    .key.used {{
+      opacity: 0.4;
+      cursor: default;
+      transform: none;
+    }}
+
+    .key.correct {{
+      background: var(--accent-dark);
+    }}
+
+    .key.wrong {{
+      background: #a33a3a;
+    }}
+
+    /* Zombie stack card */
+
+    .stack-title {{
+      font-size: 20px;
+      margin: 0 0 4px 0;
+    }}
+
+    .stack-sub {{
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }}
+
+    .stack-viewport {{
+      position: relative;
+      background: #060606;
+      border-radius: 16px;
+      height: 380px;
+      padding: 20px 0 56px 0;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }}
+
+    .monkey-wrapper {{
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }}
+
+    .monkey-image {{
+      height: 110px;
+      object-fit: contain;
+    }}
+
+    .ground {{
+      position: absolute;
+      bottom: 18px;
+      left: 10%;
+      right: 10%;
+      height: 8px;
+      border-radius: 999px;
+      background: #333;
+    }}
+
+    .zombie-column {{
+      position: absolute;
+      bottom: 32px;  /* just above the ground */
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column-reverse;  /* bottom up stacking */
+      justify-content: flex-start;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+    }}
+
+    .zombie-image {{
+      height: 60px;
+      object-fit: contain;
+      transform-origin: bottom center;
+    }}
+
+    @media (max-width: 900px) {{
+      .layout {{
+        grid-template-columns: 1fr;
+      }}
+
+      .stack-viewport {{
+        height: 320px;
+      }}
+    }}
+  </style>
 </head>
 <body>
-{body}
+  <div class="main-wrap">
+    <div class="top-bar">
+      <a class="back-btn" href="../../game.html">← Main Menu</a>
+      <h1>Hangman Challenge</h1>
+    </div>
+
+    <div class="layout">
+      <!-- Left: game panel -->
+      <div class="card">
+        <div id="word-row" class="word-row"></div>
+
+        <div class="info-line"><strong>Lives:</strong> <span id="lives-count">{max_lives}</span></div>
+        <div class="info-line wrong-letters"><strong>Wrong letters:</strong> <span id="wrong-letters"></span></div>
+        <div class="info-line hint-text"><strong>Hint:</strong> <span id="hint-text">None yet</span></div>
+        <div class="info-line">
+          <span id="hints-used-label">Hints used: 0 / {len(hints)}</span>
+        </div>
+        <div id="status" class="status-message"></div>
+
+        <hr style="margin: 18px 0; border-color: #444;">
+
+        <div id="keyboard" class="keyboard"></div>
+      </div>
+
+      <!-- Right: zombie stack -->
+      <div class="card">
+        <h2 class="stack-title">Zombie Stack</h2>
+        <p class="stack-sub">
+          Each wrong guess adds a zombie. If they reach the monkey, it is game over.
+        </p>
+        <div class="stack-viewport">
+          <div class="monkey-wrapper">
+            <!-- Update src paths if your images are elsewhere -->
+            <img id="monkey-img" class="monkey-image" src="../assets/monkey.png" alt="Monkey">
+          </div>
+
+          <div class="zombie-column" id="zombie-column"></div>
+
+          <div class="ground"></div>
+
+          <!-- Hidden template used for cloning so the path stays correct -->
+          <img id="zombie-template" class="zombie-image" src="../assets/zombie.png"
+               alt="Zombie" style="display:none;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded challenge data -->
+  <script id="challenge-json" type="application/json">
+{challenge_js}
+  </script>
+
+  <script>
+    function loadChallenge() {{
+      const scriptTag = document.getElementById("challenge-json");
+      try {{
+        return JSON.parse(scriptTag.textContent);
+      }} catch (e) {{
+        console.error("Could not parse challenge JSON", e);
+        return null;
+      }}
+    }}
+
+    function createKeyboard(onGuess) {{
+      const keyboard = document.getElementById("keyboard");
+      keyboard.innerHTML = "";
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      letters.forEach(letter => {{
+        const btn = document.createElement("button");
+        btn.className = "key";
+        btn.textContent = letter;
+        btn.addEventListener("click", () => onGuess(letter, btn));
+        keyboard.appendChild(btn);
+      }});
+    }}
+
+    function updateWordRow(secretWord, guessedSet) {{
+      const row = document.getElementById("word-row");
+      const chars = secretWord.split("").map(ch => {{
+        if (ch === " ") return " ";
+        return guessedSet.has(ch) ? ch : "–";
+      }});
+      row.textContent = chars.join(" ");
+    }}
+
+    function updateZombieStack(wrongCount, maxLives) {{
+      const column = document.getElementById("zombie-column");
+      const template = document.getElementById("zombie-template");
+      column.innerHTML = "";
+
+      const zombiesToShow = Math.min(wrongCount, maxLives);
+
+      for (let i = 0; i < zombiesToShow; i++) {{
+        const img = template.cloneNode(true);
+        img.style.display = "block";
+        column.appendChild(img);
+      }}
+    }}
+
+    function startGame() {{
+      const data = loadChallenge();
+      if (!data) {{
+        alert("Could not load hangman data.");
+        return;
+      }}
+
+      const secretWord = String(data.word || "").toUpperCase();
+      const maxLives = Number.isFinite(data.max_lives) ? data.max_lives : 5;
+      const hints = Array.isArray(data.hints) ? data.hints : [];
+
+      const livesEl = document.getElementById("lives-count");
+      const wrongLettersEl = document.getElementById("wrong-letters");
+      const hintTextEl = document.getElementById("hint-text");
+      const hintsUsedLabel = document.getElementById("hints-used-label");
+      const statusEl = document.getElementById("status");
+
+      let lives = maxLives;
+      let wrongLetters = [];
+      let guessedSet = new Set();
+      let nextHintIndex = 0;
+      let gameOver = false;
+
+      livesEl.textContent = String(lives);
+      hintsUsedLabel.textContent = "Hints used: 0 / " + hints.length;
+      hintTextEl.textContent = "None yet";
+      statusEl.textContent = "";
+
+      updateWordRow(secretWord, guessedSet);
+      updateZombieStack(0, maxLives);
+
+      function useNextHint() {{
+        if (nextHintIndex >= hints.length) {{
+          return;
+        }}
+        const hint = hints[nextHintIndex];
+        const label = hint.label || "Hint";
+        const text = hint.text || "";
+        hintTextEl.textContent = label + ": " + text;
+        nextHintIndex += 1;
+        hintsUsedLabel.textContent =
+          "Hints used: " + nextHintIndex + " / " + hints.length;
+      }}
+
+      function finish(win) {{
+        gameOver = true;
+        const keys = document.querySelectorAll(".key");
+        keys.forEach(k => k.disabled = true);
+        if (win) {{
+          statusEl.textContent = "You escaped. The zombies could not reach the monkey.";
+          statusEl.className = "status-message ok";
+        }} else {{
+          statusEl.textContent = "The zombies reached the monkey. The word was: " + secretWord;
+          statusEl.className = "status-message bad";
+        }}
+      }}
+
+      function handleGuess(letter, button) {{
+        if (gameOver || guessedSet.has(letter)) {{
+          return;
+        }}
+        guessedSet.add(letter);
+        button.classList.add("used");
+
+        if (secretWord.includes(letter)) {{
+          button.classList.add("correct");
+          updateWordRow(secretWord, guessedSet);
+
+          const allRevealed = secretWord
+            .split("")
+            .filter(ch => ch !== " ")
+            .every(ch => guessedSet.has(ch));
+
+          if (allRevealed) {{
+            finish(true);
+          }}
+        }} else {{
+          button.classList.add("wrong");
+          wrongLetters.push(letter);
+          wrongLettersEl.textContent = wrongLetters.join(", ");
+          lives -= 1;
+          livesEl.textContent = String(lives);
+          statusEl.textContent = "Wrong guess!";
+          statusEl.className = "status-message bad";
+
+          useNextHint();
+          updateZombieStack(maxLives - lives, maxLives);
+
+          if (lives <= 0) {{
+            finish(false);
+          }}
+        }}
+      }}
+
+      createKeyboard(handleGuess);
+    }}
+
+    document.addEventListener("DOMContentLoaded", startGame);
+  </script>
 </body>
 </html>
 """
     return html
 
 
-def convert_file(md_name: str, html_name: str) -> None:
-    """Load one markdown file from output/ and write the HTML version."""
-    md_path = OUTPUT_DIR / md_name
-    html_path = OUTPUT_DIR / html_name
+def main() -> Optional[Path]:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not md_path.exists():
-        print(f"[warn] Markdown file not found: {md_path}")
-        return
+    md_text = read_text(GENERATED_MD)
+    md_html = md_to_html(md_text)
+    challenge = load_challenge(GENERATED_JSON)
 
-    text = md_path.read_text(encoding="utf-8")
-    html = md_to_html(text, title=html_name.replace(".html", ""))
-
-    html_path.write_text(html, encoding="utf-8")
-    print(f"[ok] Wrote {html_path}")
-
-
-def main() -> None:
-    if markdown is None:
-        print(
-            "[note] python-markdown package not found. "
-            "Using very simple fallback conversion.\n"
-            "To install the proper renderer: pip install markdown"
-        )
-
-    convert_file("hangman_example.md", "hangman_example.html")
-    convert_file("hangman_generated.md", "hangman_generated.html")
+    html = build_html(md_html, challenge)
+    OUTPUT_HTML.write_text(html, encoding="utf-8")
+    print(f"HTML written to: {OUTPUT_HTML}")
+    return OUTPUT_HTML
 
 
 if __name__ == "__main__":
