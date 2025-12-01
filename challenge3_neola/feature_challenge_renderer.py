@@ -4,6 +4,11 @@ import json
 import sys
 import random
 from pathlib import Path
+import os
+
+OUTPUT_DIR = "pages"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 def load_json(path):
     try:
@@ -20,11 +25,13 @@ def load_json(path):
             sys.exit(1)
     return data
 
+
 def group_by_category(attributes):
     grouped = {}
     for attr in attributes:
         grouped.setdefault(attr["category"], []).append(attr)
     return grouped
+
 
 def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
     distractors = [
@@ -55,6 +62,7 @@ def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
 
     out.append("</div>\n\n")
     return "".join(out)
+
 
 def render_state_md(data, initial_indices, remaining_order, stage, attempts, file_prefix, max_stage, max_attempts):
     attributes = data["attributes"]
@@ -121,6 +129,7 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
     md.append("\n" + " | ".join(links) + "\n")
     return "".join(md)
 
+
 def render_wrong_page(data, file_prefix, stage, attempts, max_attempts):
     attempts_left = max(0, max_attempts - attempts)
     md = []
@@ -136,6 +145,7 @@ def render_wrong_page(data, file_prefix, stage, attempts, max_attempts):
     links.append(f"[Reveal Answer]({file_prefix}_answer.html)")
     md.append(" | ".join(links) + "\n")
     return "".join(md)
+
 
 def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_order):
     md = []
@@ -158,6 +168,7 @@ def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_
 
     md.append(f"[Play Again from Start]({file_prefix}_hint0_a0.html)\n")
     return "".join(md)
+
 
 def render_fail_page(data, file_prefix):
     md = []
@@ -182,6 +193,7 @@ def render_fail_page(data, file_prefix):
     md.append(f"[Try Again from Start]({file_prefix}_hint0_a0.html)\n")
     return "".join(md)
 
+
 def generate_multi_files(data, input_file):
     base = Path(input_file).stem
     attributes = data["attributes"]
@@ -198,27 +210,30 @@ def generate_multi_files(data, input_file):
 
     for stage in range(max_stage + 1):
         for attempts in range(max_attempts):
-            out = f"{base}_hint{stage}_a{attempts}.md"
+            filename = f"{base}_hint{stage}_a{attempts}.md"
+            out_path = os.path.join(OUTPUT_DIR, filename)
             content = render_state_md(data, initial_indices, remaining_order, stage, attempts, base, max_stage, max_attempts)
-            with open(out, "w", encoding="utf-8") as f:
+            with open(out_path, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out)
+            print("Created", out_path)
 
     for stage in range(max_stage + 1):
         for attempts in range(1, max_attempts):
-            out = f"{base}_wrong_hint{stage}_a{attempts}.md"
+            filename = f"{base}_wrong_hint{stage}_a{attempts}.md"
+            out_path = os.path.join(OUTPUT_DIR, filename)
             content = render_wrong_page(data, base, stage, attempts, max_attempts)
-            with open(out, "w", encoding="utf-8") as f:
+            with open(out_path, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out)
+            print("Created", out_path)
 
-    ans = f"{base}_answer.md"
-    with open(ans, "w", encoding="utf-8") as f:
+    ans_path = os.path.join(OUTPUT_DIR, f"{base}_answer.md")
+    with open(ans_path, "w", encoding="utf-8") as f:
         f.write(render_answer_page(data, base, max_stage, initial_indices, remaining_order))
 
-    fail = f"{base}_fail.md"
-    with open(fail, "w", encoding="utf-8") as f:
+    fail_path = os.path.join(OUTPUT_DIR, f"{base}_fail.md")
+    with open(fail_path, "w", encoding="utf-8") as f:
         f.write(render_fail_page(data, base))
+
 
 def main():
     if len(sys.argv) < 2:
@@ -230,6 +245,7 @@ def main():
     else:
         print("Error: use --multi")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
