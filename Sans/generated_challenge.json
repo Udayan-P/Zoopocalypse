@@ -1,16 +1,16 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Lion.jpg",
+    "image": "Dataset/Images/Termite.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "seal",
-        "cheetah",
-        "elephant",
-        "lion"
+        "tuatara",
+        "gorilla",
+        "platypus",
+        "termite"
     ],
-    "answer": "lion",
+    "answer": "termite",
     "hints": [
-        "The animal's name starts with 'L'.",
+        "The animal's name starts with 'T'.",
         "Think about common zoo animals.",
         "Look carefully at the shape and size of the animal."
     ]
