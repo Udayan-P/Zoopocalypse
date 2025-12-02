@@ -97,19 +97,50 @@
       pointer-events: none;
     }
     .pixel-overlay.top-left {
-      top: 5px;
+      bottom: 10px;
       left: 60px;
     }
     .pixel-overlay.bottom-right {
       bottom: 20px;
       right: 20px;
     }
+    .instructions {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .instructions h3 {
+      margin: 0 0 0.4rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffd166;
+    }
+
+    .instructions p {
+      margin: 0;
+      line-height: 1.4;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
   </style>
 </head>
 <body>
-  <img class="pixel-overlay top-right" src="Dataset/gifs/monke.gif" alt="">
+  <img class="pixel-overlay top-left" src="Dataset/gifs/monke.gif" alt="">
   <img class="pixel-overlay bottom-right" src="Dataset/gifs/koala.gif" alt="">
-  <div class="card" id="challenge" data-answer="dolphin">
+  <div class="instructions">
+  <h3>🔍 How to Play</h3>
+  <p>
+    The image begins blurred. Use hints to make the picture clearer — 
+    but each hint costs 1 point!  
+    Choose the correct animal before your points run out.
+  </p>
+  </div> 
+  
+  <div class="card" id="challenge" data-answer="buffalo">
     
 
     <h1>Guess the Animal – Challenge 1</h1>
@@ -117,7 +148,7 @@
     <img
       id="animal-image"
       class="animal-image"
-      src="Dataset/Images/Dolphin 2.jpg"
+      src="Dataset/Images/Buffalo.jpg"
       alt="Animal challenge image"
     >
 
@@ -130,14 +161,14 @@
 
     <h2>Options</h2>
     <div class="options">
-      <button class="option-btn" data-option="penguin">penguin</button>
-      <button class="option-btn" data-option="octopus">octopus</button>
-      <button class="option-btn" data-option="dolphin">dolphin</button>
-      <button class="option-btn" data-option="tuatara">tuatara</button>
+      <button class="option-btn" data-option="lion">lion</button>
+      <button class="option-btn" data-option="vulture">vulture</button>
+      <button class="option-btn" data-option="elephant">elephant</button>
+      <button class="option-btn" data-option="buffalo">buffalo</button>
     </div>
 
     <h2>Hints</h2>
-    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'D'.</p></details>
+    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'B'.</p></details>
     <details class="hint"><summary>Show Hint 2</summary><p>Think about common zoo animals.</p></details>
     <details class="hint"><summary>Show Hint 3</summary><p>Look carefully at the shape and size of the animal.</p></details>
 

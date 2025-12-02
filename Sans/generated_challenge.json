@@ -1,16 +1,16 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Dolphin 2.jpg",
+    "image": "Dataset/Images/Buffalo.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "penguin",
-        "octopus",
-        "dolphin",
-        "tuatara"
+        "lion",
+        "vulture",
+        "elephant",
+        "buffalo"
     ],
-    "answer": "dolphin",
+    "answer": "buffalo",
     "hints": [
-        "The animal's name starts with 'D'.",
+        "The animal's name starts with 'B'.",
         "Think about common zoo animals.",
         "Look carefully at the shape and size of the animal."
     ]

@@ -100,18 +100,49 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       pointer-events: none;
     }}
     .pixel-overlay.top-left {{
-      top: 5px;
+      bottom: 10px;
       left: 60px;
     }}
     .pixel-overlay.bottom-right {{
       bottom: 20px;
       right: 20px;
     }}
+    .instructions {{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(4px);
+    }}
+
+    .instructions h3 {{
+      margin: 0 0 0.4rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffd166;
+    }}
+
+    .instructions p {{
+      margin: 0;
+      line-height: 1.4;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }}
   </style>
 </head>
 <body>
-  <img class="pixel-overlay top-right" src="Dataset/gifs/monke.gif" alt="">
+  <img class="pixel-overlay top-left" src="Dataset/gifs/monke.gif" alt="">
   <img class="pixel-overlay bottom-right" src="Dataset/gifs/koala.gif" alt="">
+  <div class="instructions">
+  <h3>🔍 How to Play</h3>
+  <p>
+    The image begins blurred. Use hints to make the picture clearer — 
+    but each hint costs 1 point!  
+    Choose the correct animal before your points run out.
+  </p>
+  </div> 
+  
   <div class="card" id="challenge" data-answer="{answer}">
     
 
