@@ -1,16 +1,16 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Penguin.jpg",
+    "image": "Dataset/Images/Lion.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "buffalo",
         "seal",
-        "penguin",
-        "frog"
+        "cheetah",
+        "elephant",
+        "lion"
     ],
-    "answer": "penguin",
+    "answer": "lion",
     "hints": [
-        "The animal's name starts with 'P'.",
+        "The animal's name starts with 'L'.",
         "Think about common zoo animals.",
         "Look carefully at the shape and size of the animal."
     ]

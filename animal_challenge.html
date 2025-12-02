@@ -19,11 +19,15 @@
       border-radius: 12px;
       box-shadow: 0 0 25px rgba(0,0,0,0.6);
     }
-    img {
+    .animal-image {
       max-width: 100%;
       border-radius: 10px;
       display: block;
       margin-bottom: 1.2rem;
+      
+      filter: blur(12px);
+      opacity: 0.4;
+      transition: filter 0.25s ease, opacity 0.25s ease;
     }
     h1 {
       margin-top: 0;
@@ -89,10 +93,10 @@
 </head>
 <body>
   <!-- data-answer holds the correct answer but is never shown directly -->
-  <div class="card" id="challenge" data-answer="penguin">
+  <div class="card" id="challenge" data-answer="lion">
     <h1>Guess the Animal – animal_001</h1>
 
-    <img src="Dataset/Images/Penguin.jpg" alt="Animal challenge image">
+    <img id="animal-image" class="animal-image" src="Dataset/Images/Lion.jpg" alt="Animal challenge image">
 
     <div class="points">
       Points remaining: <span id="points-value">3</span>
@@ -103,14 +107,14 @@
 
     <h2>Options</h2>
     <div class="options">
-      <button class="option-btn" data-option="buffalo">buffalo</button>
       <button class="option-btn" data-option="seal">seal</button>
-      <button class="option-btn" data-option="penguin">penguin</button>
-      <button class="option-btn" data-option="frog">frog</button>
+      <button class="option-btn" data-option="cheetah">cheetah</button>
+      <button class="option-btn" data-option="elephant">elephant</button>
+      <button class="option-btn" data-option="lion">lion</button>
     </div>
 
     <h2>Hints</h2>
-    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'P'.</p></details>
+    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'L'.</p></details>
     <details class="hint"><summary>Show Hint 2</summary><p>Think about common zoo animals.</p></details>
     <details class="hint"><summary>Show Hint 3</summary><p>Look carefully at the shape and size of the animal.</p></details>
 
@@ -118,7 +122,23 @@
   </div>
 
   <script>
-    // Points / hints logic
+    // ------ BLUR / CLARITY LOGIC ------
+    let blurLevel = 12;                  // starting blur in px
+    const minBlur = 0;
+    const blurStep = 4;                  // amount blur decreases per hint
+    const img = document.getElementById("animal-image");
+
+    function updateImageBlur() {
+      const effectiveBlur = Math.max(minBlur, blurLevel);
+      img.style.filter = `blur(${effectiveBlur}px)`;
+      // fade in as it gets clearer (0.4 -> 1.0)
+      const t = 1 - (effectiveBlur / 12);
+      img.style.opacity = 0.4 + t * 0.6;
+    }
+
+    updateImageBlur();
+
+    // ------ POINTS + HINTS ------
     let points = 3;
     const pointsSpan = document.getElementById("points-value");
     const messageArea = document.getElementById("message-area");
@@ -129,7 +149,7 @@
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {
-        // Only deduct a point the FIRST time this hint is opened
+        // Only deduct a point & unblur the FIRST time this hint is opened
         if (detailsEl.dataset.used === "true") {
           return;
         }
@@ -139,6 +159,10 @@
           points -= 1;
           pointsSpan.textContent = points;
         }
+
+        // reduce blur each time a hint is used
+        blurLevel -= blurStep;
+        updateImageBlur();
 
         if (points <= 0) {
           points = 0;
@@ -150,7 +174,7 @@
       });
     });
 
-    // Option button logic
+    // ------ OPTIONS (GUESSING) ------
     const challengeCard = document.getElementById("challenge");
     const correctAnswer = challengeCard.dataset.answer;
     const optionButtons = document.querySelectorAll(".option-btn");
@@ -177,7 +201,6 @@
             pointsSpan.textContent = points;
           }
 
-          // If points reach 0, restart with a new animal
           if (points <= 0) {
             points = 0;
             pointsSpan.textContent = points;
@@ -189,16 +212,9 @@
       });
     });
 
-    // When points reach 0, move to the next animal challenge.
-    // In the full escape-room game, the group can update this function
-    // to actually load the next challenge's HTML page.
+    // For now just reload; GAME.py can hook this later to a new challenge
     function restartChallenge() {
-      // TODO: in the full group game, this should trigger a *new* animal challenge
-      // (e.g. by navigating to a different HTML file or by loading new data).
-      // For now, it simply reloads this page so the same template can be reused.
       window.location.reload();
-      // Example for later:
-      // window.location.href = "animal_challenge_002.html";
     }
   </script>
 </body>

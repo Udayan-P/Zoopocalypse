@@ -22,11 +22,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       border-radius: 12px;
       box-shadow: 0 0 25px rgba(0,0,0,0.6);
     }}
-    img {{
+    .animal-image {{
       max-width: 100%;
       border-radius: 10px;
       display: block;
       margin-bottom: 1.2rem;
+      
+      filter: blur(12px);
+      opacity: 0.4;
+      transition: filter 0.25s ease, opacity 0.25s ease;
     }}
     h1 {{
       margin-top: 0;
@@ -95,7 +99,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <div class="card" id="challenge" data-answer="{answer}">
     <h1>Guess the Animal – {challenge_id}</h1>
 
-    <img src="{image}" alt="Animal challenge image">
+    <img id="animal-image" class="animal-image" src="{image}" alt="Animal challenge image">
 
     <div class="points">
       Points remaining: <span id="points-value">3</span>
@@ -116,7 +120,23 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   </div>
 
   <script>
-    // Points / hints logic
+    // ------ BLUR / CLARITY LOGIC ------
+    let blurLevel = 12;                  // starting blur in px
+    const minBlur = 0;
+    const blurStep = 4;                  // amount blur decreases per hint
+    const img = document.getElementById("animal-image");
+
+    function updateImageBlur() {{
+      const effectiveBlur = Math.max(minBlur, blurLevel);
+      img.style.filter = `blur(${{effectiveBlur}}px)`;
+      // fade in as it gets clearer (0.4 -> 1.0)
+      const t = 1 - (effectiveBlur / 12);
+      img.style.opacity = 0.4 + t * 0.6;
+    }}
+
+    updateImageBlur();
+
+    // ------ POINTS + HINTS ------
     let points = 3;
     const pointsSpan = document.getElementById("points-value");
     const messageArea = document.getElementById("message-area");
@@ -127,7 +147,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {{
-        // Only deduct a point the FIRST time this hint is opened
+        // Only deduct a point & unblur the FIRST time this hint is opened
         if (detailsEl.dataset.used === "true") {{
           return;
         }}
@@ -137,6 +157,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           points -= 1;
           pointsSpan.textContent = points;
         }}
+
+        // reduce blur each time a hint is used
+        blurLevel -= blurStep;
+        updateImageBlur();
 
         if (points <= 0) {{
           points = 0;
@@ -148,7 +172,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       }});
     }});
 
-    // Option button logic
+    // ------ OPTIONS (GUESSING) ------
     const challengeCard = document.getElementById("challenge");
     const correctAnswer = challengeCard.dataset.answer;
     const optionButtons = document.querySelectorAll(".option-btn");
@@ -175,30 +199,20 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             pointsSpan.textContent = points;
           }}
 
-          // If points reach 0, restart with a new animal
           if (points <= 0) {{
             points = 0;
             pointsSpan.textContent = points;
             messageArea.textContent =
               "You have used all your points. Restarting with a new animal...";
             restartChallenge();
-            //need to either edit in pipeline or..mulitple html pages??
           }}
         }}
       }});
     }});
 
-    // When points reach 0, move to the next animal challenge.
-    // In the full escape-room game, the group can update this function
-    // to actually load the next challenge's HTML page.
+    // For now just reload; GAME.py can hook this later to a new challenge
     function restartChallenge() {{
-      // TODO: in the full group game, this should trigger a *new* animal challenge
-      // (e.g. by navigating to a different HTML file or by loading new data).
-      // For now, it simply reloads this page so the same template can be reused.
       window.location.reload();
-      // Example for later:
-      // window.location.href = "animal_challenge_002.html";
-      // other options i can try ???
     }}
   </script>
 </body>
@@ -212,13 +226,13 @@ def render_challenge_to_html(json_path: str, html_path: str) -> None:
     with json_file.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Options aree clickable buttons
+    # options as clickable buttons – text is the real animal name
     options_html = "\n      ".join(
         f'<button class="option-btn" data-option="{opt}">{opt}</button>'
         for opt in data["options"]
     )
 
-    # Hints as <details> blocks with a 'hint' class so JS can hook into them
+    # hints as <details> blocks
     hints_html_parts = []
     for i, hint in enumerate(data["hints"], start=1):
         hints_html_parts.append(
@@ -232,7 +246,7 @@ def render_challenge_to_html(json_path: str, html_path: str) -> None:
         question=data["question"],
         options_html=options_html,
         hints_html=hints_html,
-        answer=data["answer"],        # stored only in data-answer, never shown
+        answer=data["answer"],
     )
 
     out_file = Path(html_path)
