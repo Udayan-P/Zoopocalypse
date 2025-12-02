@@ -1,14 +1,14 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Buffalo.jpg",
+    "image": "Dataset/Images/Bear 4.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
         "lion",
-        "vulture",
-        "elephant",
-        "buffalo"
+        "lynx",
+        "penguin",
+        "bear"
     ],
-    "answer": "buffalo",
+    "answer": "bear",
     "hints": [
         "The animal's name starts with 'B'.",
         "Think about common zoo animals.",

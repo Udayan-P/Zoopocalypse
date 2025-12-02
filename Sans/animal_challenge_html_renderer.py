@@ -93,23 +93,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       font-weight: 600;
       color: #ffd166;
     }}
-    .pixel-overlay {{
-      position: absolute;
-      width: 150px;
-      opacity: 100;
-      pointer-events: none;
-    }}
-    .pixel-overlay.top-left {{
-      bottom: 10px;
-      left: 60px;
-    }}
-    .pixel-overlay.bottom-right {{
-      bottom: 20px;
-      right: 20px;
-    }}
+    
     .instructions {{
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.1);
       padding: 1rem 1.2rem;
       border-radius: 10px;
       margin-bottom: 1.5rem;
@@ -132,8 +119,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <img class="pixel-overlay top-left" src="Dataset/gifs/monke.gif" alt="">
-  <img class="pixel-overlay bottom-right" src="Dataset/gifs/koala.gif" alt="">
+  
   <div class="instructions">
   <h3>🔍 How to Play</h3>
   <p>

@@ -90,23 +90,10 @@
       font-weight: 600;
       color: #ffd166;
     }
-    .pixel-overlay {
-      position: absolute;
-      width: 150px;
-      opacity: 100;
-      pointer-events: none;
-    }
-    .pixel-overlay.top-left {
-      bottom: 10px;
-      left: 60px;
-    }
-    .pixel-overlay.bottom-right {
-      bottom: 20px;
-      right: 20px;
-    }
+    
     .instructions {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.1);
       padding: 1rem 1.2rem;
       border-radius: 10px;
       margin-bottom: 1.5rem;
@@ -129,8 +116,7 @@
   </style>
 </head>
 <body>
-  <img class="pixel-overlay top-left" src="Dataset/gifs/monke.gif" alt="">
-  <img class="pixel-overlay bottom-right" src="Dataset/gifs/koala.gif" alt="">
+  
   <div class="instructions">
   <h3>🔍 How to Play</h3>
   <p>
@@ -140,7 +126,7 @@
   </p>
   </div> 
   
-  <div class="card" id="challenge" data-answer="buffalo">
+  <div class="card" id="challenge" data-answer="bear">
     
 
     <h1>Guess the Animal – Challenge 1</h1>
@@ -148,7 +134,7 @@
     <img
       id="animal-image"
       class="animal-image"
-      src="Dataset/Images/Buffalo.jpg"
+      src="Dataset/Images/Bear 4.jpg"
       alt="Animal challenge image"
     >
 
@@ -162,9 +148,9 @@
     <h2>Options</h2>
     <div class="options">
       <button class="option-btn" data-option="lion">lion</button>
-      <button class="option-btn" data-option="vulture">vulture</button>
-      <button class="option-btn" data-option="elephant">elephant</button>
-      <button class="option-btn" data-option="buffalo">buffalo</button>
+      <button class="option-btn" data-option="lynx">lynx</button>
+      <button class="option-btn" data-option="penguin">penguin</button>
+      <button class="option-btn" data-option="bear">bear</button>
     </div>
 
     <h2>Hints</h2>
