@@ -118,23 +118,22 @@
 <body>
   
   <div class="instructions">
-  <h3>🔍 How to Play</h3>
-  <p>
-    The image begins blurred. Use hints to make the picture clearer — 
-    but each hint costs 1 point!  
-    Choose the correct animal before your points run out.
-  </p>
+    <h3>🔍 How to Play</h3>
+    <p>
+      The image begins blurred. Use hints to make the picture clearer — 
+      but each hint costs 1 point!  
+      Choose the correct animal before your points run out.
+    </p>
   </div> 
   
-  <div class="card" id="challenge" data-answer="bear">
-    
+  <div class="card" id="challenge" data-answer="seal">
 
     <h1>Guess the Animal – Challenge 1</h1>
 
     <img
       id="animal-image"
       class="animal-image"
-      src="Dataset/Images/Bear.jpg"
+      src="Dataset/Images/Seal 2.jpg"
       alt="Animal challenge image"
     >
 
@@ -147,31 +146,31 @@
 
     <h2>Options</h2>
     <div class="options">
-      <button class="option-btn" data-option="platypus">platypus</button>
-      <button class="option-btn" data-option="leopard">leopard</button>
-      <button class="option-btn" data-option="bear">bear</button>
-      <button class="option-btn" data-option="termite">termite</button>
+      <button class="option-btn" data-option="seal">seal</button>
+      <button class="option-btn" data-option="tuatara">tuatara</button>
+      <button class="option-btn" data-option="buffalo">buffalo</button>
+      <button class="option-btn" data-option="penguin">penguin</button>
     </div>
 
     <h2>Hints</h2>
-    <details class="hint"><summary>Show Hint 1</summary><p>This animal is primarily a omnivore.</p></details>
-    <details class="hint"><summary>Show Hint 2</summary><p>It typically lives in forests, mountains.</p></details>
-    <details class="hint"><summary>Show Hint 3</summary><p>Its main predators include wolves, tigers.</p></details>
-    <details class="hint"><summary>Show Hint 4</summary><p>It belongs to the Ursidae family.</p></details>
+    <details class="hint"><summary>Show Hint 1</summary><p>This animal is primarily a carnivore.</p></details>
+    <details class="hint"><summary>Show Hint 2</summary><p>It typically lives in arctic, atlantic ocean.</p></details>
+    <details class="hint"><summary>Show Hint 3</summary><p>Its main predators include polar bears, orcas.</p></details>
+    <details class="hint"><summary>Show Hint 4</summary><p>It belongs to the Phocidae family.</p></details>
 
     <div class="message" id="message-area"></div>
   </div>
 
   <script>
     // ------ BLUR / CLARITY LOGIC ------
-    let blurLevel = 12;
+    let blurLevel = 18;
     const minBlur = 0;
-    const blurStep = 4;
+    const blurStep = 2;
     const img = document.getElementById("animal-image");
 
     function updateImageBlur() {
       const effectiveBlur = Math.max(minBlur, blurLevel);
-      img.style.filter = `blur(${effectiveBlur}px)`;
+      img.style.filter = "blur(" + effectiveBlur + "px)";
       const t = 1 - (effectiveBlur / 12);
       img.style.opacity = 0.4 + t * 0.6;
     }
@@ -228,6 +227,11 @@
         if (chosen === correctAnswer) {
           btn.classList.add("correct");
           messageArea.textContent = "Correct! Well done.";
+
+          // Reveal the image instantly
+          blurLevel = 0;
+          updateImageBlur();
+
         } else {
           btn.classList.add("incorrect");
           messageArea.textContent = "Not quite. Try again or use a hint.";
@@ -251,6 +255,7 @@
     function restartChallenge() {
       window.location.reload();
     }
+
   </script>
 </body>
 </html>

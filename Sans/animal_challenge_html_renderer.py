@@ -121,16 +121,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
   
   <div class="instructions">
-  <h3>🔍 How to Play</h3>
-  <p>
-    The image begins blurred. Use hints to make the picture clearer — 
-    but each hint costs 1 point!  
-    Choose the correct animal before your points run out.
-  </p>
+    <h3>🔍 How to Play</h3>
+    <p>
+      The image begins blurred. Use hints to make the picture clearer — 
+      but each hint costs 1 point!  
+      Choose the correct animal before your points run out.
+    </p>
   </div> 
   
   <div class="card" id="challenge" data-answer="{answer}">
-    
 
     <h1>Guess the Animal – Challenge 1</h1>
 
@@ -161,14 +160,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
   <script>
     // ------ BLUR / CLARITY LOGIC ------
-    let blurLevel = 12;
+    let blurLevel = 18;
     const minBlur = 0;
-    const blurStep = 4;
+    const blurStep = 2;
     const img = document.getElementById("animal-image");
 
     function updateImageBlur() {{
       const effectiveBlur = Math.max(minBlur, blurLevel);
-      img.style.filter = `blur(${{effectiveBlur}}px)`;
+      img.style.filter = "blur(" + effectiveBlur + "px)";
       const t = 1 - (effectiveBlur / 12);
       img.style.opacity = 0.4 + t * 0.6;
     }}
@@ -225,6 +224,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         if (chosen === correctAnswer) {{
           btn.classList.add("correct");
           messageArea.textContent = "Correct! Well done.";
+
+          // Reveal the image instantly
+          blurLevel = 0;
+          updateImageBlur();
+
         }} else {{
           btn.classList.add("incorrect");
           messageArea.textContent = "Not quite. Try again or use a hint.";
@@ -248,6 +252,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     function restartChallenge() {{
       window.location.reload();
     }}
+
   </script>
 </body>
 </html>
