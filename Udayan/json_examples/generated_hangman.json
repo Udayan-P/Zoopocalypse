@@ -1,13 +1,18 @@
 {
-    "challenge_id": "hangman-auto-lion",
+    "challenge_id": "hangman-auto-tortoise",
     "challenge_type": "hangman",
-    "word": "lion",
+    "word": "tortoise",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Produces milk",
-            "text": "Yes",
-            "source_column": "Produces milk"
+            "label": "Venomous",
+            "text": "No",
+            "source_column": "Venomous"
+        },
+        {
+            "label": "Number of legs",
+            "text": "4",
+            "source_column": "Number of legs"
         },
         {
             "label": "Has a tail",
@@ -15,18 +20,13 @@
             "source_column": "Has a tail"
         },
         {
-            "label": "Lays eggs",
+            "label": "Has fins",
             "text": "No",
-            "source_column": "Lays eggs"
-        },
-        {
-            "label": "Has hair",
-            "text": "Yes",
-            "source_column": "Has hair"
+            "source_column": "Has fins"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 2
+        "row_index": 16
     }
 }

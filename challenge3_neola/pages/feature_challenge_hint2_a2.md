@@ -12,40 +12,45 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Blue, Brown (revealed)
+- **Color:** Black (hint)
 - **Height:** `[CENSORED]`
-- **Weight:** Up to 0.3 (revealed)
-- **Lifespan:** `[CENSORED]`
+- **Weight:** `[CENSORED]`
+- **Lifespan:** 30-40 (revealed)
 
 ### Geographic & Conservation
-- **Countries Found:** Indo-Pacific region (revealed)
-- **Conservation Status:** Near Threatened (hint)
-- **Habitat:** Coral Reefs, Tide Pools (revealed)
+- **Countries Found:** Central Africa (revealed)
+- **Conservation Status:** `[CENSORED]`
+- **Habitat:** Rainforests (revealed)
 
 ### Diet
-- **Diet Type:** `[CENSORED]`
+- **Diet Type:** Herbivore (hint)
+
+### Physical Features
+- **Has Hair:** `[CENSORED]`
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** Yes (revealed)
 
 ### Biological Traits
-- **Lays Eggs:** `[CENSORED]`
+- **Has Backbone:** `[CENSORED]`
+- **Breathes Air:** `[CENSORED]`
+- **Warm-Blooded:** `[CENSORED]`
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
-- **Is a Predator:** Yes (revealed)
-- **Social Structure:** Solitary (hint)
+- **Social Structure:** Social groups (revealed)
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 3</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 2 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
+    <a class="mcq-card" href="feature_challenge_fail.html">Otter</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Western Gorilla</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Kangaroo</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Leopard</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Red Panda</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Jaguar</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Ocelot</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Cheetah</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Badger</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Serval</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Capybara</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Lion</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Wombat</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Wolf</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Blue-Ringed Octopus</a>
 </div>
 
 

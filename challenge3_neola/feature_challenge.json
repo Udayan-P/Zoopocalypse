@@ -1,6 +1,6 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Eastern Gorilla",
+  "animal": "Western Gorilla",
   "attributes": [
     {
       "category": "Descriptive Profile",
@@ -10,27 +10,27 @@
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "140-188"
+      "value": "140-200"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "73-204"
+      "value": "68-182"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "40-50"
+      "value": "30-40"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Democratic Republic of Congo"
+      "value": "Central Africa"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Endangered"
+      "value": "Critically Endangered"
     },
     {
       "category": "Geographic & Conservation",
@@ -79,11 +79,11 @@
     }
   ],
   "initial_hints": [
-    0,
-    1,
-    2,
+    7,
+    9,
     10,
-    12
+    11,
+    14
   ],
   "max_additional_hints": 5
 }

@@ -1,7 +1,11 @@
 import os
 
 def generate_patterns(randomized_list, correct_order):
-    return [correct_order.index(animal) + 1 for animal in randomized_list]
+    patterns = []
+    for animal in correct_order:
+        rank = randomized_list.index(animal) + 1
+        patterns.append(rank)
+    return patterns
 
 MD_FILE = "ARMAN/challenge1.md"
 OUT_DIR = "ARMAN/html"
@@ -42,19 +46,11 @@ for line in lines:
         if "→" in line:
             correct_order = [x.strip() for x in line.split("→")]
 
-pattern = generate_patterns(animals, correct_order)
+print(correct_order)
+print(animals)
 
-# ------------------------------
-# IMAGE MAP FOR DROPDOWN CARDS
-# ------------------------------
-image_map = {}
-for animal in animals: 
-    animal_text = animal.strip().replace(" ", " ").replace("  ", " ")
-    #animal_text = animal.replace(" ", "_")
-    image_map[animal] = f"generated_animal_images/{animal_text}.jpg"
-# ------------------------------
-# CHALLENGE PAGE (CSS DROPDOWNS)
-# ------------------------------
+pattern = generate_patterns(animals, correct_order)
+print(pattern)
 
 challenge_html = f"""<!DOCTYPE html>
 <html>
@@ -159,9 +155,6 @@ challenge_html += """
 with open(f"{OUT_DIR}/challenge.html", "w") as f:
     f.write(challenge_html)
 
-# ------------------------------
-# RESULTS PAGE
-# ------------------------------
 
 results_html = f"""<!DOCTYPE html>
 <html>

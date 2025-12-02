@@ -12,40 +12,45 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Blue, Brown (revealed)
-- **Height:** `[CENSORED]`
-- **Weight:** Up to 0.3 (revealed)
-- **Lifespan:** 6-8 months (hint)
+- **Color:** Black (hint)
+- **Height:** 140-200 (hint)
+- **Weight:** `[CENSORED]`
+- **Lifespan:** 30-40 (revealed)
 
 ### Geographic & Conservation
-- **Countries Found:** Indo-Pacific region (revealed)
-- **Conservation Status:** Near Threatened (hint)
-- **Habitat:** Coral Reefs, Tide Pools (revealed)
+- **Countries Found:** Central Africa (revealed)
+- **Conservation Status:** Critically Endangered (hint)
+- **Habitat:** Rainforests (revealed)
 
 ### Diet
-- **Diet Type:** `[CENSORED]`
+- **Diet Type:** Herbivore (hint)
+
+### Physical Features
+- **Has Hair:** `[CENSORED]`
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** Yes (revealed)
 
 ### Biological Traits
-- **Lays Eggs:** Yes (hint)
+- **Has Backbone:** Yes (hint)
+- **Breathes Air:** `[CENSORED]`
+- **Warm-Blooded:** `[CENSORED]`
 
 ### Habitat & Environment
-- **Aquatic:** Yes (hint)
-- **Is a Predator:** Yes (revealed)
-- **Social Structure:** Solitary (hint)
+- **Social Structure:** Social groups (revealed)
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 0</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 0 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Red Panda</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Pangolin</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Ocelot</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Fox</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Blue-Ringed Octopus</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Wombat</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Red Panda</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Koala</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Western Gorilla</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Cheetah</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Serval</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Kangaroo</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Jaguar</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Leopard</a>
 </div>
 
 

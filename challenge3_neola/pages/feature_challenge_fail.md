@@ -4,29 +4,34 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Blue-Ringed Octopus**.
+The correct species was: **Western Gorilla**.
 ---
 
 ### Descriptive Profile
-- **Color:** Blue, Brown
-- **Height:** Up to 20
-- **Weight:** Up to 0.3
-- **Lifespan:** 6-8 months
+- **Color:** Black
+- **Height:** 140-200
+- **Weight:** 68-182
+- **Lifespan:** 30-40
 
 ### Geographic & Conservation
-- **Countries Found:** Indo-Pacific region
-- **Conservation Status:** Near Threatened
-- **Habitat:** Coral Reefs, Tide Pools
+- **Countries Found:** Central Africa
+- **Conservation Status:** Critically Endangered
+- **Habitat:** Rainforests
 
 ### Diet
-- **Diet Type:** Carnivore
+- **Diet Type:** Herbivore
+
+### Physical Features
+- **Has Hair:** Yes
+- **Has Teeth:** Yes
+- **Produces Milk:** Yes
 
 ### Biological Traits
-- **Lays Eggs:** Yes
+- **Has Backbone:** Yes
+- **Breathes Air:** Yes
+- **Warm-Blooded:** Yes
 
 ### Habitat & Environment
-- **Aquatic:** Yes
-- **Is a Predator:** Yes
-- **Social Structure:** Solitary
+- **Social Structure:** Social groups
 
 [Try Again from Start](feature_challenge_hint0_a0.html)

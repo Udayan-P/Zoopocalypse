@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Weight (kg)**, from **smallest → largest**.
+Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Star-Nosed Mole**
-- **Galápagos Tortoise**
-- **Sun Bear**
-- **Giant Pacific Octopus**
-- **Water Buffalo**
+- **Spectacled Bear**
+- **Polar Bear**
+- **Atlantic Spotted Dolphin**
+- **Yellow-Eyed Penguin**
+- **Aardvark**
 
 ## Correct Order
 
-Star-Nosed Mole → Giant Pacific Octopus → Sun Bear → Galápagos Tortoise → Water Buffalo
+Spectacled Bear → Yellow-Eyed Penguin → Atlantic Spotted Dolphin → Aardvark → Polar Bear
