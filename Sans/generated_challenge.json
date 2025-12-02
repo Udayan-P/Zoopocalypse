@@ -1,16 +1,16 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Termite.jpg",
+    "image": "Dataset/Images/Dolphin 2.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "tuatara",
-        "gorilla",
-        "platypus",
-        "termite"
+        "penguin",
+        "octopus",
+        "dolphin",
+        "tuatara"
     ],
-    "answer": "termite",
+    "answer": "dolphin",
     "hints": [
-        "The animal's name starts with 'T'.",
+        "The animal's name starts with 'D'.",
         "Think about common zoo animals.",
         "Look carefully at the shape and size of the animal."
     ]

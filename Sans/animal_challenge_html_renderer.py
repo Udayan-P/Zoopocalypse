@@ -5,7 +5,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Guess the Animal – {challenge_id}</title>
+  <title>Guess the Animal – Challenge 1</title>
   <style>
     body {{
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -15,19 +15,20 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       padding: 2rem;
     }}
     .card {{
+      position: relative;
       max-width: 900px;
       margin: 0 auto;
       background: #181818;
       padding: 1.5rem 1.8rem;
       border-radius: 12px;
       box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      overflow: hidden;
     }}
     .animal-image {{
       max-width: 100%;
       border-radius: 10px;
       display: block;
       margin-bottom: 1.2rem;
-      
       filter: blur(12px);
       opacity: 0.4;
       transition: filter 0.25s ease, opacity 0.25s ease;
@@ -92,14 +93,36 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       font-weight: 600;
       color: #ffd166;
     }}
+    .pixel-overlay {{
+      position: absolute;
+      width: 150px;
+      opacity: 100;
+      pointer-events: none;
+    }}
+    .pixel-overlay.top-left {{
+      top: 5px;
+      left: 60px;
+    }}
+    .pixel-overlay.bottom-right {{
+      bottom: 20px;
+      right: 20px;
+    }}
   </style>
 </head>
 <body>
-  <!-- data-answer holds the correct answer but is never shown directly -->
+  <img class="pixel-overlay top-right" src="Dataset/gifs/monke.gif" alt="">
+  <img class="pixel-overlay bottom-right" src="Dataset/gifs/koala.gif" alt="">
   <div class="card" id="challenge" data-answer="{answer}">
-    <h1>Guess the Animal – {challenge_id}</h1>
+    
 
-    <img id="animal-image" class="animal-image" src="{image}" alt="Animal challenge image">
+    <h1>Guess the Animal – Challenge 1</h1>
+
+    <img
+      id="animal-image"
+      class="animal-image"
+      src="{image}"
+      alt="Animal challenge image"
+    >
 
     <div class="points">
       Points remaining: <span id="points-value">3</span>
@@ -121,15 +144,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
   <script>
     // ------ BLUR / CLARITY LOGIC ------
-    let blurLevel = 12;                  // starting blur in px
+    let blurLevel = 12;
     const minBlur = 0;
-    const blurStep = 4;                  // amount blur decreases per hint
+    const blurStep = 4;
     const img = document.getElementById("animal-image");
 
     function updateImageBlur() {{
       const effectiveBlur = Math.max(minBlur, blurLevel);
       img.style.filter = `blur(${{effectiveBlur}}px)`;
-      // fade in as it gets clearer (0.4 -> 1.0)
       const t = 1 - (effectiveBlur / 12);
       img.style.opacity = 0.4 + t * 0.6;
     }}
@@ -147,7 +169,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {{
-        // Only deduct a point & unblur the FIRST time this hint is opened
         if (detailsEl.dataset.used === "true") {{
           return;
         }}
@@ -158,7 +179,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           pointsSpan.textContent = points;
         }}
 
-        // reduce blur each time a hint is used
         blurLevel -= blurStep;
         updateImageBlur();
 
@@ -179,7 +199,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     optionButtons.forEach((btn) => {{
       btn.addEventListener("click", () => {{
-        // Clear previous visual state
         optionButtons.forEach((b) => {{
           b.classList.remove("correct", "incorrect");
         }});
@@ -193,7 +212,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           btn.classList.add("incorrect");
           messageArea.textContent = "Not quite. Try again or use a hint.";
 
-          // Deduct 1 point for choosing a wrong option
           if (points > 0) {{
             points -= 1;
             pointsSpan.textContent = points;
@@ -210,7 +228,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       }});
     }});
 
-    // For now just reload; GAME.py can hook this later to a new challenge
     function restartChallenge() {{
       window.location.reload();
     }}
@@ -226,13 +243,11 @@ def render_challenge_to_html(json_path: str, html_path: str) -> None:
     with json_file.open("r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # options as clickable buttons – text is the real animal name
     options_html = "\n      ".join(
         f'<button class="option-btn" data-option="{opt}">{opt}</button>'
         for opt in data["options"]
     )
 
-    # hints as <details> blocks
     hints_html_parts = []
     for i, hint in enumerate(data["hints"], start=1):
         hints_html_parts.append(
@@ -242,7 +257,7 @@ def render_challenge_to_html(json_path: str, html_path: str) -> None:
 
     html = HTML_TEMPLATE.format(
         challenge_id=data["challenge_id"],
-        image=data["image"],          # e.g. "Dataset/Images/Cheetah.jpg"
+        image=data["image"],
         question=data["question"],
         options_html=options_html,
         hints_html=hints_html,
