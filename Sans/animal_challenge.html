@@ -75,6 +75,10 @@
       background: #6a2d2d;
       border-color: #c0392b;
     }
+    .option-btn:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
     .hints-grid {
       display: flex;
       flex-direction: column;
@@ -135,6 +139,10 @@
       margin-top: 0.8rem;
       font-weight: 600;
       color: #ffd166;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      background: rgba(255, 209, 102, 0.06);
+      border: 1px solid rgba(255, 209, 102, 0.22);
     }
     
     .instructions {
@@ -172,14 +180,14 @@
     </p>
   </div> 
   
-  <div class="card" id="challenge" data-answer="dolphin">
+  <div class="card" id="challenge" data-answer="gorilla">
 
     <h1>Guess the Animal – Challenge 1</h1>
 
     <img
       id="animal-image"
       class="animal-image"
-      src="Dataset/Images/Dolphin 2.jpg"
+      src="Dataset/Images/Gorilla 2.jpg"
       alt="Animal challenge image"
     >
 
@@ -194,18 +202,18 @@
 
     <h2>Options</h2>
     <div class="options">
-      <button class="option-btn" data-option="penguin">penguin</button>
-      <button class="option-btn" data-option="buffalo">buffalo</button>
-      <button class="option-btn" data-option="dolphin">dolphin</button>
+      <button class="option-btn" data-option="gorilla">gorilla</button>
+      <button class="option-btn" data-option="platypus">platypus</button>
       <button class="option-btn" data-option="frog">frog</button>
+      <button class="option-btn" data-option="bear">bear</button>
     </div>
 
     <h2>Hints</h2>
     <div class="hints-grid">
-      <details class="hint"><summary><span class="hint-index">1</span> Reveal Hint 1</summary><p>This animal is primarily a carnivore.</p></details>
-    <details class="hint"><summary><span class="hint-index">2</span> Reveal Hint 2</summary><p>It typically lives in oceans.</p></details>
-    <details class="hint"><summary><span class="hint-index">3</span> Reveal Hint 3</summary><p>Its main predators include sharks, orcas.</p></details>
-    <details class="hint"><summary><span class="hint-index">4</span> Reveal Hint 4</summary><p>It belongs to the Delphinidae family.</p></details>
+      <details class="hint"><summary><span class="hint-index">1</span> Reveal Hint 1</summary><p>This animal is primarily a herbivore.</p></details>
+    <details class="hint"><summary><span class="hint-index">2</span> Reveal Hint 2</summary><p>It typically lives in rainforests, mountains.</p></details>
+    <details class="hint"><summary><span class="hint-index">3</span> Reveal Hint 3</summary><p>Its main predators include leopards, humans.</p></details>
+    <details class="hint"><summary><span class="hint-index">4</span> Reveal Hint 4</summary><p>It belongs to the Hominidae family.</p></details>
     </div>
 
   </div>
@@ -216,6 +224,7 @@
     const minBlur = 0;
     const blurStep = 2;
     const img = document.getElementById("animal-image");
+    let solved = false;
 
     function updateImageBlur() {
       const effectiveBlur = Math.max(minBlur, blurLevel);
@@ -237,7 +246,7 @@
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {
-        if (detailsEl.dataset.used === "true") {
+        if (solved || detailsEl.dataset.used === "true") {
           return;
         }
         detailsEl.dataset.used = "true";
@@ -267,6 +276,9 @@
 
     optionButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (solved) {
+          return;
+        }
         optionButtons.forEach((b) => {
           b.classList.remove("correct", "incorrect");
         });
@@ -281,6 +293,13 @@
           blurLevel = 0;
           img.style.filter = "blur(0px)";
           img.style.opacity = "1";
+
+          // NEED TO lock the challenge: mark as solved and disable all options
+          //lowk why does the hints still show after points = 0 , NEED FIX!
+          solved = true;
+          optionButtons.forEach((b) => {
+            b.disabled = true;
+          });
 
         } else {
           btn.classList.add("incorrect");

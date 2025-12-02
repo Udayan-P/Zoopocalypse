@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Dolphin 2.jpg",
+    "image": "Dataset/Images/Gorilla 2.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "penguin",
-        "buffalo",
-        "dolphin",
-        "frog"
+        "gorilla",
+        "platypus",
+        "frog",
+        "bear"
     ],
-    "answer": "dolphin",
+    "answer": "gorilla",
     "hints": [
-        "This animal is primarily a carnivore.",
-        "It typically lives in oceans.",
-        "Its main predators include sharks, orcas.",
-        "It belongs to the Delphinidae family."
+        "This animal is primarily a herbivore.",
+        "It typically lives in rainforests, mountains.",
+        "Its main predators include leopards, humans.",
+        "It belongs to the Hominidae family."
     ]
 }

@@ -78,6 +78,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       background: #6a2d2d;
       border-color: #c0392b;
     }}
+    .option-btn:disabled {{
+      cursor: default;
+      opacity: 0.6;
+    }}
     .hints-grid {{
       display: flex;
       flex-direction: column;
@@ -138,6 +142,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       margin-top: 0.8rem;
       font-weight: 600;
       color: #ffd166;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      background: rgba(255, 209, 102, 0.06);
+      border: 1px solid rgba(255, 209, 102, 0.22);
     }}
     
     .instructions {{
@@ -213,6 +221,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     const minBlur = 0;
     const blurStep = 2;
     const img = document.getElementById("animal-image");
+    let solved = false;
 
     function updateImageBlur() {{
       const effectiveBlur = Math.max(minBlur, blurLevel);
@@ -234,7 +243,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {{
-        if (detailsEl.dataset.used === "true") {{
+        if (solved || detailsEl.dataset.used === "true") {{
           return;
         }}
         detailsEl.dataset.used = "true";
@@ -264,6 +273,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     optionButtons.forEach((btn) => {{
       btn.addEventListener("click", () => {{
+        if (solved) {{
+          return;
+        }}
         optionButtons.forEach((b) => {{
           b.classList.remove("correct", "incorrect");
         }});
@@ -278,6 +290,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           blurLevel = 0;
           img.style.filter = "blur(0px)";
           img.style.opacity = "1";
+
+          // NEED TO lock the challenge: mark as solved and disable all options
+          //lowk why does the hints still show after points = 0 , NEED FIX!
+          solved = true;
+          optionButtons.forEach((b) => {{
+            b.disabled = true;
+          }});
 
         }} else {{
           btn.classList.add("incorrect");
