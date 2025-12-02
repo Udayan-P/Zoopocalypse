@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess the Animal – animal_001</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+    }
+    .card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #181818;
+      padding: 1.5rem 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+    .animal-image {
+      max-width: 100%;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 1.2rem;
+      
+      filter: blur(12px);
+      opacity: 0.4;
+      transition: filter 0.25s ease, opacity 0.25s ease;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    h2 {
+      margin-top: 1.3rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
+    }
+    .points {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+    .option-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid #444;
+      background: #222;
+      color: #f5f5f5;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+    .option-btn:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+    .option-btn:active {
+      transform: translateY(0);
+    }
+    .option-btn.correct {
+      background: #2d6a4f;
+      border-color: #40916c;
+    }
+    .option-btn.incorrect {
+      background: #6a2d2d;
+      border-color: #c0392b;
+    }
+    details {
+      margin: 0.3rem 0;
+      padding: 0.4rem 0.6rem;
+      background: #222;
+      border-radius: 6px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .message {
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #ffd166;
+    }
+  </style>
+</head>
+<body>
+  <!-- data-answer holds the correct answer but is never shown directly -->
+  <div class="card" id="challenge" data-answer="termite">
+    <h1>Guess the Animal – animal_001</h1>
+
+    <img id="animal-image" class="animal-image" src="Dataset/Images/Termite.jpg" alt="Animal challenge image">
+
+    <div class="points">
+      Points remaining: <span id="points-value">3</span>
+    </div>
+
+    <h2>Question</h2>
+    <p>Which animal is shown in this picture?</p>
+
+    <h2>Options</h2>
+    <div class="options">
+      <button class="option-btn" data-option="tuatara">tuatara</button>
+      <button class="option-btn" data-option="gorilla">gorilla</button>
+      <button class="option-btn" data-option="platypus">platypus</button>
+      <button class="option-btn" data-option="termite">termite</button>
+    </div>
+
+    <h2>Hints</h2>
+    <details class="hint"><summary>Show Hint 1</summary><p>The animal's name starts with 'T'.</p></details>
+    <details class="hint"><summary>Show Hint 2</summary><p>Think about common zoo animals.</p></details>
+    <details class="hint"><summary>Show Hint 3</summary><p>Look carefully at the shape and size of the animal.</p></details>
+
+    <div class="message" id="message-area"></div>
+  </div>
+
+  <script>
+    // ------ BLUR / CLARITY LOGIC ------
+    let blurLevel = 12;                  // starting blur in px
+    const minBlur = 0;
+    const blurStep = 4;                  // amount blur decreases per hint
+    const img = document.getElementById("animal-image");
+
+    function updateImageBlur() {
+      const effectiveBlur = Math.max(minBlur, blurLevel);
+      img.style.filter = `blur(${effectiveBlur}px)`;
+      // fade in as it gets clearer (0.4 -> 1.0)
+      const t = 1 - (effectiveBlur / 12);
+      img.style.opacity = 0.4 + t * 0.6;
+    }
+
+    updateImageBlur();
+
+    // ------ POINTS + HINTS ------
+    let points = 3;
+    const pointsSpan = document.getElementById("points-value");
+    const messageArea = document.getElementById("message-area");
+    const hintDetails = document.querySelectorAll("details.hint");
+
+    hintDetails.forEach((detailsEl) => {
+      const summary = detailsEl.querySelector("summary");
+      detailsEl.dataset.used = "false";
+
+      summary.addEventListener("click", () => {
+        // Only deduct a point & unblur the FIRST time this hint is opened
+        if (detailsEl.dataset.used === "true") {
+          return;
+        }
+        detailsEl.dataset.used = "true";
+
+        if (points > 0) {
+          points -= 1;
+          pointsSpan.textContent = points;
+        }
+
+        // reduce blur each time a hint is used
+        blurLevel -= blurStep;
+        updateImageBlur();
+
+        if (points <= 0) {
+          points = 0;
+          pointsSpan.textContent = points;
+          messageArea.textContent =
+            "You have used all your hints. Restarting with a new animal...";
+          restartChallenge();
+        }
+      });
+    });
+
+    // ------ OPTIONS (GUESSING) ------
+    const challengeCard = document.getElementById("challenge");
+    const correctAnswer = challengeCard.dataset.answer;
+    const optionButtons = document.querySelectorAll(".option-btn");
+
+    optionButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Clear previous visual state
+        optionButtons.forEach((b) => {
+          b.classList.remove("correct", "incorrect");
+        });
+
+        const chosen = btn.dataset.option;
+
+        if (chosen === correctAnswer) {
+          btn.classList.add("correct");
+          messageArea.textContent = "Correct! Well done.";
+        } else {
+          btn.classList.add("incorrect");
+          messageArea.textContent = "Not quite. Try again or use a hint.";
+
+          // Deduct 1 point for choosing a wrong option
+          if (points > 0) {
+            points -= 1;
+            pointsSpan.textContent = points;
+          }
+
+          if (points <= 0) {
+            points = 0;
+            pointsSpan.textContent = points;
+            messageArea.textContent =
+              "You have used all your points. Restarting with a new animal...";
+            restartChallenge();
+          }
+        }
+      });
+    });
+
+    // For now just reload; GAME.py can hook this later to a new challenge
+    function restartChallenge() {
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>

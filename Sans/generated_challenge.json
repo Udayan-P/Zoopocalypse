@@ -1,0 +1,17 @@
+{
+    "challenge_id": "animal_001",
+    "image": "Dataset/Images/Termite.jpg",
+    "question": "Which animal is shown in this picture?",
+    "options": [
+        "tuatara",
+        "gorilla",
+        "platypus",
+        "termite"
+    ],
+    "answer": "termite",
+    "hints": [
+        "The animal's name starts with 'T'.",
+        "Think about common zoo animals.",
+        "Look carefully at the shape and size of the animal."
+    ]
+}
