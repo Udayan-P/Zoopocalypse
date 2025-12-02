@@ -1,5 +1,6 @@
 import os
 
+print("Helloooo")
 def generate_patterns(randomized_list, correct_order):
     patterns = []
     for animal in randomized_list:
