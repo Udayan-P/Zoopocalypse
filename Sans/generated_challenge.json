@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Bear 4.jpg",
+    "image": "Dataset/Images/Dolphin 2.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "seal",
-        "octopus",
-        "aardvark",
-        "bear"
+        "penguin",
+        "buffalo",
+        "dolphin",
+        "frog"
     ],
-    "answer": "bear",
+    "answer": "dolphin",
     "hints": [
-        "This animal is primarily a omnivore.",
-        "It typically lives in tropical forests.",
-        "Its main predators include tigers, leopards.",
-        "It belongs to the Ursidae family."
+        "This animal is primarily a carnivore.",
+        "It typically lives in oceans.",
+        "Its main predators include sharks, orcas.",
+        "It belongs to the Delphinidae family."
     ]
 }

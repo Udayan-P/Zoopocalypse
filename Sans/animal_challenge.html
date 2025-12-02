@@ -172,14 +172,14 @@
     </p>
   </div> 
   
-  <div class="card" id="challenge" data-answer="bear">
+  <div class="card" id="challenge" data-answer="dolphin">
 
     <h1>Guess the Animal – Challenge 1</h1>
 
     <img
       id="animal-image"
       class="animal-image"
-      src="Dataset/Images/Bear 4.jpg"
+      src="Dataset/Images/Dolphin 2.jpg"
       alt="Animal challenge image"
     >
 
@@ -187,26 +187,27 @@
       Points remaining: <span id="points-value">3</span>
     </div>
 
+    <div class="message" id="message-area"></div>
+
     <h2>Question</h2>
     <p>Which animal is shown in this picture?</p>
 
     <h2>Options</h2>
     <div class="options">
-      <button class="option-btn" data-option="seal">seal</button>
-      <button class="option-btn" data-option="octopus">octopus</button>
-      <button class="option-btn" data-option="aardvark">aardvark</button>
-      <button class="option-btn" data-option="bear">bear</button>
+      <button class="option-btn" data-option="penguin">penguin</button>
+      <button class="option-btn" data-option="buffalo">buffalo</button>
+      <button class="option-btn" data-option="dolphin">dolphin</button>
+      <button class="option-btn" data-option="frog">frog</button>
     </div>
 
     <h2>Hints</h2>
     <div class="hints-grid">
-      <details class="hint"><summary><span class="hint-index">1</span> Reveal Hint 1</summary><p>This animal is primarily a omnivore.</p></details>
-    <details class="hint"><summary><span class="hint-index">2</span> Reveal Hint 2</summary><p>It typically lives in tropical forests.</p></details>
-    <details class="hint"><summary><span class="hint-index">3</span> Reveal Hint 3</summary><p>Its main predators include tigers, leopards.</p></details>
-    <details class="hint"><summary><span class="hint-index">4</span> Reveal Hint 4</summary><p>It belongs to the Ursidae family.</p></details>
+      <details class="hint"><summary><span class="hint-index">1</span> Reveal Hint 1</summary><p>This animal is primarily a carnivore.</p></details>
+    <details class="hint"><summary><span class="hint-index">2</span> Reveal Hint 2</summary><p>It typically lives in oceans.</p></details>
+    <details class="hint"><summary><span class="hint-index">3</span> Reveal Hint 3</summary><p>Its main predators include sharks, orcas.</p></details>
+    <details class="hint"><summary><span class="hint-index">4</span> Reveal Hint 4</summary><p>It belongs to the Delphinidae family.</p></details>
     </div>
 
-    <div class="message" id="message-area"></div>
   </div>
 
   <script>
@@ -276,9 +277,10 @@
           btn.classList.add("correct");
           messageArea.textContent = "Correct! Well done.";
 
-          // Reveal the image instantly
+          // Reveal the image instantly (no blur, full opacity)
           blurLevel = 0;
-          updateImageBlur();
+          img.style.filter = "blur(0px)";
+          img.style.opacity = "1";
 
         } else {
           btn.classList.add("incorrect");

@@ -190,6 +190,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       Points remaining: <span id="points-value">3</span>
     </div>
 
+    <div class="message" id="message-area"></div>
+
     <h2>Question</h2>
     <p>{question}</p>
 
@@ -203,7 +205,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       {hints_html}
     </div>
 
-    <div class="message" id="message-area"></div>
   </div>
 
   <script>
@@ -273,9 +274,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           btn.classList.add("correct");
           messageArea.textContent = "Correct! Well done.";
 
-          // Reveal the image instantly
+          // Reveal the image instantly (no blur, full opacity)
           blurLevel = 0;
-          updateImageBlur();
+          img.style.filter = "blur(0px)";
+          img.style.opacity = "1";
 
         }} else {{
           btn.classList.add("incorrect");
