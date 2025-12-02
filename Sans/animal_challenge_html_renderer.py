@@ -78,15 +78,61 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       background: #6a2d2d;
       border-color: #c0392b;
     }}
-    details {{
-      margin: 0.3rem 0;
-      padding: 0.4rem 0.6rem;
-      background: #222;
-      border-radius: 6px;
+    .hints-grid {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
     }}
+
+    details.hint {{
+      margin: 0;
+      padding: 0.6rem 0.8rem;
+      background: radial-gradient(circle at top left, #222 0, #181818 45%, #121212 100%);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }}
+
+    details.hint[open] {{
+      border-color: #ffd16644;
+      box-shadow: 0 0 18px rgba(255, 209, 102, 0.25);
+    }}
+
     summary {{
       cursor: pointer;
       font-weight: 600;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.1rem 0;
+    }}
+
+    summary::-webkit-details-marker {{
+      display: none;
+    }}
+
+    .hint-index {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 999px;
+      background: rgba(255, 209, 102, 0.12);
+      border: 1px solid rgba(255, 209, 102, 0.4);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffd166;
+      flex-shrink: 0;
+    }}
+
+    details.hint p {{
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+      color: #e8e8e8;
+      line-height: 1.4;
     }}
     .message {{
       margin-top: 0.8rem;
@@ -153,7 +199,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <h2>Hints</h2>
-    {hints_html}
+    <div class="hints-grid">
+      {hints_html}
+    </div>
 
     <div class="message" id="message-area"></div>
   </div>
@@ -273,7 +321,10 @@ def render_challenge_to_html(json_path: str, html_path: str) -> None:
     hints_html_parts = []
     for i, hint in enumerate(data["hints"], start=1):
         hints_html_parts.append(
-            f'<details class="hint"><summary>Show Hint {i}</summary><p>{hint}</p></details>'
+            f'<details class="hint">'
+            f'<summary><span class="hint-index">{i}</span> Reveal Hint {i}</summary>'
+            f'<p>{hint}</p>'
+            f'</details>'
         )
     hints_html = "\n    ".join(hints_html_parts)
 

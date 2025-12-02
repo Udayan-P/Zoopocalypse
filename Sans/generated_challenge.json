@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Seal 2.jpg",
+    "image": "Dataset/Images/Bear 4.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
         "seal",
-        "tuatara",
-        "buffalo",
-        "penguin"
+        "octopus",
+        "aardvark",
+        "bear"
     ],
-    "answer": "seal",
+    "answer": "bear",
     "hints": [
-        "This animal is primarily a carnivore.",
-        "It typically lives in arctic, atlantic ocean.",
-        "Its main predators include polar bears, orcas.",
-        "It belongs to the Phocidae family."
+        "This animal is primarily a omnivore.",
+        "It typically lives in tropical forests.",
+        "Its main predators include tigers, leopards.",
+        "It belongs to the Ursidae family."
     ]
 }
