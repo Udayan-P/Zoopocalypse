@@ -1,17 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Bear 4.jpg",
+    "image": "Dataset/Images/Bear.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "lion",
-        "lynx",
-        "penguin",
-        "bear"
+        "platypus",
+        "leopard",
+        "bear",
+        "termite"
     ],
     "answer": "bear",
     "hints": [
-        "The animal's name starts with 'B'.",
-        "Think about common zoo animals.",
-        "Look carefully at the shape and size of the animal."
+        "This animal is primarily a omnivore.",
+        "It typically lives in forests, mountains.",
+        "Its main predators include wolves, tigers.",
+        "It belongs to the Ursidae family."
     ]
 }
