@@ -4,31 +4,31 @@
     "order": "ascending",
     "animals": [
         {
-            "name": "Western Lowland Gorilla",
-            "value": 124.5
+            "name": "Star-Nosed Mole",
+            "value": 0.06
+        },
+        {
+            "name": "Gal\u00e1pagos Tortoise",
+            "value": 417.0
+        },
+        {
+            "name": "Sun Bear",
+            "value": 53.5
+        },
+        {
+            "name": "Giant Pacific Octopus",
+            "value": 25.0
         },
         {
             "name": "Water Buffalo",
             "value": 750.0
-        },
-        {
-            "name": "Gal\u00e1pagos Penguin",
-            "value": 2.15
-        },
-        {
-            "name": "Snow Leopard",
-            "value": 48.5
-        },
-        {
-            "name": "Yellow-Eyed Penguin",
-            "value": 2.0
         }
     ],
     "correct_order": [
-        "Yellow-Eyed Penguin",
-        "Gal\u00e1pagos Penguin",
-        "Snow Leopard",
-        "Western Lowland Gorilla",
+        "Star-Nosed Mole",
+        "Giant Pacific Octopus",
+        "Sun Bear",
+        "Gal\u00e1pagos Tortoise",
         "Water Buffalo"
     ]
 }
