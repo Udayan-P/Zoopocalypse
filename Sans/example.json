@@ -1,0 +1,12 @@
+{
+  "challenge_id": "animal_001",
+  "image": "Dataset/It/tiger_01.jpg",
+  "question": "Which animal is shown in this picture?",
+  "options": ["Tiger", "Lion", "Leopard", "Cheetah"],
+  "answer": "Tiger",
+  "hints": [
+    "This animal has stripes.",
+    "It is the largest species of cat.",
+    "It is native to Asia."
+  ]
+}
