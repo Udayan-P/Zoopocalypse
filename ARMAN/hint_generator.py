@@ -1,9 +1,7 @@
 from google import genai
 from google.genai import types
 import os
-import requests
 from dotenv import load_dotenv
-import os
 import shutil
 
 load_dotenv()

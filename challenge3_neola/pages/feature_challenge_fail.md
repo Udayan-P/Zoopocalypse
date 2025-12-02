@@ -4,34 +4,34 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Western Gorilla**.
+The correct species was: **Amazon Rainforest Frog**.
 ---
 
 ### Descriptive Profile
-- **Color:** Black
-- **Height:** 140-200
-- **Weight:** 68-182
-- **Lifespan:** 30-40
+- **Color:** Various
+- **Height:** 2-13
+- **Weight:** Up to 0.5
+- **Lifespan:** 4-17
 
 ### Geographic & Conservation
-- **Countries Found:** Central Africa
-- **Conservation Status:** Critically Endangered
-- **Habitat:** Rainforests
+- **Countries Found:** Amazon Rainforest
+- **Conservation Status:** Not Evaluated
+- **Habitat:** Amazon Rainforest
 
 ### Diet
-- **Diet Type:** Herbivore
+- **Diet Type:** Insectivore
 
 ### Physical Features
-- **Has Hair:** Yes
 - **Has Teeth:** Yes
-- **Produces Milk:** Yes
 
 ### Biological Traits
 - **Has Backbone:** Yes
 - **Breathes Air:** Yes
-- **Warm-Blooded:** Yes
+- **Lays Eggs:** Yes
 
 ### Habitat & Environment
-- **Social Structure:** Social groups
+- **Aquatic:** Yes
+- **Is a Predator:** Yes
+- **Social Structure:** Solitary
 
 [Try Again from Start](feature_challenge_hint0_a0.html)

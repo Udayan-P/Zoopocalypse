@@ -15,28 +15,28 @@ You have up to 3 wrong attempts before failure.
 - **Color:** `[CENSORED]`
 - **Height:** `[CENSORED]`
 - **Weight:** `[CENSORED]`
-- **Lifespan:** 30-40 (revealed)
+- **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** Central Africa (revealed)
-- **Conservation Status:** `[CENSORED]`
-- **Habitat:** Rainforests (revealed)
+- **Countries Found:** Amazon Rainforest (revealed)
+- **Conservation Status:** Not Evaluated (hint)
+- **Habitat:** `[CENSORED]`
 
 ### Diet
-- **Diet Type:** Herbivore (hint)
+- **Diet Type:** Insectivore (revealed)
 
 ### Physical Features
-- **Has Hair:** `[CENSORED]`
-- **Has Teeth:** `[CENSORED]`
-- **Produces Milk:** Yes (revealed)
+- **Has Teeth:** Yes (revealed)
 
 ### Biological Traits
-- **Has Backbone:** `[CENSORED]`
+- **Has Backbone:** Yes (revealed)
 - **Breathes Air:** `[CENSORED]`
-- **Warm-Blooded:** `[CENSORED]`
+- **Lays Eggs:** Yes (revealed)
 
 ### Habitat & Environment
-- **Social Structure:** Social groups (revealed)
+- **Aquatic:** `[CENSORED]`
+- **Is a Predator:** `[CENSORED]`
+- **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 4</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 1 / 3</span></p>
 
@@ -44,13 +44,13 @@ You have up to 3 wrong attempts before failure.
 
 <div class="mcq-grid">
     <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Jaguar</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Wolf</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Badger</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Western Gorilla</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Kangaroo</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Lion</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Wolf</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Fox</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Leopard</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Koala</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint1_a2.html">Pangolin</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Amazon Rainforest Frog</a>
 </div>
 
 

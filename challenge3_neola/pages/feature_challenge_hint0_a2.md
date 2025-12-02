@@ -15,42 +15,42 @@ You have up to 3 wrong attempts before failure.
 - **Color:** `[CENSORED]`
 - **Height:** `[CENSORED]`
 - **Weight:** `[CENSORED]`
-- **Lifespan:** 30-40 (revealed)
+- **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** Central Africa (revealed)
+- **Countries Found:** Amazon Rainforest (revealed)
 - **Conservation Status:** `[CENSORED]`
-- **Habitat:** Rainforests (revealed)
+- **Habitat:** `[CENSORED]`
 
 ### Diet
-- **Diet Type:** `[CENSORED]`
+- **Diet Type:** Insectivore (revealed)
 
 ### Physical Features
-- **Has Hair:** `[CENSORED]`
-- **Has Teeth:** `[CENSORED]`
-- **Produces Milk:** Yes (revealed)
+- **Has Teeth:** Yes (revealed)
 
 ### Biological Traits
-- **Has Backbone:** `[CENSORED]`
+- **Has Backbone:** Yes (revealed)
 - **Breathes Air:** `[CENSORED]`
-- **Warm-Blooded:** `[CENSORED]`
+- **Lays Eggs:** Yes (revealed)
 
 ### Habitat & Environment
-- **Social Structure:** Social groups (revealed)
+- **Aquatic:** `[CENSORED]`
+- **Is a Predator:** `[CENSORED]`
+- **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 5</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 2 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_fail.html">Jaguar</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Red Panda</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Hedgehog</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Wombat</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Serval</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Wolf</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Ocelot</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Otter</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Amazon Rainforest Frog</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Lion</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Western Gorilla</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Hedgehog</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Koala</a>
 </div>
 
 

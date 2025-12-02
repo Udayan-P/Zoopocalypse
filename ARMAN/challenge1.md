@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
+Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
 
 ## Animals
 
-- **Spectacled Bear**
-- **Polar Bear**
-- **Atlantic Spotted Dolphin**
-- **Yellow-Eyed Penguin**
-- **Aardvark**
+- **Brown Bear**
+- **Kiwi**
+- **African Elephant**
+- **Western Lowland Gorilla**
+- **Wild Boar**
 
 ## Correct Order
 
-Spectacled Bear → Yellow-Eyed Penguin → Atlantic Spotted Dolphin → Aardvark → Polar Bear
+Kiwi → Wild Boar → African Elephant → Western Lowland Gorilla → Brown Bear

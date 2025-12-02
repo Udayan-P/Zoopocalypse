@@ -1,60 +1,50 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Western Gorilla",
+  "animal": "Amazon Rainforest Frog",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Black"
+      "value": "Various"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "140-200"
+      "value": "2-13"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "68-182"
+      "value": "Up to 0.5"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "30-40"
+      "value": "4-17"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Central Africa"
+      "value": "Amazon Rainforest"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Critically Endangered"
+      "value": "Not Evaluated"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Rainforests"
+      "value": "Amazon Rainforest"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Herbivore"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Hair",
-      "value": "Yes"
+      "value": "Insectivore"
     },
     {
       "category": "Physical Features",
       "label": "Has Teeth",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Produces Milk",
       "value": "Yes"
     },
     {
@@ -69,20 +59,30 @@
     },
     {
       "category": "Biological Traits",
-      "label": "Warm-Blooded",
+      "label": "Lays Eggs",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Aquatic",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Is a Predator",
       "value": "Yes"
     },
     {
       "category": "Habitat & Environment",
       "label": "Social Structure",
-      "value": "Social groups"
+      "value": "Solitary"
     }
   ],
   "initial_hints": [
-    7,
-    9,
-    10,
-    11,
+    2,
+    5,
+    6,
+    8,
     14
   ],
   "max_additional_hints": 5

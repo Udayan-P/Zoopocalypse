@@ -2,15 +2,15 @@
 
 Guess the animal before the zombies reach the monkey.
 
-**Word:** _ _ _ _ _ _ _ _  
+**Word:** _ _ _ _ _ _ _  
 **Lives:** 5
 
 ## Hints
-- **Venomous**: No
-- **Number of legs**: 4
-- **Has a tail**: Yes
-- **Has fins**: No
+- **Has fins**: Yes
+- **Lays eggs**: No
+- **Aquatic**: Yes
+- **Has feathers**: No
 
 ## Dataset Metadata
 - Dataset: Zoo Animals Dataset
-- Row index: 16
+- Row index: 6
