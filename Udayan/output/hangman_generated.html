@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hangman Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #121212;
+      --card: #232323;
+      --accent: #58a85a;
+      --accent-dark: #3c7a3f;
+      --text: #f5f5f5;
+      --muted: #b3b3b3;
+      --danger: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .main-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #1f5fbf;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 16px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .word-row {
+      font-size: 32px;
+      letter-spacing: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-line {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    .info-line strong {
+      font-weight: 600;
+    }
+
+    .wrong-letters span {
+      color: var(--danger);
+    }
+
+    .hint-text strong {
+      font-weight: 600;
+    }
+
+    .status-message {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .status-message.ok {
+      color: var(--accent);
+    }
+
+    .status-message.bad {
+      color: var(--danger);
+    }
+
+    .keyboard {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .key {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s, opacity 0.1s;
+    }
+
+    .key:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .key.used {
+      opacity: 0.4;
+      cursor: default;
+      transform: none;
+    }
+
+    .key.correct {
+      background: var(--accent-dark);
+    }
+
+    .key.wrong {
+      background: #a33a3a;
+    }
+
+    /* Zombie stack card */
+
+    .stack-title {
+      font-size: 20px;
+      margin: 0 0 4px 0;
+    }
+
+    .stack-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .stack-viewport {
+      position: relative;
+      background: #060606;
+      border-radius: 16px;
+      height: 380px;
+      padding: 20px 0 56px 0;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .monkey-wrapper {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .monkey-image {
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 18px;
+      left: 10%;
+      right: 10%;
+      height: 8px;
+      border-radius: 999px;
+      background: #333;
+    }
+
+    .zombie-column {
+      position: absolute;
+      bottom: 32px;  /* just above the ground */
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column-reverse;  /* bottom up stacking */
+      justify-content: flex-start;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+    }
+
+    .zombie-image {
+      height: 60px;
+      object-fit: contain;
+      transform-origin: bottom center;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-viewport {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-wrap">
+    <div class="top-bar">
+      <a class="back-btn" href="../../game.html">← Main Menu</a>
+      <h1>Hangman Challenge</h1>
+    </div>
+
+    <div class="layout">
+      <!-- Left: game panel -->
+      <div class="card">
+        <div id="word-row" class="word-row"></div>
+
+        <div class="info-line"><strong>Lives:</strong> <span id="lives-count">5</span></div>
+        <div class="info-line wrong-letters"><strong>Wrong letters:</strong> <span id="wrong-letters"></span></div>
+        <div class="info-line hint-text"><strong>Hint:</strong> <span id="hint-text">None yet</span></div>
+        <div class="info-line">
+          <span id="hints-used-label">Hints used: 0 / 4</span>
+        </div>
+        <div id="status" class="status-message"></div>
+
+        <hr style="margin: 18px 0; border-color: #444;">
+
+        <div id="keyboard" class="keyboard"></div>
+      </div>
+
+      <!-- Right: zombie stack -->
+      <div class="card">
+        <h2 class="stack-title">Zombie Stack</h2>
+        <p class="stack-sub">
+          Each wrong guess adds a zombie. If they reach the monkey, it is game over.
+        </p>
+        <div class="stack-viewport">
+          <div class="monkey-wrapper">
+            <!-- Update src paths if your images are elsewhere -->
+            <img id="monkey-img" class="monkey-image" src="../assets/monkey.png" alt="Monkey">
+          </div>
+
+          <div class="zombie-column" id="zombie-column"></div>
+
+          <div class="ground"></div>
+
+          <!-- Hidden template used for cloning so the path stays correct -->
+          <img id="zombie-template" class="zombie-image" src="../assets/zombie.png"
+               alt="Zombie" style="display:none;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded challenge data -->
+  <script id="challenge-json" type="application/json">
+{"word": "lion", "max_lives": 5, "hints": [{"label": "Produces milk", "text": "Yes", "source_column": "Produces milk"}, {"label": "Has a tail", "text": "Yes", "source_column": "Has a tail"}, {"label": "Lays eggs", "text": "No", "source_column": "Lays eggs"}, {"label": "Has hair", "text": "Yes", "source_column": "Has hair"}]}
+  </script>
+
+  <script>
+    function loadChallenge() {
+      const scriptTag = document.getElementById("challenge-json");
+      try {
+        return JSON.parse(scriptTag.textContent);
+      } catch (e) {
+        console.error("Could not parse challenge JSON", e);
+        return null;
+      }
+    }
+
+    function createKeyboard(onGuess) {
+      const keyboard = document.getElementById("keyboard");
+      keyboard.innerHTML = "";
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      letters.forEach(letter => {
+        const btn = document.createElement("button");
+        btn.className = "key";
+        btn.textContent = letter;
+        btn.addEventListener("click", () => onGuess(letter, btn));
+        keyboard.appendChild(btn);
+      });
+    }
+
+    function updateWordRow(secretWord, guessedSet) {
+      const row = document.getElementById("word-row");
+      const chars = secretWord.split("").map(ch => {
+        if (ch === " ") return " ";
+        return guessedSet.has(ch) ? ch : "–";
+      });
+      row.textContent = chars.join(" ");
+    }
+
+    function updateZombieStack(wrongCount, maxLives) {
+      const column = document.getElementById("zombie-column");
+      const template = document.getElementById("zombie-template");
+      column.innerHTML = "";
+
+      const zombiesToShow = Math.min(wrongCount, maxLives);
+
+      for (let i = 0; i < zombiesToShow; i++) {
+        const img = template.cloneNode(true);
+        img.style.display = "block";
+        column.appendChild(img);
+      }
+    }
+
+    function startGame() {
+      const data = loadChallenge();
+      if (!data) {
+        alert("Could not load hangman data.");
+        return;
+      }
+
+      const secretWord = String(data.word || "").toUpperCase();
+      const maxLives = Number.isFinite(data.max_lives) ? data.max_lives : 5;
+      const hints = Array.isArray(data.hints) ? data.hints : [];
+
+      const livesEl = document.getElementById("lives-count");
+      const wrongLettersEl = document.getElementById("wrong-letters");
+      const hintTextEl = document.getElementById("hint-text");
+      const hintsUsedLabel = document.getElementById("hints-used-label");
+      const statusEl = document.getElementById("status");
+
+      let lives = maxLives;
+      let wrongLetters = [];
+      let guessedSet = new Set();
+      let nextHintIndex = 0;
+      let gameOver = false;
+
+      livesEl.textContent = String(lives);
+      hintsUsedLabel.textContent = "Hints used: 0 / " + hints.length;
+      hintTextEl.textContent = "None yet";
+      statusEl.textContent = "";
+
+      updateWordRow(secretWord, guessedSet);
+      updateZombieStack(0, maxLives);
+
+      function useNextHint() {
+        if (nextHintIndex >= hints.length) {
+          return;
+        }
+        const hint = hints[nextHintIndex];
+        const label = hint.label || "Hint";
+        const text = hint.text || "";
+        hintTextEl.textContent = label + ": " + text;
+        nextHintIndex += 1;
+        hintsUsedLabel.textContent =
+          "Hints used: " + nextHintIndex + " / " + hints.length;
+      }
+
+      function finish(win) {
+        gameOver = true;
+        const keys = document.querySelectorAll(".key");
+        keys.forEach(k => k.disabled = true);
+        if (win) {
+          statusEl.textContent = "You escaped. The zombies could not reach the monkey.";
+          statusEl.className = "status-message ok";
+        } else {
+          statusEl.textContent = "The zombies reached the monkey. The word was: " + secretWord;
+          statusEl.className = "status-message bad";
+        }
+      }
+
+      function handleGuess(letter, button) {
+        if (gameOver || guessedSet.has(letter)) {
+          return;
+        }
+        guessedSet.add(letter);
+        button.classList.add("used");
+
+        if (secretWord.includes(letter)) {
+          button.classList.add("correct");
+          updateWordRow(secretWord, guessedSet);
+
+          const allRevealed = secretWord
+            .split("")
+            .filter(ch => ch !== " ")
+            .every(ch => guessedSet.has(ch));
+
+          if (allRevealed) {
+            finish(true);
+          }
+        } else {
+          button.classList.add("wrong");
+          wrongLetters.push(letter);
+          wrongLettersEl.textContent = wrongLetters.join(", ");
+          lives -= 1;
+          livesEl.textContent = String(lives);
+          statusEl.textContent = "Wrong guess!";
+          statusEl.className = "status-message bad";
+
+          useNextHint();
+          updateZombieStack(maxLives - lives, maxLives);
+
+          if (lives <= 0) {
+            finish(false);
+          }
+        }
+      }
+
+      createKeyboard(handleGuess);
+    }
+
+    document.addEventListener("DOMContentLoaded", startGame);
+  </script>
+</body>
+</html>
