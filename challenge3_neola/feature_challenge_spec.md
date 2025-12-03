@@ -185,6 +185,3 @@ Properties:
 
 User has 8 options to pick the answer from with 2 valid attempts before the answer can be revealed.
 
-
-
-
