@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Leopard.jpg",
+    "image": "Dataset/Images/Octopus.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
+        "termite",
+        "octopus",
         "lion",
-        "vulture",
-        "leopard",
-        "lynx"
+        "oryx"
     ],
-    "answer": "leopard",
+    "answer": "octopus",
     "hints": [
         "This animal is primarily a carnivore.",
-        "It typically lives in mountains, steppes.",
-        "Its main predators include humans, wolves.",
-        "It belongs to the Felidae family."
+        "It typically lives in coral reefs, tide pools.",
+        "Its main predators include larger fish.",
+        "It belongs to the Octopodidae family."
     ]
 }
