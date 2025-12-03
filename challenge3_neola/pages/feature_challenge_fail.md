@@ -4,29 +4,32 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Blue-Ringed Octopus**.
+The correct species was: **Galápagos Tortoise**.
 ---
 
 ### Descriptive Profile
-- **Color:** Blue, Brown
-- **Height:** Up to 20
-- **Weight:** Up to 0.3
-- **Lifespan:** 6-8 months
+- **Color:** Brown, Grey
+- **Height:** Up to 183
+- **Weight:** Up to 417
+- **Lifespan:** 100-150
 
 ### Geographic & Conservation
-- **Countries Found:** Indo-Pacific region
-- **Conservation Status:** Near Threatened
-- **Habitat:** Coral Reefs, Tide Pools
+- **Countries Found:** Galápagos Islands
+- **Conservation Status:** Vulnerable
+- **Habitat:** Galápagos Islands
 
 ### Diet
-- **Diet Type:** Carnivore
+- **Diet Type:** Herbivore
+
+### Physical Features
+- **Has Tail:** Yes
 
 ### Biological Traits
+- **Has Backbone:** Yes
+- **Breathes Air:** Yes
 - **Lays Eggs:** Yes
 
 ### Habitat & Environment
-- **Aquatic:** Yes
-- **Is a Predator:** Yes
 - **Social Structure:** Solitary
 
 [Try Again from Start](feature_challenge_hint0_a0.html)

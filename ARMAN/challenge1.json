@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Weight (kg)",
+    "feature": "Average Speed (km/h)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Western Lowland Gorilla",
-            "value": 124.5
+            "name": "Star-Nosed Mole",
+            "value": 1.2
         },
         {
-            "name": "Water Buffalo",
-            "value": 750.0
+            "name": "Arabian Oryx",
+            "value": 55.0
         },
         {
-            "name": "Gal\u00e1pagos Penguin",
-            "value": 2.15
+            "name": "Vulture",
+            "value": NaN
         },
         {
-            "name": "Snow Leopard",
-            "value": 48.5
+            "name": "Bottlenose Dolphin",
+            "value": 37.0
         },
         {
-            "name": "Yellow-Eyed Penguin",
-            "value": 2.0
+            "name": "Kiwi",
+            "value": 8.0
         }
     ],
     "correct_order": [
-        "Yellow-Eyed Penguin",
-        "Gal\u00e1pagos Penguin",
-        "Snow Leopard",
-        "Western Lowland Gorilla",
-        "Water Buffalo"
+        "Star-Nosed Mole",
+        "Arabian Oryx",
+        "Vulture",
+        "Kiwi",
+        "Bottlenose Dolphin"
     ]
 }

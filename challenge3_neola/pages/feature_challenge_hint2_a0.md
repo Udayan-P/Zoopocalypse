@@ -12,40 +12,43 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Blue, Brown (revealed)
-- **Height:** `[CENSORED]`
-- **Weight:** Up to 0.3 (revealed)
+- **Color:** Brown, Grey (revealed)
+- **Height:** Up to 183 (revealed)
+- **Weight:** Up to 417 (revealed)
 - **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** Indo-Pacific region (revealed)
-- **Conservation Status:** Near Threatened (hint)
-- **Habitat:** Coral Reefs, Tide Pools (revealed)
+- **Countries Found:** `[CENSORED]`
+- **Conservation Status:** Vulnerable (hint)
+- **Habitat:** `[CENSORED]`
 
 ### Diet
 - **Diet Type:** `[CENSORED]`
 
+### Physical Features
+- **Has Tail:** Yes (revealed)
+
 ### Biological Traits
-- **Lays Eggs:** `[CENSORED]`
+- **Has Backbone:** `[CENSORED]`
+- **Breathes Air:** Yes (hint)
+- **Lays Eggs:** Yes (revealed)
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
-- **Is a Predator:** Yes (revealed)
-- **Social Structure:** Solitary (hint)
+- **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 3</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 0 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Wombat</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Pangolin</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Badger</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Beaver</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Hedgehog</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Cheetah</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Capybara</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Jaguar</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Galápagos Tortoise</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Wolf</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Kangaroo</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Blue-Ringed Octopus</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint2_a1.html">Serval</a>
 </div>
 
 

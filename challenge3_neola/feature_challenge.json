@@ -1,41 +1,41 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Eastern Gorilla",
+  "animal": "Gal\u00e1pagos Tortoise",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Black"
+      "value": "Brown, Grey"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "140-188"
+      "value": "Up to 183"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "73-204"
+      "value": "Up to 417"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "40-50"
+      "value": "100-150"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Democratic Republic of Congo"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Endangered"
+      "value": "Vulnerable"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Rainforests"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Diet",
@@ -44,17 +44,7 @@
     },
     {
       "category": "Physical Features",
-      "label": "Has Hair",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Teeth",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Produces Milk",
+      "label": "Has Tail",
       "value": "Yes"
     },
     {
@@ -69,20 +59,20 @@
     },
     {
       "category": "Biological Traits",
-      "label": "Warm-Blooded",
+      "label": "Lays Eggs",
       "value": "Yes"
     },
     {
       "category": "Habitat & Environment",
       "label": "Social Structure",
-      "value": "Social groups"
+      "value": "Solitary"
     }
   ],
   "initial_hints": [
     0,
-    1,
     2,
     10,
+    11,
     12
   ],
   "max_additional_hints": 5

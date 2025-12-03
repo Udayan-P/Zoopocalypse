@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Weight (kg)**, from **smallest → largest**.
+Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
 
 ## Animals
 
-- **Western Lowland Gorilla**
-- **Water Buffalo**
-- **Galápagos Penguin**
-- **Snow Leopard**
-- **Yellow-Eyed Penguin**
+- **Star-Nosed Mole**
+- **Arabian Oryx**
+- **Vulture**
+- **Bottlenose Dolphin**
+- **Kiwi**
 
 ## Correct Order
 
-Yellow-Eyed Penguin → Galápagos Penguin → Snow Leopard → Western Lowland Gorilla → Water Buffalo
+Star-Nosed Mole → Arabian Oryx → Vulture → Kiwi → Bottlenose Dolphin
