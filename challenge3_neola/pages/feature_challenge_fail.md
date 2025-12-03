@@ -4,19 +4,19 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Amazon Rainforest Frog**.
+The correct species was: **Glass Frog**.
 ---
 
 ### Descriptive Profile
-- **Color:** Various
-- **Height:** 2-13
-- **Weight:** Up to 0.5
-- **Lifespan:** 4-17
+- **Color:** Green, Transparent
+- **Height:** 2.2-7.7
+- **Weight:** Up to 0.03
+- **Lifespan:** 10-14 days
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest
-- **Conservation Status:** Not Evaluated
-- **Habitat:** Amazon Rainforest
+- **Countries Found:** Central and South America
+- **Conservation Status:** Least Concern
+- **Habitat:** Rainforests
 
 ### Diet
 - **Diet Type:** Insectivore

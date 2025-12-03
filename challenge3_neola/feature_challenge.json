@@ -1,41 +1,41 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Amazon Rainforest Frog",
+  "animal": "Glass Frog",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Various"
+      "value": "Green, Transparent"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "2-13"
+      "value": "2.2-7.7"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 0.5"
+      "value": "Up to 0.03"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "4-17"
+      "value": "10-14 days"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Amazon Rainforest"
+      "value": "Central and South America"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Not Evaluated"
+      "value": "Least Concern"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Amazon Rainforest"
+      "value": "Rainforests"
     },
     {
       "category": "Diet",
@@ -79,11 +79,11 @@
     }
   ],
   "initial_hints": [
+    1,
     2,
-    5,
-    6,
-    8,
-    14
+    4,
+    9,
+    12
   ],
   "max_additional_hints": 5
 }

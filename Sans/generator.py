@@ -95,7 +95,7 @@ def make_single_challenge(df: pd.DataFrame, challenge_id: int = 1) -> dict:
     all_labels = [l for l in all_labels if l != label]
 
     #  be safe about how many we sample
-    num_distractors = min(3, len(all_labels))
+    num_distractors = min(7, len(all_labels))
     distractors = random.sample(all_labels, num_distractors)
 
     options = [label] + distractors

@@ -12,30 +12,30 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** `[CENSORED]`
-- **Height:** 2-13 (hint)
-- **Weight:** Up to 0.5 (hint)
-- **Lifespan:** 4-17 (hint)
+- **Color:** Green, Transparent (hint)
+- **Height:** 2.2-7.7 (hint)
+- **Weight:** `[CENSORED]`
+- **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest (revealed)
-- **Conservation Status:** Not Evaluated (hint)
+- **Countries Found:** Central and South America (revealed)
+- **Conservation Status:** Least Concern (revealed)
 - **Habitat:** `[CENSORED]`
 
 ### Diet
-- **Diet Type:** Insectivore (revealed)
+- **Diet Type:** `[CENSORED]`
 
 ### Physical Features
-- **Has Teeth:** Yes (revealed)
+- **Has Teeth:** Yes (hint)
 
 ### Biological Traits
 - **Has Backbone:** Yes (revealed)
 - **Breathes Air:** Yes (hint)
-- **Lays Eggs:** Yes (revealed)
+- **Lays Eggs:** Yes (hint)
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
-- **Is a Predator:** `[CENSORED]`
+- **Aquatic:** Yes (revealed)
+- **Is a Predator:** Yes (revealed)
 - **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 0</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 0 / 3</span></p>
@@ -43,14 +43,14 @@ You have up to 3 wrong attempts before failure.
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Red Panda</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Ocelot</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Badger</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Jaguar</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Wolf</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Wombat</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Amazon Rainforest Frog</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Lion</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Cheetah</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Hedgehog</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Pangolin</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Glass Frog</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Wombat</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Leopard</a>
 </div>
 
 

@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
+Sort the animals **by their Height (cm)**, from **smallest → largest**.
 
 ## Animals
 
-- **Brown Bear**
-- **Kiwi**
+- **Star-Nosed Mole**
+- **Water Buffalo**
+- **Bottlenose Dolphin**
 - **African Elephant**
-- **Western Lowland Gorilla**
-- **Wild Boar**
+- **Snow Leopard**
 
 ## Correct Order
 
-Kiwi → Wild Boar → African Elephant → Western Lowland Gorilla → Brown Bear
+Star-Nosed Mole → Snow Leopard → Water Buffalo → African Elephant → Bottlenose Dolphin

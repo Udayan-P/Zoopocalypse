@@ -1,18 +1,22 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Platypus.jpg",
+    "image": "Dataset/Images/Lion.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "elephant",
+        "lion",
+        "vulture",
+        "kiwi",
+        "seal",
+        "lynx",
         "platypus",
-        "aardvark",
-        "oryx"
+        "dolphin",
+        "aardvark"
     ],
-    "answer": "platypus",
+    "answer": "lion",
     "hints": [
-        "This animal is primarily a carnivore, insectivore.",
-        "It typically lives in eastern australia.",
-        "Its main predators include foxes, birds of prey.",
-        "It belongs to the Ornithorhynchidae family."
+        "This animal is primarily a carnivore.",
+        "It typically lives in grasslands, savannas.",
+        "Its main predators include hyenas, crocodiles.",
+        "It belongs to the Felidae family."
     ]
 }

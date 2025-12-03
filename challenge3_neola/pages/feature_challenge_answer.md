@@ -2,19 +2,19 @@
 <style>.back-main {display:inline-block;padding:6px 14px;background:#3266d6;color:white !important;text-decoration:none;font-size:15px;border-radius:8px;font-weight:500;position:absolute;top:14px;left:18px;box-shadow:0 2px 4px rgba(0,0,0,0.15);}.back-main:hover{background:#2854b8;}</style>
 
 # Correct Answer
-## The animal was: **Amazon Rainforest Frog**
+## The animal was: **Glass Frog**
 ---
 
 ### Descriptive Profile
-- **Color:** Various
-- **Height:** 2-13
-- **Weight:** Up to 0.5
-- **Lifespan:** 4-17
+- **Color:** Green, Transparent
+- **Height:** 2.2-7.7
+- **Weight:** Up to 0.03
+- **Lifespan:** 10-14 days
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest
-- **Conservation Status:** Not Evaluated
-- **Habitat:** Amazon Rainforest
+- **Countries Found:** Central and South America
+- **Conservation Status:** Least Concern
+- **Habitat:** Rainforests
 
 ### Diet
 - **Diet Type:** Insectivore

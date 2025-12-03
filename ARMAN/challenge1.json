@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Average Speed (km/h)",
+    "feature": "Height (cm)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Brown Bear",
-            "value": 48.0
+            "name": "Star-Nosed Mole",
+            "value": 16.0
         },
         {
-            "name": "Kiwi",
-            "value": 8.0
+            "name": "Water Buffalo",
+            "value": 250.0
+        },
+        {
+            "name": "Bottlenose Dolphin",
+            "value": 300.0
         },
         {
             "name": "African Elephant",
-            "value": 25.0
+            "value": 290.0
         },
         {
-            "name": "Western Lowland Gorilla",
-            "value": 40.0
-        },
-        {
-            "name": "Wild Boar",
-            "value": 20.0
+            "name": "Snow Leopard",
+            "value": 60.0
         }
     ],
     "correct_order": [
-        "Kiwi",
-        "Wild Boar",
+        "Star-Nosed Mole",
+        "Snow Leopard",
+        "Water Buffalo",
         "African Elephant",
-        "Western Lowland Gorilla",
-        "Brown Bear"
+        "Bottlenose Dolphin"
     ]
 }
