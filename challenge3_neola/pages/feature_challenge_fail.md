@@ -4,25 +4,25 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Glass Frog**.
+The correct species was: **Galápagos Tortoise**.
 ---
 
 ### Descriptive Profile
-- **Color:** Green, Transparent
-- **Height:** 2.2-7.7
-- **Weight:** Up to 0.03
-- **Lifespan:** 10-14 days
+- **Color:** Brown, Grey
+- **Height:** Up to 183
+- **Weight:** Up to 417
+- **Lifespan:** 100-150
 
 ### Geographic & Conservation
-- **Countries Found:** Central and South America
-- **Conservation Status:** Least Concern
-- **Habitat:** Rainforests
+- **Countries Found:** Galápagos Islands
+- **Conservation Status:** Vulnerable
+- **Habitat:** Galápagos Islands
 
 ### Diet
-- **Diet Type:** Insectivore
+- **Diet Type:** Herbivore
 
 ### Physical Features
-- **Has Teeth:** Yes
+- **Has Tail:** Yes
 
 ### Biological Traits
 - **Has Backbone:** Yes
@@ -30,8 +30,6 @@ The correct species was: **Glass Frog**.
 - **Lays Eggs:** Yes
 
 ### Habitat & Environment
-- **Aquatic:** Yes
-- **Is a Predator:** Yes
 - **Social Structure:** Solitary
 
 [Try Again from Start](feature_challenge_hint0_a0.html)

@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-dolphin",
+    "challenge_id": "hangman-auto-seal",
     "challenge_type": "hangman",
-    "word": "dolphin",
+    "word": "seal",
     "max_lives": 5,
     "hints": [
-        {
-            "label": "Has fins",
-            "text": "Yes",
-            "source_column": "Has fins"
-        },
-        {
-            "label": "Lays eggs",
-            "text": "No",
-            "source_column": "Lays eggs"
-        },
         {
             "label": "Aquatic",
             "text": "Yes",
             "source_column": "Aquatic"
         },
         {
-            "label": "Has feathers",
+            "label": "Has a tail",
             "text": "No",
-            "source_column": "Has feathers"
+            "source_column": "Has a tail"
+        },
+        {
+            "label": "Produces milk",
+            "text": "Yes",
+            "source_column": "Produces milk"
+        },
+        {
+            "label": "Can fly",
+            "text": "No",
+            "source_column": "Can fly"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 6
+        "row_index": 20
     }
 }

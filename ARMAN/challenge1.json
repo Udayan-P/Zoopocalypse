@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Height (cm)",
+    "feature": "Lifespan (years)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Star-Nosed Mole",
-            "value": 16.0
-        },
-        {
-            "name": "Water Buffalo",
-            "value": 250.0
+            "name": "Golden Poison Dart Frog",
+            "value": 13.5
         },
         {
             "name": "Bottlenose Dolphin",
-            "value": 300.0
+            "value": 35.0
         },
         {
-            "name": "African Elephant",
-            "value": 290.0
+            "name": "Brown Bear",
+            "value": 25.0
         },
         {
-            "name": "Snow Leopard",
-            "value": 60.0
+            "name": "Asian Elephant",
+            "value": 70.0
+        },
+        {
+            "name": "Amazon Rainforest Frog",
+            "value": 10.5
         }
     ],
     "correct_order": [
-        "Star-Nosed Mole",
-        "Snow Leopard",
-        "Water Buffalo",
-        "African Elephant",
-        "Bottlenose Dolphin"
+        "Amazon Rainforest Frog",
+        "Golden Poison Dart Frog",
+        "Brown Bear",
+        "Bottlenose Dolphin",
+        "Asian Elephant"
     ]
 }

@@ -1,0 +1,22 @@
+{
+    "challenge_id": "animal_001",
+    "image": "/Users/sanskriti/Desktop/durham\ud83c\udf37/animalchallenge/Sans/Dataset/Images/Aardvark.jpg",
+    "question": "Which animal is shown in this picture?",
+    "options": [
+        "elephant",
+        "penguin",
+        "frog",
+        "bear",
+        "termite",
+        "leopard",
+        "mole",
+        "aardvark"
+    ],
+    "answer": "aardvark",
+    "hints": [
+        "This animal is primarily a insectivore.",
+        "It typically lives in savannas, grasslands.",
+        "Its main predators include lions, hyenas.",
+        "It belongs to the Orycteropodidae family."
+    ]
+}

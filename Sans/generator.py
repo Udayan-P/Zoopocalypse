@@ -5,8 +5,10 @@ from pathlib import Path
 import pandas as pd
 
 # Folder that contains CSV and Images folder, make sure linked proper
-DATASET_DIR = Path("Dataset")
-CSV_PATH = DATASET_DIR / "Zoo Animals Dataset.csv"
+
+BASE_DIR = Path(__file__).resolve().parent          # Sans/
+DATASET_DIR = BASE_DIR / "Dataset"                  # Sans/Dataset
+CSV_PATH = DATASET_DIR / "Zoo Animals Dataset.csv"  # Sans/Dataset/Zoo Animals Dataset.csv
 
 
 def load_dataset() -> pd.DataFrame:

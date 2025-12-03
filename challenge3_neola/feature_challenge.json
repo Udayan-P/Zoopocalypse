@@ -1,50 +1,50 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Glass Frog",
+  "animal": "Gal\u00e1pagos Tortoise",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Green, Transparent"
+      "value": "Brown, Grey"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "2.2-7.7"
+      "value": "Up to 183"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 0.03"
+      "value": "Up to 417"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "10-14 days"
+      "value": "100-150"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Central and South America"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Least Concern"
+      "value": "Vulnerable"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Rainforests"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Insectivore"
+      "value": "Herbivore"
     },
     {
       "category": "Physical Features",
-      "label": "Has Teeth",
+      "label": "Has Tail",
       "value": "Yes"
     },
     {
@@ -64,25 +64,15 @@
     },
     {
       "category": "Habitat & Environment",
-      "label": "Aquatic",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
-      "label": "Is a Predator",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
       "label": "Social Structure",
       "value": "Solitary"
     }
   ],
   "initial_hints": [
     1,
-    2,
-    4,
-    9,
+    5,
+    8,
+    10,
     12
   ],
   "max_additional_hints": 5

@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Height (cm)**, from **smallest → largest**.
+Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Star-Nosed Mole**
-- **Water Buffalo**
+- **Golden Poison Dart Frog**
 - **Bottlenose Dolphin**
-- **African Elephant**
-- **Snow Leopard**
+- **Brown Bear**
+- **Asian Elephant**
+- **Amazon Rainforest Frog**
 
 ## Correct Order
 
-Star-Nosed Mole → Snow Leopard → Water Buffalo → African Elephant → Bottlenose Dolphin
+Amazon Rainforest Frog → Golden Poison Dart Frog → Brown Bear → Bottlenose Dolphin → Asian Elephant
