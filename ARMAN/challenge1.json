@@ -4,31 +4,31 @@
     "order": "ascending",
     "animals": [
         {
-            "name": "Brown Bear",
-            "value": 48.0
+            "name": "Gal\u00e1pagos Tortoise",
+            "value": 0.4
         },
         {
-            "name": "Kiwi",
-            "value": 8.0
+            "name": "Glass Frog",
+            "value": 0.8
         },
         {
-            "name": "African Elephant",
-            "value": 25.0
-        },
-        {
-            "name": "Western Lowland Gorilla",
+            "name": "Water Buffalo",
             "value": 40.0
         },
         {
-            "name": "Wild Boar",
-            "value": 20.0
+            "name": "Spectacled Bear",
+            "value": 45.0
+        },
+        {
+            "name": "Western Gorilla",
+            "value": 40.0
         }
     ],
     "correct_order": [
-        "Kiwi",
-        "Wild Boar",
-        "African Elephant",
-        "Western Lowland Gorilla",
-        "Brown Bear"
+        "Gal\u00e1pagos Tortoise",
+        "Glass Frog",
+        "Water Buffalo",
+        "Western Gorilla",
+        "Spectacled Bear"
     ]
 }

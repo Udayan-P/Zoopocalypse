@@ -1,46 +1,51 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Amazon Rainforest Frog",
+  "animal": "Tuatara",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Various"
+      "value": "Grayish-brown"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "2-13"
+      "value": "Up to 80"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 0.5"
+      "value": "Up to 1.5"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "4-17"
+      "value": "Up to 100"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Amazon Rainforest"
+      "value": "New Zealand"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Not Evaluated"
+      "value": "Vulnerable"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Amazon Rainforest"
+      "value": "Islands, Coastal Areas"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Insectivore"
+      "value": "Carnivore, Insectivore"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Tail",
+      "value": "Yes"
     },
     {
       "category": "Physical Features",
@@ -64,11 +69,6 @@
     },
     {
       "category": "Habitat & Environment",
-      "label": "Aquatic",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
       "label": "Is a Predator",
       "value": "Yes"
     },
@@ -79,10 +79,10 @@
     }
   ],
   "initial_hints": [
+    1,
     2,
-    5,
-    6,
-    8,
+    3,
+    10,
     14
   ],
   "max_additional_hints": 5

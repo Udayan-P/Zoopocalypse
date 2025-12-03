@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-dolphin",
+    "challenge_id": "hangman-auto-penguin",
     "challenge_type": "hangman",
-    "word": "dolphin",
+    "word": "penguin",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Has fins",
+            "label": "Has a tail",
             "text": "Yes",
-            "source_column": "Has fins"
+            "source_column": "Has a tail"
         },
         {
-            "label": "Lays eggs",
+            "label": "Has hair",
             "text": "No",
-            "source_column": "Lays eggs"
-        },
-        {
-            "label": "Aquatic",
-            "text": "Yes",
-            "source_column": "Aquatic"
+            "source_column": "Has hair"
         },
         {
             "label": "Has feathers",
-            "text": "No",
+            "text": "Yes",
             "source_column": "Has feathers"
+        },
+        {
+            "label": "Number of legs",
+            "text": "2",
+            "source_column": "Number of legs"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 6
+        "row_index": 15
     }
 }

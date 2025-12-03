@@ -4,12 +4,12 @@ Sort the animals **by their Average Speed (km/h)**, from **smallest → largest*
 
 ## Animals
 
-- **Brown Bear**
-- **Kiwi**
-- **African Elephant**
-- **Western Lowland Gorilla**
-- **Wild Boar**
+- **Galápagos Tortoise**
+- **Glass Frog**
+- **Water Buffalo**
+- **Spectacled Bear**
+- **Western Gorilla**
 
 ## Correct Order
 
-Kiwi → Wild Boar → African Elephant → Western Lowland Gorilla → Brown Bear
+Galápagos Tortoise → Glass Frog → Water Buffalo → Western Gorilla → Spectacled Bear

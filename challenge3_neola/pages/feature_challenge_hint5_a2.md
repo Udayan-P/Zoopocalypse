@@ -12,44 +12,44 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** `[CENSORED]`
-- **Height:** 2-13 (hint)
-- **Weight:** Up to 0.5 (hint)
-- **Lifespan:** 4-17 (hint)
+- **Color:** Grayish-brown (revealed)
+- **Height:** `[CENSORED]`
+- **Weight:** `[CENSORED]`
+- **Lifespan:** Up to 100 (hint)
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest (revealed)
-- **Conservation Status:** Not Evaluated (hint)
-- **Habitat:** `[CENSORED]`
+- **Countries Found:** `[CENSORED]`
+- **Conservation Status:** Vulnerable (hint)
+- **Habitat:** Islands, Coastal Areas (hint)
 
 ### Diet
-- **Diet Type:** Insectivore (revealed)
+- **Diet Type:** Carnivore, Insectivore (revealed)
 
 ### Physical Features
-- **Has Teeth:** Yes (revealed)
+- **Has Tail:** `[CENSORED]`
+- **Has Teeth:** Yes (hint)
 
 ### Biological Traits
 - **Has Backbone:** Yes (revealed)
-- **Breathes Air:** Yes (hint)
-- **Lays Eggs:** Yes (revealed)
+- **Breathes Air:** Yes (revealed)
+- **Lays Eggs:** Yes (hint)
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
 - **Is a Predator:** `[CENSORED]`
-- **Social Structure:** `[CENSORED]`
+- **Social Structure:** Solitary (revealed)
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 0</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 2 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_fail.html">Ocelot</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Otter</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Red Panda</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Koala</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Pangolin</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Capybara</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Amazon Rainforest Frog</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Leopard</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Fox</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Tuatara</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Serval</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Badger</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Jaguar</a>
 </div>
 

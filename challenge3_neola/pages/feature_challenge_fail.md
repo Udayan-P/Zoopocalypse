@@ -4,24 +4,25 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Amazon Rainforest Frog**.
+The correct species was: **Tuatara**.
 ---
 
 ### Descriptive Profile
-- **Color:** Various
-- **Height:** 2-13
-- **Weight:** Up to 0.5
-- **Lifespan:** 4-17
+- **Color:** Grayish-brown
+- **Height:** Up to 80
+- **Weight:** Up to 1.5
+- **Lifespan:** Up to 100
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest
-- **Conservation Status:** Not Evaluated
-- **Habitat:** Amazon Rainforest
+- **Countries Found:** New Zealand
+- **Conservation Status:** Vulnerable
+- **Habitat:** Islands, Coastal Areas
 
 ### Diet
-- **Diet Type:** Insectivore
+- **Diet Type:** Carnivore, Insectivore
 
 ### Physical Features
+- **Has Tail:** Yes
 - **Has Teeth:** Yes
 
 ### Biological Traits
@@ -30,7 +31,6 @@ The correct species was: **Amazon Rainforest Frog**.
 - **Lays Eggs:** Yes
 
 ### Habitat & Environment
-- **Aquatic:** Yes
 - **Is a Predator:** Yes
 - **Social Structure:** Solitary
 

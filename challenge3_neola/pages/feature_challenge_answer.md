@@ -2,24 +2,25 @@
 <style>.back-main {display:inline-block;padding:6px 14px;background:#3266d6;color:white !important;text-decoration:none;font-size:15px;border-radius:8px;font-weight:500;position:absolute;top:14px;left:18px;box-shadow:0 2px 4px rgba(0,0,0,0.15);}.back-main:hover{background:#2854b8;}</style>
 
 # Correct Answer
-## The animal was: **Amazon Rainforest Frog**
+## The animal was: **Tuatara**
 ---
 
 ### Descriptive Profile
-- **Color:** Various
-- **Height:** 2-13
-- **Weight:** Up to 0.5
-- **Lifespan:** 4-17
+- **Color:** Grayish-brown
+- **Height:** Up to 80
+- **Weight:** Up to 1.5
+- **Lifespan:** Up to 100
 
 ### Geographic & Conservation
-- **Countries Found:** Amazon Rainforest
-- **Conservation Status:** Not Evaluated
-- **Habitat:** Amazon Rainforest
+- **Countries Found:** New Zealand
+- **Conservation Status:** Vulnerable
+- **Habitat:** Islands, Coastal Areas
 
 ### Diet
-- **Diet Type:** Insectivore
+- **Diet Type:** Carnivore, Insectivore
 
 ### Physical Features
+- **Has Tail:** Yes
 - **Has Teeth:** Yes
 
 ### Biological Traits
@@ -28,7 +29,6 @@
 - **Lays Eggs:** Yes
 
 ### Habitat & Environment
-- **Aquatic:** Yes
 - **Is a Predator:** Yes
 - **Social Structure:** Solitary
 
