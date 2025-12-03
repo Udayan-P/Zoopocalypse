@@ -205,6 +205,9 @@ body {{
     border: 1px solid rgba(209,213,219,0.9);
     backdrop-filter: blur(6px);
 }}
+.ai-hint-box {{
+    display: none;
+}}
 </style>
 </head>
 <body>
@@ -233,13 +236,23 @@ def convert_markdown_to_html(md_content):
         raw = "<strong>Instructions</strong><br><br>Use the revealed attributes to guess the species."
         html_body = html
 
+    # ⭐ UPDATED INSTRUCTIONS ⭐
     header_html = f"""
         <div class="header-title-block">
             <h1 class="header-title">Feature Challenge: Identify the Animal</h1>
             <p class="header-sub">Test your knowledge by revealing hints and guessing the species.</p>
         </div>
         <div class="header-divider"></div>
-        <div class="instructions">{raw}</div>
+
+        <div class="instructions">
+            <strong>How the Game Works</strong><br><br>
+            • You begin with <strong>5 initial revealed hints</strong> based on the species’ attributes.<br>
+            • You may unlock up to <strong>5 additional hints</strong>, one at a time.<br>
+            • You have a total of <strong>2 wrong attempts</strong> to guess the correct species.<br>
+            • If you reach 2 incorrect guesses, the challenge ends and the final species is revealed.<br>
+            • Once you finish all hints or choose to reveal the answer, all hidden attributes are shown.<br>
+            • You also have access to <strong>one AI-generated hint</strong>, which remains the same throughout the challenge.<br>
+        </div>
     """
 
     html_body = re.sub(
@@ -266,7 +279,6 @@ def convert_markdown_to_html(md_content):
     )
 
     html_body = html_body.replace("<code>[CENSORED]</code>", '<span class="censored">[CENSORED]</span>')
-
     html_body = re.sub(r"\(revealed\)", '<span class="revealed-tag">revealed</span>', html_body)
     html_body = re.sub(r"\(hint\)", '<span class="hint-tag">hint</span>', html_body)
 
