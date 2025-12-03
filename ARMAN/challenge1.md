@@ -4,12 +4,12 @@ Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Galápagos Tortoise**
-- **Red-Eyed Tree Frog**
+- **Cheetah**
+- **Brown Bear**
 - **Golden Poison Dart Frog**
-- **African Lion**
-- **Atlantic Spotted Dolphin**
+- **Star-Nosed Mole**
+- **Platypus**
 
 ## Correct Order
 
-Red-Eyed Tree Frog → African Lion → Golden Poison Dart Frog → Atlantic Spotted Dolphin → Galápagos Tortoise
+Star-Nosed Mole → Cheetah → Golden Poison Dart Frog → Platypus → Brown Bear

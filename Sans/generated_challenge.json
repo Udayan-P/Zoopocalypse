@@ -1,22 +1,22 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Lion.jpg",
+    "image": "/Users/sanskriti/Desktop/durham\ud83c\udf37/animalchallenge/Sans/Dataset/Images/Buffalo.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "lion",
-        "vulture",
+        "buffalo",
+        "elephant",
         "kiwi",
-        "seal",
+        "cheetah",
+        "octopus",
+        "aardvark",
         "lynx",
-        "platypus",
-        "dolphin",
-        "aardvark"
+        "mole"
     ],
-    "answer": "lion",
+    "answer": "buffalo",
     "hints": [
-        "This animal is primarily a carnivore.",
-        "It typically lives in grasslands, savannas.",
-        "Its main predators include hyenas, crocodiles.",
-        "It belongs to the Felidae family."
+        "This animal is primarily a herbivore.",
+        "It typically lives in grasslands, wetlands.",
+        "Its main predators include tigers, crocodiles.",
+        "It belongs to the Bovidae family."
     ]
 }

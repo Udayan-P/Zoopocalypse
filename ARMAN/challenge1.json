@@ -4,31 +4,31 @@
     "order": "ascending",
     "animals": [
         {
-            "name": "Gal\u00e1pagos Tortoise",
-            "value": 125.0
+            "name": "Cheetah",
+            "value": 11.0
         },
         {
-            "name": "Red-Eyed Tree Frog",
-            "value": 5.0
+            "name": "Brown Bear",
+            "value": 25.0
         },
         {
             "name": "Golden Poison Dart Frog",
             "value": 13.5
         },
         {
-            "name": "African Lion",
-            "value": 12.0
+            "name": "Star-Nosed Mole",
+            "value": 4.0
         },
         {
-            "name": "Atlantic Spotted Dolphin",
-            "value": 22.5
+            "name": "Platypus",
+            "value": 13.5
         }
     ],
     "correct_order": [
-        "Red-Eyed Tree Frog",
-        "African Lion",
+        "Star-Nosed Mole",
+        "Cheetah",
         "Golden Poison Dart Frog",
-        "Atlantic Spotted Dolphin",
-        "Gal\u00e1pagos Tortoise"
+        "Platypus",
+        "Brown Bear"
     ]
 }
