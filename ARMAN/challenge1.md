@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
+Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Arabian Oryx**
-- **Brown Bear**
-- **Kiwi**
-- **Western Gorilla**
-- **Eastern Gorilla**
+- **Galápagos Tortoise**
+- **Red-Eyed Tree Frog**
+- **Golden Poison Dart Frog**
+- **African Lion**
+- **Atlantic Spotted Dolphin**
 
 ## Correct Order
 
-Kiwi → Western Gorilla → Eastern Gorilla → Brown Bear → Arabian Oryx
+Red-Eyed Tree Frog → African Lion → Golden Poison Dart Frog → Atlantic Spotted Dolphin → Galápagos Tortoise

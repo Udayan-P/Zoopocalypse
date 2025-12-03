@@ -1,31 +1,31 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Atlantic Spotted Dolphin",
+  "animal": "Harp Seal",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Gray, White"
+      "value": "Silver, Gray"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "200-250"
+      "value": "Up to 180"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "120-140"
+      "value": "Up to 160"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "20-25"
+      "value": "20-35"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Worldwide"
+      "value": "Arctic, Atlantic Ocean"
     },
     {
       "category": "Geographic & Conservation",
@@ -35,7 +35,7 @@
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Oceans, Coastal Areas"
+      "value": "Arctic, Atlantic Ocean"
     },
     {
       "category": "Diet",
@@ -44,7 +44,7 @@
     },
     {
       "category": "Physical Features",
-      "label": "Has Tail",
+      "label": "Has Hair",
       "value": "Yes"
     },
     {
@@ -94,11 +94,15 @@
     }
   ],
   "initial_hints": [
-    0,
+    4,
     5,
     6,
-    7,
-    10
+    12,
+    17
   ],
-  "max_additional_hints": 5
+  "max_additional_hints": 5,
+  "rarity_score": 0.03225806451612903,
+  "attribute_count": 31,
+  "dataset_plot": "plots/attribute_count_distribution.png",
+  "ai_hint_seed": "This social vertebrate thrives in Arctic and Atlantic waters."
 }

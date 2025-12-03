@@ -6,7 +6,8 @@ import shutil
 
 load_dotenv()
 
-API_KEY = os.getenv("API_KEY")
+#API_KEY = os.getenv("API_KEY")
+API_KEY = "AIzaSyALnqAOVedZHSnC2StN6D2xDR1cVGvaIUA" #I know it should be hidden but I couldnt get it to work on NCC with the api key hidden in .env :(
 
 
 client = genai.Client(api_key=API_KEY)

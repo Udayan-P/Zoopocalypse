@@ -27,7 +27,19 @@ def group_by_category(attributes):
         grouped.setdefault(attr["category"], []).append(attr)
     return grouped
 
-def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
+def build_hint_link(stage, attempts, base):
+    return f"../stage_{stage}/{base}_hint{stage}_a{attempts}.html"
+
+def build_wrong_link(stage, attempts, base):
+    return f"../wrong/{base}_wrong_hint{stage}_a{attempts}.html"
+
+def build_fail_link(base):
+    return f"../fail/{base}_fail.html"
+
+def build_answer_link(base):
+    return f"../answer/{base}_answer.html"
+
+def build_mcq_section(correct, base, stage, attempts, max_attempts):
     distractors = [
         "Lion","Beaver","Otter","Kangaroo","Wombat","Koala","Pangolin","Leopard",
         "Serval","Cheetah","Fox","Wolf","Jaguar","Ocelot","Hedgehog",
@@ -45,13 +57,13 @@ def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
 
     for opt in all_opts:
         if opt.lower() == correct.lower():
-            link = f"{file_prefix}_answer.html"
+            link = build_answer_link(base)
         else:
             next_attempt = attempts + 1
             if next_attempt >= max_attempts:
-                link = f"{file_prefix}_fail.html"
+                link = build_fail_link(base)
             else:
-                link = f"{file_prefix}_wrong_hint{stage}_a{next_attempt}.html"
+                link = build_wrong_link(stage, next_attempt, base)
         out.append(f'    <a class="mcq-card" href="{link}">{opt}</a>\n')
 
     out.append("</div>\n\n")
@@ -59,30 +71,49 @@ def build_mcq_section(correct, file_prefix, stage, attempts, max_attempts):
 
 def main_menu_button():
     return (
-        '<a class="back-main" href="../../game.html">← Main Menu</a>\n'
+        '<a class="back-main" href="../../../game.html">← Main Menu</a>\n'
         '<style>'
         '.back-main {'
         'display:inline-block;'
-        'padding:6px 14px;'
+        'padding:8px 16px;'
         'background:#3266d6;'
         'color:white !important;'
         'text-decoration:none;'
-        'font-size:15px;'
+        'font-size:16px;'
         'border-radius:8px;'
-        'font-weight:500;'
+        'font-weight:600;'
         'position:absolute;'
-        'top:14px;'
-        'left:18px;'
+        'top:20px;'
+        'left:20px;'
+        'z-index:9999;'
         'box-shadow:0 2px 4px rgba(0,0,0,0.15);'
         '}'
         '.back-main:hover{background:#2854b8;}'
         '</style>\n\n'
     )
 
+def ai_hint_block(ai_text):
+    if not ai_text:
+        return ""
 
-def render_state_md(data, initial_indices, remaining_order, stage, attempts, file_prefix, max_stage, max_attempts):
+    return (
+        "<div id='ai_hint_box' style='display:none; margin:20px auto;"
+        "padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;"
+        "border-radius:10px; max-width:600px; font-size:1rem;'>"
+        f"💡 {ai_text}"
+        "</div>\n\n"
+        "<script>"
+        "function toggle_ai_hint(){"
+        "var b=document.getElementById('ai_hint_box');"
+        "b.style.display=b.style.display==='none'?'block':'none';"
+        "}"
+        "</script>"
+    )
+
+def render_state_md(data, initial_indices, remaining_order, stage, attempts, base, max_stage, max_attempts):
     attributes = data["attributes"]
     correct_animal = data["animal"]
+    ai_hint = data.get("ai_hint_seed", "")
 
     extra_hints = min(stage, max_stage, len(remaining_order))
     extra_indices = set(remaining_order[:extra_hints])
@@ -98,10 +129,7 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
     ]
 
     md = []
-
-    # 🔥 BLUE BUTTON
     md.append(main_menu_button())
-
     md.append("# Feature Challenge: Identify the Animal\n")
     md.append("## Instructions\n")
     md.append("Use the revealed attributes to guess the hidden species.\n")
@@ -115,10 +143,12 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
         cat_attrs = [(idx, a) for idx, a in enumerate(attributes) if a["category"] == cat]
         if not cat_attrs:
             continue
+
         md.append(f"### {cat}\n")
         for idx, attr in cat_attrs:
             label = attr["label"]
             value = attr["value"]
+
             if idx in initial_indices:
                 md.append(f"- **{label}:** {value} (revealed)\n")
             elif idx in extra_indices:
@@ -128,55 +158,62 @@ def render_state_md(data, initial_indices, remaining_order, stage, attempts, fil
         md.append("\n")
 
     hints_remaining = max(0, max_stage - stage)
-    attempts_left = max(0, max_attempts - attempts)
-
     md.append(
-        f"<p style='text-align:center; font-size:1.05rem;'>"
-        f"<span style='color:#166534; font-weight:700;'>Hints Remaining: {hints_remaining}</span>"
-        f" &nbsp;&nbsp;|&nbsp;&nbsp; "
-        f"<span style='font-weight:600;'>Wrong Attempts: {attempts} / {max_attempts}</span>"
-        f"</p>\n\n"
+        f"<p style='text-align:center;'>"
+        f"<strong>Hints Remaining:</strong> {hints_remaining} | "
+        f"<strong>Wrong Attempts:</strong> {attempts}/{max_attempts}"
+        "</p>\n\n"
     )
 
-    md.append(build_mcq_section(correct_animal, file_prefix, stage, attempts, max_attempts))
+    md.append(build_mcq_section(correct_animal, base, stage, attempts, max_attempts))
 
     links = []
-    links.append(f"[Try Again]({file_prefix}_hint{stage}_a{attempts}.html)")
-    if stage < max_stage:
-        links.append(f"[Reveal Next Hint]({file_prefix}_hint{stage+1}_a{attempts}.html)")
-    links.append(f"[Reveal Answer]({file_prefix}_answer.html)")
+    links.append(f"[Try Again]({build_hint_link(stage, attempts, base)})")
 
-    md.append("\n" + " | ".join(links) + "\n")
+    if stage < max_stage:
+        links.append(f"[Reveal Next Hint]({build_hint_link(stage+1, attempts, base)})")
+
+    links.append(f"[Reveal Answer]({build_answer_link(base)})")
+
+    if ai_hint:
+        links.append("[AI Hint](javascript:toggle_ai_hint())")
+
+    md.append("\n" + " | ".join(links) + "\n\n")
+
+    if ai_hint:
+        md.append(ai_hint_block(ai_hint))
+
     return "".join(md)
 
-def render_wrong_page(data, file_prefix, stage, attempts, max_attempts):
-    attempts_left = max(0, max_attempts - attempts)
+def render_wrong_page(data, base, stage, attempts, max_attempts):
+    ai_hint = data.get("ai_hint_seed", "")
     md = []
-
-    # 🔥 BLUE BUTTON
     md.append(main_menu_button())
-
     md.append("# Wrong Answer\n\n")
     md.append(
-        "<div class=\"status-card status-card--wrong\">"
-        "<h2 class=\"status-title\">Wrong Answer</h2>"
-        f"<p class=\"status-text\">Try again! You have <strong>{attempts_left}</strong> attempts remaining.</p>"
-        "</div>\n\n"
+        f"You have **{max_attempts - attempts}** attempts remaining.\n\n"
     )
-    md.append(f"[Try Again]({file_prefix}_hint{stage}_a{attempts}.html) | [Reveal Answer]({file_prefix}_answer.html)\n")
+
+    md.append(f"[Try Again]({build_hint_link(stage, attempts, base)}) | ")
+    md.append(f"[Reveal Answer]({build_answer_link(base)})\n\n")
+
+    if ai_hint:
+        md.append("[AI Hint](javascript:toggle_ai_hint())\n\n")
+        md.append(ai_hint_block(ai_hint))
+
     return "".join(md)
 
-def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_order):
+def render_answer_page(data, base, max_stage, initial_indices, remaining_order):
+    ai_hint = data.get("ai_hint_seed", "")
     md = []
 
-    # 🔥 BLUE BUTTON
     md.append(main_menu_button())
-
     md.append("# Correct Answer\n")
     md.append(f"## The animal was: **{data['animal']}**\n")
     md.append("---\n\n")
 
     grouped = group_by_category(data["attributes"])
+
     order = [
         "Descriptive Profile","Geographic & Conservation","Diet",
         "Physical Features","Biological Traits","Habitat & Environment"
@@ -189,19 +226,21 @@ def render_answer_page(data, file_prefix, max_stage, initial_indices, remaining_
                 md.append(f"- **{attr['label']}:** {attr['value']}\n")
             md.append("\n")
 
-    md.append(f"[Play Again from Start]({file_prefix}_hint0_a0.html)\n")
+    md.append(f"[Play Again from Start]({build_hint_link(0,0,base)})\n\n")
+
+    if ai_hint:
+        md.append("[AI Hint](javascript:toggle_ai_hint())\n\n")
+        md.append(ai_hint_block(ai_hint))
+
     return "".join(md)
 
-def render_fail_page(data, file_prefix):
+def render_fail_page(data, base):
+    ai_hint = data.get("ai_hint_seed", "")
     md = []
 
-    # 🔥 BLUE BUTTON
     md.append(main_menu_button())
-
     md.append("# Challenge Failed\n")
-    md.append("## You used all your attempts.\n\n")
-    md.append(f"The correct species was: **{data['animal']}**.\n")
-    md.append("---\n\n")
+    md.append(f"The correct species was **{data['animal']}**.\n\n")
 
     grouped = group_by_category(data["attributes"])
     order = [
@@ -216,7 +255,12 @@ def render_fail_page(data, file_prefix):
                 md.append(f"- **{attr['label']}:** {attr['value']}\n")
             md.append("\n")
 
-    md.append(f"[Try Again from Start]({file_prefix}_hint0_a0.html)\n")
+    md.append(f"[Try Again from Start]({build_hint_link(0,0,base)})\n\n")
+
+    if ai_hint:
+        md.append("[AI Hint](javascript:toggle_ai_hint())\n\n")
+        md.append(ai_hint_block(ai_hint))
+
     return "".join(md)
 
 def generate_multi_files(data, input_file, outdir):
@@ -226,8 +270,9 @@ def generate_multi_files(data, input_file, outdir):
     attributes = data["attributes"]
     num_attrs = len(attributes)
 
-    max_stage = data.get("max_additional_hints", 5)
-    max_attempts = 3
+    max_stage = 3     
+    
+    max_attempts = 2  
 
     all_idx = list(range(num_attrs))
     random.shuffle(all_idx)
@@ -235,33 +280,40 @@ def generate_multi_files(data, input_file, outdir):
     initial_indices = set(all_idx[:min(5, num_attrs)])
     remaining_order = all_idx[min(5, num_attrs):]
 
-    # Generate main hint pages
     for stage in range(max_stage + 1):
+        stage_dir = os.path.join(outdir, f"stage_{stage}")
+        os.makedirs(stage_dir, exist_ok=True)
+
         for attempts in range(max_attempts):
             fname = f"{base}_hint{stage}_a{attempts}.md"
-            out = os.path.join(outdir, fname)
-            content = render_state_md(data, initial_indices, remaining_order, stage, attempts, base, max_stage, max_attempts)
+            out = os.path.join(stage_dir, fname)
+            content = render_state_md(
+                data, initial_indices, remaining_order,
+                stage, attempts, base, max_stage, max_attempts
+            )
             with open(out, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out)
 
-    # Wrong pages
+    wrong_dir = os.path.join(outdir, "wrong")
+    os.makedirs(wrong_dir, exist_ok=True)
+
     for stage in range(max_stage + 1):
         for attempts in range(1, max_attempts):
             fname = f"{base}_wrong_hint{stage}_a{attempts}.md"
-            out = os.path.join(outdir, fname)
+            out = os.path.join(wrong_dir, fname)
             content = render_wrong_page(data, base, stage, attempts, max_attempts)
             with open(out, "w", encoding="utf-8") as f:
                 f.write(content)
-            print("Created", out)
 
-    # Answer page
-    ans = os.path.join(outdir, f"{base}_answer.md")
+    answer_dir = os.path.join(outdir, "answer")
+    os.makedirs(answer_dir, exist_ok=True)
+    ans = os.path.join(answer_dir, f"{base}_answer.md")
     with open(ans, "w", encoding="utf-8") as f:
         f.write(render_answer_page(data, base, max_stage, initial_indices, remaining_order))
 
-    # Fail page
-    fail = os.path.join(outdir, f"{base}_fail.md")
+    fail_dir = os.path.join(outdir, "fail")
+    os.makedirs(fail_dir, exist_ok=True)
+    fail = os.path.join(fail_dir, f"{base}_fail.md")
     with open(fail, "w", encoding="utf-8") as f:
         f.write(render_fail_page(data, base))
 
