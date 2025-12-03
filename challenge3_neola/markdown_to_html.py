@@ -165,28 +165,6 @@ body {{
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }}
-.status-card {{
-    margin: 26px 0;
-    padding: 20px 24px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}}
-.status-card--wrong {{
-    background: #fef2f2;
-    border-color: #fecaca;
-    color: #991b1b;
-}}
-.status-card--fail {{
-    background: #fff7ed;
-    border-color: #fed7aa;
-    color: #9a3412;
-}}
-.status-card--correct {{
-    background: #ecfdf3;
-    border-color: #bbf7d0;
-    color: #166534;
-}}
 .button-row {{
     margin-top: 28px;
     display: flex;
@@ -236,7 +214,6 @@ def convert_markdown_to_html(md_content):
         raw = "<strong>Instructions</strong><br><br>Use the revealed attributes to guess the species."
         html_body = html
 
-    # ⭐ UPDATED INSTRUCTIONS ⭐
     header_html = f"""
         <div class="header-title-block">
             <h1 class="header-title">Feature Challenge: Identify the Animal</h1>
@@ -246,12 +223,12 @@ def convert_markdown_to_html(md_content):
 
         <div class="instructions">
             <strong>How the Game Works</strong><br><br>
-            • You begin with <strong>3 initial revealed hints</strong> based on the species’ attributes.<br>
-            • You may unlock up to <strong>5 additional hints</strong>, one at a time.<br>
+            • You begin with <strong>5 initial revealed hints</strong> based on the species’ attributes.<br>
+            • You may unlock up to <strong>3 additional hints</strong>, one at a time.<br>
             • You have a total of <strong>2 wrong attempts</strong> to guess the correct species.<br>
             • If you reach 2 incorrect guesses, the challenge ends and the final species is revealed.<br>
-            • Once you finish all hints or choose to reveal the answer, all hidden attributes are shown.<br>
-            • You also have access to <strong>one AI-generated hint</strong>, which remains the same throughout the challenge.<br>
+            • Once all hints are shown or the answer is revealed, all hidden attributes become visible.<br>
+            • You also have access to <strong>one AI-generated hint</strong>, which remains consistent throughout the challenge.<br>
         </div>
     """
 
@@ -337,8 +314,6 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(rendered)
 
-    print("Generated HTML:", out_path)
-
-
 if __name__ == "__main__":
     main()
+
