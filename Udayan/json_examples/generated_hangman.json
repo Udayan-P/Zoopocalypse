@@ -1,18 +1,18 @@
 {
-    "challenge_id": "hangman-auto-cheetah",
+    "challenge_id": "hangman-auto-lion",
     "challenge_type": "hangman",
-    "word": "cheetah",
+    "word": "lion",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Venomous",
-            "text": "No",
-            "source_column": "Venomous"
+            "label": "Produces milk",
+            "text": "Yes",
+            "source_column": "Produces milk"
         },
         {
-            "label": "Big cat sized",
+            "label": "Has a tail",
             "text": "Yes",
-            "source_column": "Big cat sized"
+            "source_column": "Has a tail"
         },
         {
             "label": "Number of legs",
@@ -20,13 +20,13 @@
             "source_column": "Number of legs"
         },
         {
-            "label": "Has feathers",
-            "text": "No",
-            "source_column": "Has feathers"
+            "label": "Has hair",
+            "text": "Yes",
+            "source_column": "Has hair"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 11
+        "row_index": 2
     }
 }

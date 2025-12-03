@@ -6,11 +6,11 @@ Guess the animal before the zombies reach the monkey.
 **Lives:** 5
 
 ## Hints
-- **Venomous**: No
-- **Big cat sized**: Yes
-- **Number of legs**: 4
-- **Has feathers**: No
+- **Produces milk**: Yes
+- **Has a tail**: Yes
+- **Lays eggs**: No
+- **Has hair**: Yes
 
 ## Dataset Metadata
 - Dataset: Zoo Animals Dataset
-- Row index: 11
+- Row index: 2
