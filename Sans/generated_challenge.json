@@ -1,17 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Termite.jpg",
+    "image": "Dataset/Images/Lion.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "tuatara",
-        "gorilla",
-        "platypus",
-        "termite"
+        "frog",
+        "leopard",
+        "dolphin",
+        "lion"
     ],
-    "answer": "termite",
+    "answer": "lion",
     "hints": [
-        "The animal's name starts with 'T'.",
-        "Think about common zoo animals.",
-        "Look carefully at the shape and size of the animal."
+        "This animal is primarily a carnivore.",
+        "It typically lives in grasslands, savannas.",
+        "Its main predators include hyenas, crocodiles.",
+        "It belongs to the Felidae family."
     ]
 }
