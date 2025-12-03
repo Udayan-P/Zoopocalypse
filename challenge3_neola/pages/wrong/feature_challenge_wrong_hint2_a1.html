@@ -152,28 +152,6 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-.status-card {
-    margin: 26px 0;
-    padding: 20px 24px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}
-.status-card--wrong {
-    background: #fef2f2;
-    border-color: #fecaca;
-    color: #991b1b;
-}
-.status-card--fail {
-    background: #fff7ed;
-    border-color: #fed7aa;
-    color: #9a3412;
-}
-.status-card--correct {
-    background: #ecfdf3;
-    border-color: #bbf7d0;
-    color: #166534;
-}
 .button-row {
     margin-top: 28px;
     display: flex;
@@ -208,12 +186,12 @@ body {
 
         <div class="instructions">
             <strong>How the Game Works</strong><br><br>
-            • You begin with <strong>3 initial revealed hints</strong> based on the species’ attributes.<br>
-            • You may unlock up to <strong>5 additional hints</strong>, one at a time.<br>
+            • You begin with <strong>5 initial revealed hints</strong> based on the species’ attributes.<br>
+            • You may unlock up to <strong>3 additional hints</strong>, one at a time.<br>
             • You have a total of <strong>2 wrong attempts</strong> to guess the correct species.<br>
             • If you reach 2 incorrect guesses, the challenge ends and the final species is revealed.<br>
-            • Once you finish all hints or choose to reveal the answer, all hidden attributes are shown.<br>
-            • You also have access to <strong>one AI-generated hint</strong>, which remains the same throughout the challenge.<br>
+            • Once all hints are shown or the answer is revealed, all hidden attributes become visible.<br>
+            • You also have access to <strong>one AI-generated hint</strong>, which remains consistent throughout the challenge.<br>
         </div>
     </div>
 <p><a class="back-main" href="../../../game.html">← Main Menu</a></p>
@@ -223,7 +201,7 @@ body {
 <p>You have <strong>1</strong> attempts remaining.</p>
 <div class='button-row'><a class='btn' href='../stage_2/feature_challenge_hint2_a1.html'>Try Again</a><a class='btn' href='../answer/feature_challenge_answer.html'>Reveal Answer</a></div>
 <div class='button-row'><a class='btn' href='javascript:toggle_ai_hint()'>AI Hint</a></div>
-<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 This social vertebrate thrives in Arctic and Atlantic waters.</div>
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A milk-producing predator, 80-110, weighing 120-250, living 10-14 years.</div>
 
 <script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>
 </div>

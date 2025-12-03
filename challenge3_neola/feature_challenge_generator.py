@@ -13,9 +13,12 @@ from pathlib import Path
 
 import google.generativeai as genai
 
-API_KEY = "AIzaSyDOR5dRGzI-eDBmGZkh5BB7p8WfTnQaP3Y"
+API_KEY = os.environ.get("GEMINI_API_KEY")
 
-genai.configure(api_key=API_KEY)
+if API_KEY:
+    genai.configure(api_key=API_KEY)
+else:
+    print(" No GEMINI_API_KEY found. AI hints will use fallback mode.\n")
 
 GEMINI_MODEL = "models/gemini-2.5-flash"
 
@@ -24,6 +27,9 @@ def generate_ai_hint(animal_name: str, visible_attributes: List[Dict]) -> str:
     """Generate a short Gemini-based simple+smart clue."""
 
     desc = " | ".join(f"{a['label']}: {a['value']}" for a in visible_attributes)
+
+    if not API_KEY:
+        return desc
 
     prompt = (
         "Generate a SHORT, smart, simple clue (8–12 words) that helps the player "
@@ -46,9 +52,8 @@ def generate_ai_hint(animal_name: str, visible_attributes: List[Dict]) -> str:
         return text
 
     except Exception as e:
-        print("Gemini hint generation failed, using fallback:", e)
-        return desc  
-
+        print(" Gemini hint generation failed, using fallback:", e)
+        return desc
 
 def load_dataset(filepath: str) -> List[Dict]:
     try:
@@ -149,7 +154,6 @@ def select_initial_hints(attributes: List[Dict]) -> List[int]:
     random.shuffle(idxs)
     return sorted(idxs[:5])
 
-
 def generate_challenge(dataset: List[Dict], animal_name=None) -> Dict[str, Any]:
     animal = next((a for a in dataset if a.get("Animal") == animal_name), random.choice(dataset))
 
@@ -194,4 +198,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

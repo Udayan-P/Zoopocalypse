@@ -12,53 +12,52 @@ You have up to 2 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** `[CENSORED]`
+- **Color:** Tan (revealed)
 - **Height:** `[CENSORED]`
 - **Weight:** `[CENSORED]`
-- **Lifespan:** 20-35 (hint)
+- **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** Arctic, Atlantic Ocean (revealed)
-- **Conservation Status:** `[CENSORED]`
-- **Habitat:** Arctic, Atlantic Ocean (revealed)
+- **Countries Found:** Africa (revealed)
+- **Conservation Status:** Vulnerable (revealed)
+- **Habitat:** `[CENSORED]`
 
 ### Diet
-- **Diet Type:** Carnivore (hint)
+- **Diet Type:** Carnivore (revealed)
 
 ### Physical Features
 - **Has Hair:** `[CENSORED]`
-- **Has Teeth:** Yes (hint)
-- **Produces Milk:** `[CENSORED]`
-- **Has Fins:** Yes (revealed)
+- **Has Tail:** Yes (hint)
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** Yes (hint)
 
 ### Biological Traits
-- **Has Backbone:** Yes (revealed)
-- **Breathes Air:** `[CENSORED]`
+- **Has Backbone:** `[CENSORED]`
+- **Breathes Air:** Yes (revealed)
 - **Warm-Blooded:** `[CENSORED]`
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
 - **Is a Predator:** `[CENSORED]`
-- **Social Structure:** Group-based (revealed)
+- **Social Structure:** Group-based (hint)
 
 <p style='text-align:center;'><strong>Hints Remaining:</strong> 0 | <strong>Wrong Attempts:</strong> 1/2</p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Fox</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Pangolin</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wolf</a>
-    <a class="mcq-card" href="../answer/feature_challenge_answer.html">Harp Seal</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Kangaroo</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Hedgehog</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Ocelot</a>
     <a class="mcq-card" href="../fail/feature_challenge_fail.html">Beaver</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Leopard</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wolf</a>
+    <a class="mcq-card" href="../answer/feature_challenge_answer.html">African Lion</a>
     <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wombat</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Cheetah</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Leopard</a>
 </div>
 
 
 [Try Again](../stage_3/feature_challenge_hint3_a1.html) | [Reveal Answer](../answer/feature_challenge_answer.html) | [AI Hint](javascript:toggle_ai_hint())
 
-<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 This social vertebrate thrives in Arctic and Atlantic waters.</div>
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A milk-producing predator, 80-110, weighing 120-250, living 10-14 years.</div>
 
 <script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>

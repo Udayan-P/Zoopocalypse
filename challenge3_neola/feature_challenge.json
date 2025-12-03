@@ -1,41 +1,41 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Harp Seal",
+  "animal": "African Lion",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Silver, Gray"
+      "value": "Tan"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "Up to 180"
+      "value": "80-110"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 160"
+      "value": "120-250"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "20-35"
+      "value": "10-14"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Arctic, Atlantic Ocean"
+      "value": "Africa"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Least Concern"
+      "value": "Vulnerable"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Arctic, Atlantic Ocean"
+      "value": "Grasslands, Savannas"
     },
     {
       "category": "Diet",
@@ -49,17 +49,17 @@
     },
     {
       "category": "Physical Features",
+      "label": "Has Tail",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
       "label": "Has Teeth",
       "value": "Yes"
     },
     {
       "category": "Physical Features",
       "label": "Produces Milk",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Fins",
       "value": "Yes"
     },
     {
@@ -79,11 +79,6 @@
     },
     {
       "category": "Habitat & Environment",
-      "label": "Aquatic",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
       "label": "Is a Predator",
       "value": "Yes"
     },
@@ -94,15 +89,15 @@
     }
   ],
   "initial_hints": [
-    4,
-    5,
-    6,
-    12,
-    17
+    1,
+    2,
+    3,
+    11,
+    15
   ],
   "max_additional_hints": 5,
   "rarity_score": 0.03225806451612903,
   "attribute_count": 31,
   "dataset_plot": "plots/attribute_count_distribution.png",
-  "ai_hint_seed": "This social vertebrate thrives in Arctic and Atlantic waters."
+  "ai_hint_seed": "A milk-producing predator, 80-110, weighing 120-250, living 10-14 years."
 }
