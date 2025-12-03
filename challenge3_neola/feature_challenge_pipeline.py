@@ -4,44 +4,47 @@ import subprocess
 import sys
 import glob
 from pathlib import Path
+import os
 
 PYTHON = "python3"
 
 OUTPUT_JSON = "challenge3_neola/feature_challenge.json"
 PAGES_DIR = "challenge3_neola/pages"
 
-def run(cmd):
-    print(f"\nRunning: {cmd}")
+
+def run_quiet(cmd):
+    """Run a command silently unless an error occurs."""
     result = subprocess.run(cmd, shell=True)
     if result.returncode != 0:
-        print(f"Command failed: {cmd}")
+        print(f"[ERROR] Command failed: {cmd}")
         sys.exit(1)
-    print("Completed.")
+
 
 def main():
-    # Ensure pages folder exists
+
+    print("\n Challenge 3 Pipeline Started \n")
+
     Path(PAGES_DIR).mkdir(exist_ok=True)
 
-    # Step 1 - Generate JSON
-    run(f"{PYTHON} challenge3_neola/feature_challenge_generator.py "
-        f"challenge3_neola/animals.json {OUTPUT_JSON}")
+    print("• Generating challenge...")
+    run_quiet(
+        f"{PYTHON} challenge3_neola/feature_challenge_generator.py "
+        f"challenge3_neola/animals.json {OUTPUT_JSON}"
+    )
 
-    # Step 2 - Render markdown into pages/
-    run(f"{PYTHON} challenge3_neola/feature_challenge_renderer.py "
-        f"{OUTPUT_JSON} --multi --outdir {PAGES_DIR}")
+    print("• Rendering pages...")
+    run_quiet(
+        f"{PYTHON} challenge3_neola/feature_challenge_renderer.py "
+        f"{OUTPUT_JSON} --multi --outdir {PAGES_DIR}"
+    )
 
-    # Step 3 - Convert all markdown inside pages/ to HTML
-    md_files = glob.glob(f"{PAGES_DIR}/*.md")
-
-    if not md_files:
-        print("No markdown (.md) files found in pages/. Skipping HTML generation.")
-        return
-
+    print("• Converting to HTML...")
+    md_files = glob.glob(os.path.join(PAGES_DIR, '**', '*.md'), recursive=True)
     for f in md_files:
-        print(f"\nConverting {f} to HTML")
-        run(f"{PYTHON} challenge3_neola/markdown_to_html.py \"{f}\"")
+        run_quiet(f"{PYTHON} challenge3_neola/markdown_to_html.py \"{f}\"")
 
-    print("\nPipeline completed successfully. All files are in challenge3_neola/pages/.")
+    print("\n Challenge 3 Pipeline Complete \n")
+
 
 if __name__ == "__main__":
     main()
