@@ -1,50 +1,65 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Gal\u00e1pagos Tortoise",
+  "animal": "Harp Seal",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Brown, Grey"
+      "value": "Silver, Gray"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "Up to 183"
+      "value": "Up to 180"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 417"
+      "value": "Up to 160"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "100-150"
+      "value": "20-35"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Gal\u00e1pagos Islands"
+      "value": "Arctic, Atlantic Ocean"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Vulnerable"
+      "value": "Least Concern"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Gal\u00e1pagos Islands"
+      "value": "Arctic, Atlantic Ocean"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Herbivore"
+      "value": "Carnivore"
     },
     {
       "category": "Physical Features",
-      "label": "Has Tail",
+      "label": "Has Hair",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Teeth",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Produces Milk",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Fins",
       "value": "Yes"
     },
     {
@@ -59,21 +74,35 @@
     },
     {
       "category": "Biological Traits",
-      "label": "Lays Eggs",
+      "label": "Warm-Blooded",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Aquatic",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Is a Predator",
       "value": "Yes"
     },
     {
       "category": "Habitat & Environment",
       "label": "Social Structure",
-      "value": "Solitary"
+      "value": "Group-based"
     }
   ],
   "initial_hints": [
-    0,
-    1,
-    2,
+    4,
+    5,
     6,
-    9
+    12,
+    17
   ],
-  "max_additional_hints": 5
+  "max_additional_hints": 5,
+  "rarity_score": 0.03225806451612903,
+  "attribute_count": 31,
+  "dataset_plot": "plots/attribute_count_distribution.png",
+  "ai_hint_seed": "This social vertebrate thrives in Arctic and Atlantic waters."
 }
