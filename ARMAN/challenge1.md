@@ -4,12 +4,12 @@ Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Polar Bear**
-- **Giant Pacific Octopus**
+- **Galápagos Tortoise**
+- **Red-Eyed Tree Frog**
 - **Golden Poison Dart Frog**
-- **Spectacled Bear**
-- **Australian Fur Seal**
+- **African Lion**
+- **Atlantic Spotted Dolphin**
 
 ## Correct Order
 
-Giant Pacific Octopus → Golden Poison Dart Frog → Australian Fur Seal → Spectacled Bear → Polar Bear
+Red-Eyed Tree Frog → African Lion → Golden Poison Dart Frog → Atlantic Spotted Dolphin → Galápagos Tortoise
