@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-penguin",
+    "challenge_id": "hangman-auto-cheetah",
     "challenge_type": "hangman",
-    "word": "penguin",
+    "word": "cheetah",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Has a tail",
-            "text": "Yes",
-            "source_column": "Has a tail"
-        },
-        {
-            "label": "Has hair",
+            "label": "Venomous",
             "text": "No",
-            "source_column": "Has hair"
+            "source_column": "Venomous"
         },
         {
-            "label": "Has feathers",
+            "label": "Big cat sized",
             "text": "Yes",
-            "source_column": "Has feathers"
+            "source_column": "Big cat sized"
         },
         {
             "label": "Number of legs",
-            "text": "2",
+            "text": "4",
             "source_column": "Number of legs"
+        },
+        {
+            "label": "Has feathers",
+            "text": "No",
+            "source_column": "Has feathers"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 15
+        "row_index": 11
     }
 }

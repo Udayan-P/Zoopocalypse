@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
+Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Galápagos Tortoise**
-- **Glass Frog**
-- **Water Buffalo**
+- **Polar Bear**
+- **Giant Pacific Octopus**
+- **Golden Poison Dart Frog**
 - **Spectacled Bear**
-- **Western Gorilla**
+- **Australian Fur Seal**
 
 ## Correct Order
 
-Galápagos Tortoise → Glass Frog → Water Buffalo → Western Gorilla → Spectacled Bear
+Giant Pacific Octopus → Golden Poison Dart Frog → Australian Fur Seal → Spectacled Bear → Polar Bear

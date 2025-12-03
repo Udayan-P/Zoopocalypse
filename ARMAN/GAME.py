@@ -7,7 +7,7 @@ import time
 SCRIPTS = [
     r"ARMAN/json_generator.py",
     r"ARMAN/order_game_renderer.py",
-    #r"ARMAN/hint_generator.py",
+    r"ARMAN/hint_generator.py",
     r"ARMAN/html_generator.py",
 ]
 

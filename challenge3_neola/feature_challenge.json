@@ -1,31 +1,31 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Tuatara",
+  "animal": "Gal\u00e1pagos Tortoise",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Grayish-brown"
+      "value": "Brown, Grey"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "Up to 80"
+      "value": "Up to 183"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 1.5"
+      "value": "Up to 417"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "Up to 100"
+      "value": "100-150"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "New Zealand"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Geographic & Conservation",
@@ -35,21 +35,16 @@
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Islands, Coastal Areas"
+      "value": "Gal\u00e1pagos Islands"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Carnivore, Insectivore"
+      "value": "Herbivore"
     },
     {
       "category": "Physical Features",
       "label": "Has Tail",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Teeth",
       "value": "Yes"
     },
     {
@@ -69,21 +64,16 @@
     },
     {
       "category": "Habitat & Environment",
-      "label": "Is a Predator",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
       "label": "Social Structure",
       "value": "Solitary"
     }
   ],
   "initial_hints": [
+    0,
     1,
     2,
-    3,
-    10,
-    14
+    6,
+    9
   ],
   "max_additional_hints": 5
 }

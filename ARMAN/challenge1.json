@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Average Speed (km/h)",
+    "feature": "Lifespan (years)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Gal\u00e1pagos Tortoise",
-            "value": 0.4
+            "name": "Polar Bear",
+            "value": 27.5
         },
         {
-            "name": "Glass Frog",
-            "value": 0.8
+            "name": "Giant Pacific Octopus",
+            "value": 4.0
         },
         {
-            "name": "Water Buffalo",
-            "value": 40.0
+            "name": "Golden Poison Dart Frog",
+            "value": 13.5
         },
         {
             "name": "Spectacled Bear",
-            "value": 45.0
+            "value": 17.5
         },
         {
-            "name": "Western Gorilla",
-            "value": 40.0
+            "name": "Australian Fur Seal",
+            "value": 15.5
         }
     ],
     "correct_order": [
-        "Gal\u00e1pagos Tortoise",
-        "Glass Frog",
-        "Water Buffalo",
-        "Western Gorilla",
-        "Spectacled Bear"
+        "Giant Pacific Octopus",
+        "Golden Poison Dart Frog",
+        "Australian Fur Seal",
+        "Spectacled Bear",
+        "Polar Bear"
     ]
 }
