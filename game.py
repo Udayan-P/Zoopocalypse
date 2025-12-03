@@ -13,7 +13,7 @@ SCRIPTS = [
 
 md_files = [
     "challenge1.md",
-    "challenge2.md",
+    "Udayan/output/hangman_generated.md",
     "challenge3.md",
     "ARMAN/challenge1.md"
 ]
