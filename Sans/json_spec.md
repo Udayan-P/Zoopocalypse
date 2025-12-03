@@ -1,7 +1,7 @@
 # JSON Specification for "Guess the Animal From Pic" Challenge
 
 ## Description
-This challenge presents the user with an image of an animal and asks them to guess which animal it is. The challenge includes multiple-choice options, hints, and metadata required to render the puzzle.Further possible modifications of this challenge include reducing photo resolution to increase difficulty 
+This challenge presents the user with a blurred image of an animal and asks them to guess which animal it is. The challenge includes multiple-choice options, hints, and metadata required to render the puzzle.Further current modifications of this challenge include reducing photo resolution to increase difficulty 
 
 ## JSON Structure
 
@@ -45,7 +45,7 @@ The player must correctly identify the animal before their **points reach zero**
 - A correct guess:
   - Stops the challenge.
   - Reveals the image clearly.
-- If the player runs out of points, the challenge ends and a new animal can be loaded.
+- If the player runs out of points, the challenge ends and the animal is loaded again to guess.
 
 The JSON specification below describes everything needed to generate and render a single instance of this challenge.
 
@@ -152,6 +152,7 @@ This specification is deliberately **flexible** and **non‑repetitive**:
 - Difficulty can be tuned by:
   - Adjusting how informative each hint is,
   - Changing the number of hints,
+  - Increasing the blur effect of the image,
   - Choosing more or less confusable distractor animals in `options`.
 - Additional metadata fields (diet, habitat, predators, family, conservation status) make it easy to generate varied, meaningful hints automatically from the dataset rather than repeating the same pattern.
 
