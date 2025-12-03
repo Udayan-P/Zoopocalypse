@@ -1,0 +1,63 @@
+<a class="back-main" href="../../../game.html">← Main Menu</a>
+<style>.back-main {display:inline-block;padding:8px 16px;background:#3266d6;color:white !important;text-decoration:none;font-size:16px;border-radius:8px;font-weight:600;position:absolute;top:20px;left:20px;z-index:9999;box-shadow:0 2px 4px rgba(0,0,0,0.15);}.back-main:hover{background:#2854b8;}</style>
+
+# Feature Challenge: Identify the Animal
+## Instructions
+Use the revealed attributes to guess the hidden species.
+You have up to 2 wrong attempts before failure.
+
+---
+## Species
+### `[CENSORED]`
+---
+
+### Descriptive Profile
+- **Color:** Tan (revealed)
+- **Height:** `[CENSORED]`
+- **Weight:** `[CENSORED]`
+- **Lifespan:** `[CENSORED]`
+
+### Geographic & Conservation
+- **Countries Found:** Africa (revealed)
+- **Conservation Status:** Vulnerable (revealed)
+- **Habitat:** `[CENSORED]`
+
+### Diet
+- **Diet Type:** Carnivore (revealed)
+
+### Physical Features
+- **Has Hair:** `[CENSORED]`
+- **Has Tail:** Yes (hint)
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** Yes (hint)
+
+### Biological Traits
+- **Has Backbone:** `[CENSORED]`
+- **Breathes Air:** Yes (revealed)
+- **Warm-Blooded:** `[CENSORED]`
+
+### Habitat & Environment
+- **Is a Predator:** `[CENSORED]`
+- **Social Structure:** Group-based (hint)
+
+<p style='text-align:center;'><strong>Hints Remaining:</strong> 0 | <strong>Wrong Attempts:</strong> 1/2</p>
+
+## Choose the Species
+
+<div class="mcq-grid">
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Hedgehog</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Ocelot</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Beaver</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wolf</a>
+    <a class="mcq-card" href="../answer/feature_challenge_answer.html">African Lion</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wombat</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Cheetah</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Leopard</a>
+</div>
+
+
+[Try Again](../stage_3/feature_challenge_hint3_a1.html) | [Reveal Answer](../answer/feature_challenge_answer.html) | [AI Hint](javascript:toggle_ai_hint())
+
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A milk-producing predator, 80-110, weighing 120-250, living 10-14 years.</div>
+
+<script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>
