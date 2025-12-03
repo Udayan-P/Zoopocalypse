@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Octopus 2.jpg",
+    "image": "Dataset/Images/Leopard.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "platypus",
-        "aardvark",
-        "octopus",
-        "boar"
+        "lion",
+        "vulture",
+        "leopard",
+        "lynx"
     ],
-    "answer": "octopus",
+    "answer": "leopard",
     "hints": [
         "This animal is primarily a carnivore.",
-        "It typically lives in ocean floor.",
-        "Its main predators include fish, sharks.",
-        "It belongs to the Enteroctopodidae family."
+        "It typically lives in mountains, steppes.",
+        "Its main predators include humans, wolves.",
+        "It belongs to the Felidae family."
     ]
 }

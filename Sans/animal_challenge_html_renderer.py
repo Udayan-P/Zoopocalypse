@@ -44,8 +44,57 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       font-size: 1.3rem;
     }}
     .points {{
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
       font-weight: 600;
+    }}
+    .controls {{
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }}
+    .controls-btn {{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.1rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 209, 102, 0.7);
+      background: radial-gradient(circle at top left, #2a2438 0, #181818 45%, #100f1a 100%);
+      color: #fef9e7;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      box-shadow: 0 0 14px rgba(255, 209, 102, 0.25);
+    }}
+    .controls-btn:hover {{
+      background: radial-gradient(circle at top left, #3b3050 0, #201f30 60%, #100f1a 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(255, 209, 102, 0.4);
+      border-color: rgba(255, 235, 167, 0.9);
+    }}
+    .controls-btn:active {{
+      transform: translateY(0);
+      box-shadow: 0 0 10px rgba(255, 209, 102, 0.3);
+    }}
+    .controls-btn:disabled {{
+      cursor: default;
+      opacity: 0.55;
+      box-shadow: none;
+      border-color: rgba(255, 255, 255, 0.18);
+    }}
+    .controls-btn .label {{
+      font-size: 0.82rem;
+    }}
+    .controls-btn .caption {{
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      color: rgba(255, 249, 231, 0.75);
     }}
     .options {{
       display: flex;
@@ -214,11 +263,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <div class="instructions-content">
       <h3>How to Play</h3>
       <p>
-        The picture starts <span>blurred</span>. Each time you reveal a hint, the image becomes
-        clearer — but you lose <span>1 point</span>.
+        The picture starts <span>blurred</span>. You can either reveal a <span>hint</span>
+        or reveal more of the <span>image</span> — each choice costs <span>1 point</span>.
       </p>
       <p>
-        Use the hints wisely and pick the correct animal before your points reach zero.
+        Spend your points wisely and pick the correct animal before your points reach zero.
       </p>
     </div>
   </div> 
@@ -236,6 +285,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <div class="points">
       Points remaining: <span id="points-value">3</span>
+    </div>
+
+    <div class="controls">
+      <button id="unblur-btn" class="controls-btn">
+        <span class="label">Reveal more of the image</span>
+        <span class="caption">Costs 1 point • sharpens the picture</span>
+      </button>
     </div>
 
     <div class="message" id="message-area"></div>
@@ -277,34 +333,69 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     const pointsSpan = document.getElementById("points-value");
     const messageArea = document.getElementById("message-area");
     const hintDetails = document.querySelectorAll("details.hint");
+    const unblurBtn = document.getElementById("unblur-btn");
 
+    function spendPointAndMaybeEnd() {{
+      if (points > 0) {{
+        points -= 1;
+        pointsSpan.textContent = points;
+      }}
+      if (points <= 0) {{
+        points = 0;
+        pointsSpan.textContent = points;
+        // lock interactions
+        if (unblurBtn) {{
+          unblurBtn.disabled = true;
+        }}
+        hintDetails.forEach((d) => {{
+          const sum = d.querySelector("summary");
+          if (sum) {{
+            sum.style.pointerEvents = "none";
+            sum.style.opacity = "0.6";
+          }}
+        }});
+        optionButtons.forEach((b) => {{
+          b.disabled = true;
+        }});
+        messageArea.textContent =
+          "You have used all your points. Restarting with a new animal...";
+        restartChallenge();
+      }}
+    }}
+
+    // Hints: cost 1 point, NO automatic unblur now
     hintDetails.forEach((detailsEl) => {{
       const summary = detailsEl.querySelector("summary");
       detailsEl.dataset.used = "false";
 
       summary.addEventListener("click", () => {{
-        if (solved || detailsEl.dataset.used === "true") {{
+        if (solved || detailsEl.dataset.used === "true" || points <= 0) {{
           return;
         }}
         detailsEl.dataset.used = "true";
 
-        if (points > 0) {{
-          points -= 1;
-          pointsSpan.textContent = points;
-        }}
-
-        blurLevel -= blurStep;
-        updateImageBlur();
-
-        if (points <= 0) {{
-          points = 0;
-          pointsSpan.textContent = points;
-          messageArea.textContent =
-            "You have used all your hints. Restarting with a new animal...";
-          restartChallenge();
-        }}
+        spendPointAndMaybeEnd();
       }});
     }});
+
+    // Unblur button: also costs 1 point, but only changes the image clarity
+    if (unblurBtn) {{
+      unblurBtn.addEventListener("click", () => {{
+        if (solved || points <= 0) {{
+          return;
+        }}
+
+        // spend a point
+        spendPointAndMaybeEnd();
+        if (points === 0) {{
+          return;
+        }}
+
+        // reduce blur
+        blurLevel -= blurStep;
+        updateImageBlur();
+      }});
+    }}
 
     // ------ OPTIONS (GUESSING) ------
     const challengeCard = document.getElementById("challenge");
@@ -313,7 +404,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     optionButtons.forEach((btn) => {{
       btn.addEventListener("click", () => {{
-        if (solved) {{
+        if (solved || points <= 0) {{
           return;
         }}
         optionButtons.forEach((b) => {{
@@ -331,29 +422,27 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           img.style.filter = "blur(0px)";
           img.style.opacity = "1";
 
-          // NEED TO lock the challenge: mark as solved and disable all options
-          //lowk okay but  the hints still show after points = 0 , NEED FIX!
+          // lock the challenge
           solved = true;
           optionButtons.forEach((b) => {{
             b.disabled = true;
           }});
+          if (unblurBtn) {{
+            unblurBtn.disabled = true;
+          }}
+          hintDetails.forEach((d) => {{
+            const sum = d.querySelector("summary");
+            if (sum) {{
+              sum.style.pointerEvents = "none";
+              sum.style.opacity = "0.6";
+            }}
+          }});
 
         }} else {{
           btn.classList.add("incorrect");
-          messageArea.textContent = "Not quite. Try again or use a hint.";
+          messageArea.textContent = "Not quite. Try again or use a hint or image reveal.";
 
-          if (points > 0) {{
-            points -= 1;
-            pointsSpan.textContent = points;
-          }}
-
-          if (points <= 0) {{
-            points = 0;
-            pointsSpan.textContent = points;
-            messageArea.textContent =
-              "You have used all your points. Restarting with a new animal...";
-            restartChallenge();
-          }}
+          spendPointAndMaybeEnd();
         }}
       }});
     }});
