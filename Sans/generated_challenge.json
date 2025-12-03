@@ -1,18 +1,18 @@
 {
     "challenge_id": "animal_001",
-    "image": "Dataset/Images/Gorilla 2.jpg",
+    "image": "Dataset/Images/Octopus 2.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "gorilla",
         "platypus",
-        "frog",
-        "bear"
+        "aardvark",
+        "octopus",
+        "boar"
     ],
-    "answer": "gorilla",
+    "answer": "octopus",
     "hints": [
-        "This animal is primarily a herbivore.",
-        "It typically lives in rainforests, mountains.",
-        "Its main predators include leopards, humans.",
-        "It belongs to the Hominidae family."
+        "This animal is primarily a carnivore.",
+        "It typically lives in ocean floor.",
+        "Its main predators include fish, sharks.",
+        "It belongs to the Enteroctopodidae family."
     ]
 }

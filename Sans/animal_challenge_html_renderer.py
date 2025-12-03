@@ -149,38 +149,78 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     }}
     
     .instructions {{
-      background: rgba(255,255,255,0.05);
-      border: 2px solid rgba(255,255,255,0.1);
-      padding: 1rem 1.2rem;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(4px);
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 1.8rem auto;
+      padding: 1rem 1.4rem 1.1rem 1.4rem;
+      border-radius: 14px;
+      background: radial-gradient(circle at top left, rgba(255, 209, 102, 0.12), rgba(17, 17, 17, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+    }}
+
+    .instructions::before {{
+      content: "★";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 999px;
+      background: rgba(255, 209, 102, 0.16);
+      border: 1px solid rgba(255, 209, 102, 0.7);
+      color: #ffd166;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+      margin-top: 0.1rem;
+    }}
+
+    .instructions-content {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }}
 
     .instructions h3 {{
-      margin: 0 0 0.4rem 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #ffd166;
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ffe29f;
     }}
 
     .instructions p {{
       margin: 0;
-      line-height: 1.4;
-      font-size: 0.95rem;
-      color: #f0f0f0;
+      line-height: 1.5;
+      font-size: 0.93rem;
+      color: #f7f7f7;
+    }}
+
+    .instructions p span {{
+      color: #ffd166;
+      font-weight: 600;
     }}
   </style>
 </head>
 <body>
   
   <div class="instructions">
-    <h3>🔍 How to Play</h3>
-    <p>
-      The image begins blurred. Use hints to make the picture clearer — 
-      but each hint costs 1 point!  
-      Choose the correct animal before your points run out.
-    </p>
+    <div class="instructions-content">
+      <h3>How to Play</h3>
+      <p>
+        The picture starts <span>blurred</span>. Each time you reveal a hint, the image becomes
+        clearer — but you lose <span>1 point</span>.
+      </p>
+      <p>
+        Use the hints wisely and pick the correct animal before your points reach zero.
+      </p>
+    </div>
   </div> 
   
   <div class="card" id="challenge" data-answer="{answer}">
@@ -292,7 +332,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           img.style.opacity = "1";
 
           // NEED TO lock the challenge: mark as solved and disable all options
-          //lowk why does the hints still show after points = 0 , NEED FIX!
+          //lowk okay but  the hints still show after points = 0 , NEED FIX!
           solved = true;
           optionButtons.forEach((b) => {{
             b.disabled = true;
