@@ -2,9 +2,8 @@ import os
 
 def generate_patterns(randomized_list, correct_order):
     patterns = []
-    for animal in randomized_list:
-        
-        rank = correct_order.index(animal) + 1
+    for animal in correct_order:
+        rank = randomized_list.index(animal) + 1
         patterns.append(rank)
     return patterns
 
@@ -20,20 +19,20 @@ pattern = []
 with open(MD_FILE, "r") as f:
     lines = [line.strip() for line in f]
 
-mode = None 
+mode = None
 
 for line in lines:
 
     if "Sort the animals" in line:
         start = line.find("by their") + len("by their ")
         end = line.find(", from")
-        challenge_type = line[start:end].strip()
-        challenge_type = challenge_type.replace("**", "")
+        challenge_type = line[start:end].strip().replace("**", "")
         continue
 
     elif line.startswith("## Animals"):
         mode = "animals"
         continue
+
     elif line.startswith("## Correct Order"):
         mode = "correct"
         continue
@@ -47,7 +46,11 @@ for line in lines:
         if "→" in line:
             correct_order = [x.strip() for x in line.split("→")]
 
+print(correct_order)
+print(animals)
+
 pattern = generate_patterns(animals, correct_order)
+print(pattern)
 
 challenge_html = f"""<!DOCTYPE html>
 <html>
@@ -55,19 +58,78 @@ challenge_html = f"""<!DOCTYPE html>
     <meta charset="UTF-8">
     <title>Animal Sorting Challenge</title>
     <link rel="stylesheet" href="style.css">
+
+<style>
+
+.dropdown-card {{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    cursor: pointer;
+    background: #fafafa;
+    transition: 0.2s;
+}}
+
+.dropdown-card:hover {{
+    background: #f0f0f0;
+}}
+
+.dropdown-card label {{
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}}
+
+.dropdown-checkbox {{
+    display: none;
+}}
+
+.dropdown-content {{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}}
+
+.dropdown-checkbox:checked + .dropdown-content {{
+    max-height: 400px;
+}}
+
+.dropdown-content img {{
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 6px;
+}}
+</style>
 </head>
 <body>
 
 <a class="back-main" href="../../game.html">← Main Menu</a>
 
 <h1>Animal Sorting Challenge</h1>
-<p>Sort the animals by <strong>smallest → largest</strong> weight.</p>
+<p>Sort the animals by <strong>smallest → largest</strong> {challenge_type}.</p>
+
+<p>(For hints click on the animal names to reveal AI generated image of the animals)</p>
 
 <div class="animal-list">
 """
 
-for i, a in enumerate(animals, start=1):
-    challenge_html += f"    <p>{i}. {a}</p>\n"
+# PURE HTML+CSS DROPDOWNS (NO JS)
+count = 1
+for i, animal in enumerate(animals, start=1):
+
+    checkbox_id = f"dropdown_{i}"
+
+    challenge_html += f"""
+    <div class="dropdown-card">
+        <label for="{checkbox_id}">{i}. {animal}</label>
+        <input type="checkbox" id="{checkbox_id}" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/{count}.png" alt="{animal}">
+        </div>
+    </div>
+"""
+    count += 1
 
 challenge_html += """
 </div>
@@ -78,20 +140,13 @@ challenge_html += """
     <div class="inputs">
 """
 
-#for i in range(1, len(animals) + 1):
-#    challenge_html += (
-#        f'        <input type="text" placeholder="Enter only the number" required>\n'
-#    )
-
-for i, p in enumerate(pattern, start=1):
+for p in pattern:
     challenge_html += f'<input type="text" placeholder="Number Only" pattern="{p}" required>\n'
 
-
-challenge_html += """    </div>
+challenge_html += """
+    </div>
     <button type="submit">Check Answer →</button>
 </form>
-
-<a href="hints.html" class="hint-link">Need Hints?</a>
 
 </body>
 </html>
@@ -99,52 +154,6 @@ challenge_html += """    </div>
 
 with open(f"{OUT_DIR}/challenge.html", "w") as f:
     f.write(challenge_html)
-
-image_map = {
-    "Platypus": "images/platypus.jpg",
-    "Emperor Penguin": "images/emperor_penguin.jpg",
-    "Western Gorilla": "images/western_gorilla.jpg",
-    "African Lion": "images/african_lion.jpg",
-    "Asian Elephant": "images/asian_elephant.jpg"
-}
-
-hints_html = """<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Hints</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<a class="back-main" href="../../game.html">← Main Menu</a>
-
-<h1>Hints</h1>
-<p>Here are the animals with images.</p>
-
-<div class="hints-grid">
-"""
-
-for animal in animals:
-    img = image_map.get(animal, "images/default.jpg")
-    hints_html += f"""
-    <div class="hint-item">
-        <img src="{img}" alt="{animal}">
-        <p>{animal}</p>
-    </div>
-"""
-
-hints_html += """
-</div>
-
-<a href="challenge.html" class="back-link">← Back to Challenge</a>
-
-</body>
-</html>
-"""
-
-with open(f"{OUT_DIR}/hints.html", "w") as f:
-    f.write(hints_html)
 
 
 results_html = f"""<!DOCTYPE html>

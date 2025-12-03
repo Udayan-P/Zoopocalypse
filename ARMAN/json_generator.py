@@ -26,21 +26,43 @@ class AnimalSortingGenerator:
         a = random.choice(self.valid_columns)
         return a
 
-    def pick_animals(self, n=5, feature = "Height (cm)"):
-        sample_rows = self.df.sample(5)
-        sample_rows = sample_rows[["Animal", feature]]
-        wrong_format = 0
-        s = str(sample_rows[feature]).strip().lower()
-        if "varies" or "not applicable" in s:
-            wrong_format = 1
+    #def pick_animals(self, n=5, feature = "Height (cm)"):
+    #    sample_rows = self.df.sample(5)
+    #    sample_rows = sample_rows[["Animal", feature]]
+    #    wrong_format = 0
+    #    s = str(sample_rows[feature]).strip().lower()
+    #    if "varies" not in s and "not applicable" not in s:
+    #        wrong_format = 1
+#
+    #    while wrong_format == 1:
+    #        sample_rows = self.df.sample(5)
+    #        sample_rows = sample_rows[["Animal", feature]]
+    #        s = str(sample_rows[feature]).strip().lower()
+    #        if "varies" not in s and "not applicable" not in s:
+    #            wrong_format = 0
+    #    print(s)
+    #    return sample_rows
 
-        while wrong_format == 1:
-            sample_rows = self.df.sample(5)
-            sample_rows = sample_rows[["Animal", feature]]
-            s = str(sample_rows[feature]).strip().lower()
-            if "varies" or "not applicable" not in s: 
-                wrong_format = 0
-        return sample_rows
+    def pick_animals(self, n=5, feature="Height (cm)"):
+        def has_bad_value(value: str) -> bool:
+            if not isinstance(value, str):
+                value = str(value)
+            v = value.strip().lower()
+            return (
+                "varies" in v
+                or "not applicable" in v
+                or "n/a" in v
+                or "not available" in v
+                or v == "" 
+                or v == "unknown"
+            )
+
+        while True:
+            sample_rows = self.df.sample(n)[["Animal", feature]]
+            bad_found = any(has_bad_value(val) for val in sample_rows[feature])
+
+            if not bad_found:
+                return sample_rows
     
 
     def parse_feature_value(self, raw, challenge_type):

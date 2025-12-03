@@ -4,20 +4,100 @@
     <meta charset="UTF-8">
     <title>Animal Sorting Challenge</title>
     <link rel="stylesheet" href="style.css">
+
+<style>
+
+.dropdown-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 12px 0;
+    cursor: pointer;
+    background: #fafafa;
+    transition: 0.2s;
+}
+
+.dropdown-card:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-card label {
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.dropdown-checkbox {
+    display: none;
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.dropdown-checkbox:checked + .dropdown-content {
+    max-height: 400px;
+}
+
+.dropdown-content img {
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+</style>
 </head>
 <body>
 
 <a class="back-main" href="../../game.html">← Main Menu</a>
 
 <h1>Animal Sorting Challenge</h1>
-<p>Sort the animals by <strong>smallest → largest</strong> weight.</p>
+<p>Sort the animals by <strong>smallest → largest</strong> Lifespan (years).</p>
+
+<p>(For hints click on the animal names to reveal AI generated image of the animals)</p>
 
 <div class="animal-list">
-    <p>1. Yellow-Eyed Penguin</p>
-    <p>2. Snow Leopard</p>
-    <p>3. Galápagos Penguin</p>
-    <p>4. Water Buffalo</p>
-    <p>5. Western Lowland Gorilla</p>
+
+    <div class="dropdown-card">
+        <label for="dropdown_1">1. Western Lowland Gorilla</label>
+        <input type="checkbox" id="dropdown_1" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/1.png" alt="Western Lowland Gorilla">
+        </div>
+    </div>
+
+    <div class="dropdown-card">
+        <label for="dropdown_2">2. Spectacled Bear</label>
+        <input type="checkbox" id="dropdown_2" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/2.png" alt="Spectacled Bear">
+        </div>
+    </div>
+
+    <div class="dropdown-card">
+        <label for="dropdown_3">3. Aardvark</label>
+        <input type="checkbox" id="dropdown_3" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/3.png" alt="Aardvark">
+        </div>
+    </div>
+
+    <div class="dropdown-card">
+        <label for="dropdown_4">4. Snow Leopard</label>
+        <input type="checkbox" id="dropdown_4" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/4.png" alt="Snow Leopard">
+        </div>
+    </div>
+
+    <div class="dropdown-card">
+        <label for="dropdown_5">5. Sun Bear</label>
+        <input type="checkbox" id="dropdown_5" class="dropdown-checkbox">
+        <div class="dropdown-content">
+            <img src="../generated_animal_images/5.png" alt="Sun Bear">
+        </div>
+    </div>
 
 </div>
 
@@ -25,16 +105,15 @@
 
 <form action="results.html" method="get">
     <div class="inputs">
-<input type="text" placeholder="Number Only" pattern="1" required>
-<input type="text" placeholder="Number Only" pattern="3" required>
-<input type="text" placeholder="Number Only" pattern="2" required>
-<input type="text" placeholder="Number Only" pattern="5" required>
 <input type="text" placeholder="Number Only" pattern="4" required>
+<input type="text" placeholder="Number Only" pattern="2" required>
+<input type="text" placeholder="Number Only" pattern="3" required>
+<input type="text" placeholder="Number Only" pattern="5" required>
+<input type="text" placeholder="Number Only" pattern="1" required>
+
     </div>
     <button type="submit">Check Answer →</button>
 </form>
-
-<a href="hints.html" class="hint-link">Need Hints?</a>
 
 </body>
 </html>

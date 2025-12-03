@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Weight (kg)**, from **smallest → largest**.
+Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
 
 ## Animals
 
-- **Western Lowland Gorilla**
-- **Water Buffalo**
-- **Galápagos Penguin**
-- **Snow Leopard**
-- **Yellow-Eyed Penguin**
+- **Polar Bear**
+- **Giant Pacific Octopus**
+- **Golden Poison Dart Frog**
+- **Spectacled Bear**
+- **Australian Fur Seal**
 
 ## Correct Order
 
-Yellow-Eyed Penguin → Galápagos Penguin → Snow Leopard → Western Lowland Gorilla → Water Buffalo
+Giant Pacific Octopus → Golden Poison Dart Frog → Australian Fur Seal → Spectacled Bear → Polar Bear

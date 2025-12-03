@@ -1,0 +1,18 @@
+{
+    "challenge_id": "animal_001",
+    "image": "Dataset/Images/Lion.jpg",
+    "question": "Which animal is shown in this picture?",
+    "options": [
+        "frog",
+        "leopard",
+        "dolphin",
+        "lion"
+    ],
+    "answer": "lion",
+    "hints": [
+        "This animal is primarily a carnivore.",
+        "It typically lives in grasslands, savannas.",
+        "Its main predators include hyenas, crocodiles.",
+        "It belongs to the Felidae family."
+    ]
+}

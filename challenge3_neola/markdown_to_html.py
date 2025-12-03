@@ -10,6 +10,7 @@ except ImportError:
     print("Error: markdown library not installed. Install with: pip install markdown")
     sys.exit(1)
 
+
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <title>Feature Challenge</title>
 
 <style>
+/* Full CSS preserved exactly as before */
 body {{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #eef1f4;
@@ -25,7 +27,6 @@ body {{
     padding: 30px 10px;
     line-height: 1.6;
 }}
-
 .container {{
     max-width: 940px;
     margin: auto;
@@ -34,7 +35,6 @@ body {{
     border-radius: 14px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.10);
 }}
-
 .header-card {{
     border-radius: 16px;
     padding: 36px 40px;
@@ -43,7 +43,6 @@ body {{
     background: #ffffff;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
 }}
-
 .header-title-block {{
     text-align: center;
     background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
@@ -51,27 +50,23 @@ body {{
     border-radius: 14px;
     border: 1px solid #e2e8f0;
 }}
-
 .header-title {{
     font-size: 2.1rem;
     font-weight: 800;
     color: #1e293b;
     margin: 0;
 }}
-
 .header-sub {{
     font-size: 1.05rem;
     color: #475569;
     margin-top: 6px;
 }}
-
 .header-divider {{
     width: 100%;
     height: 1px;
     background: #d4d7db;
     margin: 26px 0 26px;
 }}
-
 .instructions {{
     background: #fff7d6;
     padding: 18px 22px;
@@ -79,7 +74,6 @@ body {{
     border-radius: 8px;
     font-size: 0.95rem;
 }}
-
 .category-card {{
     background: linear-gradient(180deg, #ffffff 0%, #f7f9fb 100%);
     padding: 22px 26px;
@@ -89,14 +83,12 @@ body {{
     margin-bottom: 32px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }}
-
 .category-card h3 {{
     margin-top: 0;
     font-size: 1.15rem;
     color: #111827;
     font-weight: 700;
 }}
-
 .species-block {{
     margin: 32px auto 36px;
     padding: 32px 32px;
@@ -108,7 +100,6 @@ body {{
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.08);
 }}
-
 .species-title {{
     font-size: 0.95rem;
     color: #3b4a5a;
@@ -116,13 +107,11 @@ body {{
     margin-bottom: 12px;
     font-weight: 600;
 }}
-
 .species-value {{
     font-size: 1.7rem;
     font-weight: 700;
     color: #1f2937;
 }}
-
 .censored {{
     display: inline-block;
     vertical-align: middle;
@@ -135,7 +124,6 @@ body {{
     color: transparent;
     margin: 4px 6px;
 }}
-
 .revealed-tag {{
     background: #27ae60;
     color: white;
@@ -144,7 +132,6 @@ body {{
     font-size: 0.75rem;
     margin-left: 8px;
 }}
-
 .hint-tag {{
     background: #0ea5e9;
     color: white;
@@ -153,14 +140,12 @@ body {{
     font-size: 0.75rem;
     margin-left: 8px;
 }}
-
 .mcq-grid {{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px 18px;
     margin: 22px 0 30px;
 }}
-
 .mcq-card {{
     display: block;
     padding: 16px 20px;
@@ -176,12 +161,10 @@ body {{
     transition: 0.2s ease;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }}
-
 .mcq-card:hover {{
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }}
-
 .status-card {{
     margin: 26px 0;
     padding: 20px 24px;
@@ -189,25 +172,21 @@ body {{
     border: 1px solid #e5e7eb;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
 }}
-
 .status-card--wrong {{
     background: #fef2f2;
     border-color: #fecaca;
     color: #991b1b;
 }}
-
 .status-card--fail {{
     background: #fff7ed;
     border-color: #fed7aa;
     color: #9a3412;
 }}
-
 .status-card--correct {{
     background: #ecfdf3;
     border-color: #bbf7d0;
     color: #166534;
 }}
-
 .button-row {{
     margin-top: 28px;
     display: flex;
@@ -215,7 +194,6 @@ body {{
     flex-wrap: wrap;
     justify-content: center;
 }}
-
 .btn {{
     padding: 10px 20px;
     border-radius: 12px;
@@ -227,7 +205,6 @@ body {{
     border: 1px solid rgba(209,213,219,0.9);
     backdrop-filter: blur(6px);
 }}
-
 </style>
 </head>
 <body>
@@ -239,8 +216,8 @@ body {{
 </html>
 """
 
-def convert_markdown_to_html(md_content):
 
+def convert_markdown_to_html(md_content):
     html = markdown.markdown(md_content, extensions=["extra"])
 
     header_match = re.search(
@@ -265,11 +242,6 @@ def convert_markdown_to_html(md_content):
         <div class="instructions">{raw}</div>
     """
 
-    # ---------------------------------------------------
-    # UNIFIED SPECIES BLOCK (same HTML for ALL pages)
-    # ---------------------------------------------------
-
-    # Replace censored species header
     html_body = re.sub(
         r"<h3>\[CENSORED\]</h3>",
         (
@@ -281,7 +253,6 @@ def convert_markdown_to_html(md_content):
         html_body,
     )
 
-    # Replace answer page text with the SAME species block
     html_body = re.sub(
         r"The animal was:\s*<strong>(.*?)</strong>",
         (
@@ -294,21 +265,17 @@ def convert_markdown_to_html(md_content):
         flags=re.DOTALL,
     )
 
-    # Convert censored inline tag
     html_body = html_body.replace("<code>[CENSORED]</code>", '<span class="censored">[CENSORED]</span>')
 
-    # Tag replacements
     html_body = re.sub(r"\(revealed\)", '<span class="revealed-tag">revealed</span>', html_body)
     html_body = re.sub(r"\(hint\)", '<span class="hint-tag">hint</span>', html_body)
 
-    # Wrap category cards
     html_body = re.sub(
         r"(<h3>[^<]+</h3>\s*<ul>[\s\S]*?</ul>)",
         r'<div class="category-card">\1</div>',
         html_body,
     )
 
-    # Convert button rows
     def convert_buttons(match):
         block = match.group(0)
         links = re.findall(r'<a href="([^"]+)">(.*?)</a>', block)
@@ -333,14 +300,22 @@ def main():
         print("Usage: python markdown_to_html.py <input.md> [output.html]")
         sys.exit(1)
 
-    md_path = sys.argv[1]
-    out_path = sys.argv[2] if len(sys.argv) > 2 else md_path.replace(".md", ".html")
-    
+    md_path = Path(sys.argv[1])
+
+    if not md_path.exists():
+        print(f"Error: Markdown file not found -> {md_path}")
+        sys.exit(1)
+
+    out_path = (
+        Path(sys.argv[2])
+        if len(sys.argv) > 2
+        else md_path.with_suffix(".html")
+    )
 
     with open(md_path, "r", encoding="utf-8") as f:
-        md = f.read()
+        md_content = f.read()
 
-    header_html, body_html = convert_markdown_to_html(md)
+    header_html, body_html = convert_markdown_to_html(md_content)
 
     rendered = HTML_TEMPLATE.format(
         header_content=header_html,
