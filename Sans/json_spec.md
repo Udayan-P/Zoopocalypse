@@ -29,6 +29,7 @@ Each challenge is represented by a JSON object with the following fields:
     "It is native to Asia."
   ]
 }
+```
 # JSON Specification for “Guess the Animal From Pic” Challenge
 
 ## 1. Challenge overview
