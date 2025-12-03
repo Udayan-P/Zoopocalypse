@@ -12,28 +12,33 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Brown, Grey (revealed)
-- **Height:** `[CENSORED]`
-- **Weight:** Up to 417 (revealed)
+- **Color:** `[CENSORED]`
+- **Height:** 200-250 (revealed)
+- **Weight:** `[CENSORED]`
 - **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** `[CENSORED]`
-- **Conservation Status:** Vulnerable (revealed)
+- **Countries Found:** Worldwide (revealed)
+- **Conservation Status:** `[CENSORED]`
 - **Habitat:** `[CENSORED]`
 
 ### Diet
-- **Diet Type:** Herbivore (revealed)
+- **Diet Type:** Carnivore (revealed)
 
 ### Physical Features
-- **Has Tail:** Yes (revealed)
+- **Has Tail:** Yes (hint)
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** `[CENSORED]`
+- **Has Fins:** `[CENSORED]`
 
 ### Biological Traits
 - **Has Backbone:** `[CENSORED]`
 - **Breathes Air:** `[CENSORED]`
-- **Lays Eggs:** Yes (hint)
+- **Warm-Blooded:** `[CENSORED]`
 
 ### Habitat & Environment
+- **Aquatic:** Yes (revealed)
+- **Is a Predator:** Yes (revealed)
 - **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 4</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 2 / 3</span></p>
@@ -41,14 +46,14 @@ You have up to 3 wrong attempts before failure.
 ## Choose the Species
 
 <div class="mcq-grid">
+    <a class="mcq-card" href="feature_challenge_fail.html">Hedgehog</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Jaguar</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Fox</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Kangaroo</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Galápagos Tortoise</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Leopard</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Wombat</a>
-    <a class="mcq-card" href="feature_challenge_fail.html">Badger</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Atlantic Spotted Dolphin</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Otter</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Koala</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Ocelot</a>
     <a class="mcq-card" href="feature_challenge_fail.html">Serval</a>
+    <a class="mcq-card" href="feature_challenge_fail.html">Beaver</a>
 </div>
 
 

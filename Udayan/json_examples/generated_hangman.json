@@ -1,32 +1,32 @@
 {
-    "challenge_id": "hangman-auto-seal",
+    "challenge_id": "hangman-auto-penguin",
     "challenge_type": "hangman",
-    "word": "seal",
+    "word": "penguin",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Aquatic",
+            "label": "Has feathers",
             "text": "Yes",
-            "source_column": "Aquatic"
+            "source_column": "Has feathers"
         },
         {
-            "label": "Has a tail",
+            "label": "Domestic animal",
             "text": "No",
-            "source_column": "Has a tail"
-        },
-        {
-            "label": "Produces milk",
-            "text": "Yes",
-            "source_column": "Produces milk"
+            "source_column": "Domestic animal"
         },
         {
             "label": "Can fly",
             "text": "No",
             "source_column": "Can fly"
+        },
+        {
+            "label": "Aquatic",
+            "text": "Yes",
+            "source_column": "Aquatic"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 20
+        "row_index": 38
     }
 }

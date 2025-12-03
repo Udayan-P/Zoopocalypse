@@ -1,22 +1,22 @@
 {
     "challenge_id": "animal_001",
-    "image": "/Users/sanskriti/Desktop/durham\ud83c\udf37/animalchallenge/Sans/Dataset/Images/Aardvark.jpg",
+    "image": "/Users/sanskriti/Desktop/durham\ud83c\udf37/animalchallenge/Sans/Dataset/Images/Dolphin.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "elephant",
-        "penguin",
-        "frog",
-        "bear",
-        "termite",
+        "lynx",
+        "boar",
+        "oryx",
+        "platypus",
         "leopard",
-        "mole",
-        "aardvark"
+        "dolphin",
+        "termite",
+        "frog"
     ],
-    "answer": "aardvark",
+    "answer": "dolphin",
     "hints": [
-        "This animal is primarily a insectivore.",
-        "It typically lives in savannas, grasslands.",
-        "Its main predators include lions, hyenas.",
-        "It belongs to the Orycteropodidae family."
+        "This animal is primarily a carnivore.",
+        "It typically lives in oceans, coastal areas.",
+        "Its main predators include sharks, orcas.",
+        "It belongs to the Delphinidae family."
     ]
 }

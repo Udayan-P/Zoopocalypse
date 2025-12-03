@@ -4,32 +4,37 @@
 # Challenge Failed
 ## You used all your attempts.
 
-The correct species was: **Galápagos Tortoise**.
+The correct species was: **Atlantic Spotted Dolphin**.
 ---
 
 ### Descriptive Profile
-- **Color:** Brown, Grey
-- **Height:** Up to 183
-- **Weight:** Up to 417
-- **Lifespan:** 100-150
+- **Color:** Gray, White
+- **Height:** 200-250
+- **Weight:** 120-140
+- **Lifespan:** 20-25
 
 ### Geographic & Conservation
-- **Countries Found:** Galápagos Islands
-- **Conservation Status:** Vulnerable
-- **Habitat:** Galápagos Islands
+- **Countries Found:** Worldwide
+- **Conservation Status:** Least Concern
+- **Habitat:** Oceans, Coastal Areas
 
 ### Diet
-- **Diet Type:** Herbivore
+- **Diet Type:** Carnivore
 
 ### Physical Features
 - **Has Tail:** Yes
+- **Has Teeth:** Yes
+- **Produces Milk:** Yes
+- **Has Fins:** Yes
 
 ### Biological Traits
 - **Has Backbone:** Yes
 - **Breathes Air:** Yes
-- **Lays Eggs:** Yes
+- **Warm-Blooded:** Yes
 
 ### Habitat & Environment
-- **Social Structure:** Solitary
+- **Aquatic:** Yes
+- **Is a Predator:** Yes
+- **Social Structure:** Group-based
 
 [Try Again from Start](feature_challenge_hint0_a0.html)

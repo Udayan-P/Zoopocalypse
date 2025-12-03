@@ -12,43 +12,48 @@ You have up to 3 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Brown, Grey (revealed)
-- **Height:** Up to 183 (hint)
-- **Weight:** Up to 417 (revealed)
-- **Lifespan:** 100-150 (hint)
+- **Color:** `[CENSORED]`
+- **Height:** 200-250 (revealed)
+- **Weight:** `[CENSORED]`
+- **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** `[CENSORED]`
-- **Conservation Status:** Vulnerable (revealed)
-- **Habitat:** `[CENSORED]`
+- **Countries Found:** Worldwide (revealed)
+- **Conservation Status:** `[CENSORED]`
+- **Habitat:** Oceans, Coastal Areas (hint)
 
 ### Diet
-- **Diet Type:** Herbivore (revealed)
+- **Diet Type:** Carnivore (revealed)
 
 ### Physical Features
-- **Has Tail:** Yes (revealed)
+- **Has Tail:** Yes (hint)
+- **Has Teeth:** `[CENSORED]`
+- **Produces Milk:** Yes (hint)
+- **Has Fins:** `[CENSORED]`
 
 ### Biological Traits
 - **Has Backbone:** Yes (hint)
 - **Breathes Air:** `[CENSORED]`
-- **Lays Eggs:** Yes (hint)
+- **Warm-Blooded:** Yes (hint)
 
 ### Habitat & Environment
-- **Social Structure:** Solitary (hint)
+- **Aquatic:** Yes (revealed)
+- **Is a Predator:** Yes (revealed)
+- **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center; font-size:1.05rem;'><span style='color:#166534; font-weight:700;'>Hints Remaining: 0</span> &nbsp;&nbsp;|&nbsp;&nbsp; <span style='font-weight:600;'>Wrong Attempts: 0 / 3</span></p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Jaguar</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Otter</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Pangolin</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Leopard</a>
-    <a class="mcq-card" href="feature_challenge_answer.html">Galápagos Tortoise</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Red Panda</a>
-    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Hedgehog</a>
+    <a class="mcq-card" href="feature_challenge_answer.html">Atlantic Spotted Dolphin</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Wolf</a>
     <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Serval</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Hedgehog</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Beaver</a>
+    <a class="mcq-card" href="feature_challenge_wrong_hint5_a1.html">Cheetah</a>
 </div>
 
 

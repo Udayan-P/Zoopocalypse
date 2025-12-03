@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
+Sort the animals **by their Average Speed (km/h)**, from **smallest → largest**.
 
 ## Animals
 
-- **Golden Poison Dart Frog**
-- **Bottlenose Dolphin**
+- **Arabian Oryx**
 - **Brown Bear**
-- **Asian Elephant**
-- **Amazon Rainforest Frog**
+- **Kiwi**
+- **Western Gorilla**
+- **Eastern Gorilla**
 
 ## Correct Order
 
-Amazon Rainforest Frog → Golden Poison Dart Frog → Brown Bear → Bottlenose Dolphin → Asian Elephant
+Kiwi → Western Gorilla → Eastern Gorilla → Brown Bear → Arabian Oryx
