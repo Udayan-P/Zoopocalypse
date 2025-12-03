@@ -4,7 +4,86 @@ Challenge 1
 
 # Guess the Animal – animal_001
 
-![Animal image](Dataset/Images/Bear.jpg)
+JSON Specification — “Guess the Animal From Pic” Challenge
+
+Overview
+
+This challenge shows the player a blurred image of an animal.
+Players must identify the correct animal before their points reach zero.
+	•	Image begins heavily blurred
+	•	Players may:
+	•	Reveal hints
+	•	Reveal more of the image
+	•	Each reveal costs 1 point
+	•	A correct answer fully reveals the image
+	•	Running out of points ends the challenge
+
+⸻
+
+JSON Structure
+
+Each challenge is represented by one JSON object containing:
+	•	challenge_id (string) — Unique identifier
+	•	image (string) — File path to the image
+	•	question (string) — Usually “Which animal is shown in this picture?”
+	•	options (array<string>) — Multiple-choice answers (contains the correct one)
+	•	answer (string) — Correct answer
+	•	hints (array<string>) — Ordered hints, revealed one by one
+
+⸻
+
+Optional Metadata (Used for Better Hint Generation)
+
+The JSON object may include extra data to generate more meaningful hints:
+	•	diet — e.g., “Herbivore”, “Carnivore”
+	•	habitat — e.g., “Grasslands”, “Arctic Ocean”
+	•	predators — e.g., “Orcas, Bears”
+	•	family — e.g., “Felidae”, “Phocidae”
+	•	conservation_status — e.g., “Vulnerable”, “Least Concern”
+
+These fields allow:
+	•	varied hint generation
+	•	progression from general → specific hints
+	•	consistent structure across challenges
+
+⸻
+
+Example JSON
+
+{
+  "challenge_id": "animal_021",
+  "image": "Dataset/Images/Seal 2.jpg",
+  "question": "Which animal is shown in this picture?",
+  "options": ["seal", "tuatara", "buffalo", "penguin"],
+  "answer": "seal",
+  "hints": [
+    "This animal is primarily a carnivore.",
+    "It typically lives in Arctic and Atlantic waters.",
+    "Its main predators include polar bears and orcas.",
+    "It belongs to the Phocidae family."
+  ],
+  "diet": "Carnivore",
+  "habitat": "Arctic, Atlantic Ocean",
+  "predators": "Polar bears, orcas",
+  "family": "Phocidae",
+  "conservation_status": "Least Concern"
+}
+
+⸻
+
+Flexibility & Variation
+
+This format supports many different challenge styles:
+	•	Changing the image, options, hints, or metadata creates a new puzzle
+	•	Difficulty can be adjusted by:
+	•	number of hints
+	•	specificity of hints
+	•	similarity of distractor animals
+	•	Metadata-driven hints ensure non-repetitive, biologically meaningful hint sets
+
+The structure ensures all challenges include:
+→ Image, question, options, answer, hints, and (optionally) supporting metadata.
+ ![Animal image](Dataset/Images/Bear.jpg)
 
 **Question:** Which animal is shown in this picture?
 
@@ -16,16 +95,21 @@ Challenge 1
 - seal
 
 ---
-### Hints (for game master only)
+### Hints 
 
-- Hint 1: The animal's name starts with 'B'.
+- Hint 1: The animal is a carniovre
 - Hint 2: Think about common zoo animals.
 - Hint 3: Look carefully at the shape and size of the animal.
+- Hint 4: It typically lives in Grasslands
 
 ---
-### Answer (for game master only)
+### Unblurring Effect 
+- Image starts off blurry, with each unblur button click, user loses one point.
+
+### Answer (example)
 
 - **Correct answer:** bear
+⸻
 
 
 --------------------
