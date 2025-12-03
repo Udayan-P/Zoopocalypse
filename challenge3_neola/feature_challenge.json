@@ -1,1 +1,103 @@
-
+{
+  "challenge_type": "feature_challenge",
+  "animal": "African Lion",
+  "attributes": [
+    {
+      "category": "Descriptive Profile",
+      "label": "Color",
+      "value": "Tan"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Height",
+      "value": "80-110"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Weight",
+      "value": "120-250"
+    },
+    {
+      "category": "Descriptive Profile",
+      "label": "Lifespan",
+      "value": "10-14"
+    },
+    {
+      "category": "Geographic & Conservation",
+      "label": "Countries Found",
+      "value": "Africa"
+    },
+    {
+      "category": "Geographic & Conservation",
+      "label": "Conservation Status",
+      "value": "Vulnerable"
+    },
+    {
+      "category": "Geographic & Conservation",
+      "label": "Habitat",
+      "value": "Grasslands, Savannas"
+    },
+    {
+      "category": "Diet",
+      "label": "Diet Type",
+      "value": "Carnivore"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Hair",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Tail",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Teeth",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Produces Milk",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Has Backbone",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Breathes Air",
+      "value": "Yes"
+    },
+    {
+      "category": "Biological Traits",
+      "label": "Warm-Blooded",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Is a Predator",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Social Structure",
+      "value": "Group-based"
+    }
+  ],
+  "initial_hints": [
+    1,
+    2,
+    3,
+    11,
+    15
+  ],
+  "max_additional_hints": 5,
+  "rarity_score": 0.03225806451612903,
+  "attribute_count": 31,
+  "dataset_plot": "plots/attribute_count_distribution.png",
+  "ai_hint_seed": "A milk-producing predator, 80-110, weighing 120-250, living 10-14 years."
+}
