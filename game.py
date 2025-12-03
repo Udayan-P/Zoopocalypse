@@ -8,7 +8,7 @@ SCRIPTS = [
     r"ARMAN/GAME.py",
     r"challenge3_neola/feature_challenge_pipeline.py",
     r"Udayan/run_hangman_pipeline.py",
-    r"Sans/generator.py",
+    r"Sans/animal_challenge_pipeline.py",
 ]
 
 
