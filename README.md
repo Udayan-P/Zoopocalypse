@@ -37,3 +37,5 @@ and run with "!sbatch enter_job_name.slurm"
 
 After the program finishes running (Takes from 10 to 45 seconds because of the image hint generations), double click the game.html file. The entire challenge can be navigated from the html page that pops up.
 
+Due to the programs running in root on NCC the program sometimes can't find the proper path for some files such as images when the HTML file is opened through JupyterLab.
+
