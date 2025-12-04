@@ -5,6 +5,7 @@
 **Author** Udayan Purandare  
 **Course** MSc Advanced Computer Science at Durham University  
 **Module** Advanced Programming  
+**GitHub Repository** (https://github.com/Udayan-P/Zoopocalypse)
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
