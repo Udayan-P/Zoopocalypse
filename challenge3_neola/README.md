@@ -2,6 +2,7 @@
 
 This repository contains my implementation for **Challenge 3 (Feature Challenge)** for the *Advanced Programming* module. The challenge generates an animal-identification puzzle using a structured JSON specification, auto-renders Markdown and HTML pages.
 
+Link to the GitHub : https://github.com/Udayan-P/Zoopocalypse/tree/main
 
 # 1. Project File Overview
 
