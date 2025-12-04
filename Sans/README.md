@@ -1,5 +1,5 @@
 
-🐾 **Zoopocalypse — Challenge 1 Implementation
+🐾 **Zoopocalypse — Challenge 1 Implementation**
 
 A JSON-Driven, Dataset-Conditioned Image-Inference Puzzle**
 
@@ -184,31 +184,56 @@ pip install pandas
 
 8.4 SLURM Batch Script Example
 
-run_sans_slurm.sh:
+sans_run.slurm :
 ```
 #!/bin/bash
-#SBATCH --job-name=sans_challenge
-#SBATCH --output=sans_challenge.out
-#SBATCH --error=sans_challenge.err
+#SBATCH --job-name=sans_animal_gen
+#SBATCH --partition=cpu
+#SBATCH --output=sans_gen_output.txt
+#SBATCH --error=sans_gen_error.txt
 #SBATCH --time=00:05:00
 #SBATCH --mem=1G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --chdir=/home3/fctm02/advprog/zoopocalypse/Zoopocalypse
 
+echo "Running Challenge 1 generator on NCC..."
 source venv/bin/activate
-python3 Sans/animal_challenge_pipeline.py
 ```
 Submit job:
 ```
-sbatch run_sans_slurm.sh
+sbatch Sans/sans_run.slurm 
 ```
-Inspect outputs:
+must be in the right directory!! 
 
-cat sans_challenge.out
-cat sans_challenge.err
+Inspect outputs:
+```
+ls | grep sans_gen
+sans_gen_error.txt
+sans_gen_output.txt
+
+cat sans_gen_output.txt
+cat sans_gen_error.txt
+```
 
 Expected behaviour:
-	•	Dataset parsed successfully
-	•	JSON generated correctly
-	•	HTML produced without warnings or errors
+```
+Running Challenge 1 generator on NCC...
+Saved challenge JSON to generated_challenge.json
+Wrote HTML challenge to animal_challenge.html
+Job complete.
+```
+•	Dataset parsed successfully
+•	JSON generated correctly
+•	HTML produced without warnings or errors
+
+<img width="874" height="176" alt="Screenshot 2025-12-04 at 1 16 45 PM" src="https://github.com/user-attachments/assets/750880bd-c1e5-451d-885c-3e2e89d6469e" />
+
+
+<img width="1353" height="163" alt="Screenshot 2025-12-04 at 1 26 41 PM" src="https://github.com/user-attachments/assets/98f57edf-e743-49a9-901e-73e73194330c" />
+
+<img width="878" height="271" alt="Screenshot 2025-12-04 at 1 29 01 PM" src="https://github.com/user-attachments/assets/5b629b9e-1eb6-43d9-a8f1-0d83a104e667" />
+
 
 ⸻
 
@@ -232,12 +257,7 @@ Challenge 1 has been:
 
 This implementation adheres to the Advanced Programming assessment specification, with clear structure, documented pipeline logic, and reproducible outputs suitable for academic evaluation.
 
-⸻
-
-If you want, I can also add:
-
- A system architecture diagram
- A flowchart of the pipeline
- A formal JSON schema specification
- References section (for datasets, methods, etc.)
+checkbox : 
+- already added slurm, ncc edits
+- updated with ncc ssh logs should be done??
 
