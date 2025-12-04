@@ -3,6 +3,10 @@
 This program generates an escape room guideline in the form of HTML pages.
 These HTML pages contain 4 challenges with randomly sampled animals from our dataset. 
 
+The datasets used can be found at:
+    https://www.kaggle.com/datasets/iamsouravbanerjee/animal-information-dataset
+    https://archive.ics.uci.edu/dataset/111/zoo
+
 The HTML pages are the demos for the challenges, with the challenge and hints to solve them whereas the markdown files contain both the randomly selected animals, hints and the correct answers. 
 
 Some challenges (Challenge 3 and 4) contain AI generated hints using the google gemini generative model.
