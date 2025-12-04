@@ -7,7 +7,7 @@
 #SBATCH --mem=1G
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-
+#SBATCH --chdir=/home3/fctm02/advprog/zoopocalypse/Zoopocalypse
 echo "Running Challenge 1 generator on NCC..."
 source venv/bin/activate
 python3 Sans/animal_challenge_pipeline.py
