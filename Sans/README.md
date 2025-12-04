@@ -257,7 +257,5 @@ Challenge 1 has been:
 
 This implementation adheres to the Advanced Programming assessment specification, with clear structure, documented pipeline logic, and reproducible outputs suitable for academic evaluation.
 
-checkbox : 
-- already added slurm, ncc edits
-- updated with ncc ssh logs should be done??
+
 
