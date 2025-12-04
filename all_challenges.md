@@ -49,6 +49,7 @@ These fields allow:
 ⸻
 
 Example JSON
+```json
 
 {
   "challenge_id": "animal_021",
@@ -68,6 +69,7 @@ Example JSON
   "family": "Phocidae",
   "conservation_status": "Least Concern"
 }
+```
 
 ⸻
 
