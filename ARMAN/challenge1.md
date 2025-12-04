@@ -1,6 +1,6 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
+Sort the animals **by their Gestation Period (days)**, from **smallest → largest**.
 
 ## Animals
 

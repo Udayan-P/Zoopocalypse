@@ -9,6 +9,6 @@ You have **1** attempts remaining.
 
 [AI Hint](javascript:toggle_ai_hint())
 
-<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A milk-producing predator, 80-110, weighing 120-250, living 10-14 years.</div>
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A short-lived, toothed, egg-laying vertebrate native to Central America.</div>
 
 <script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>

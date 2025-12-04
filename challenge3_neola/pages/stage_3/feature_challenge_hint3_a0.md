@@ -12,52 +12,50 @@ You have up to 2 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Tan (revealed)
+- **Color:** Green, Red (hint)
 - **Height:** `[CENSORED]`
 - **Weight:** `[CENSORED]`
-- **Lifespan:** `[CENSORED]`
+- **Lifespan:** Up to 5 (hint)
 
 ### Geographic & Conservation
-- **Countries Found:** Africa (revealed)
-- **Conservation Status:** Vulnerable (revealed)
-- **Habitat:** `[CENSORED]`
+- **Countries Found:** `[CENSORED]`
+- **Conservation Status:** `[CENSORED]`
+- **Habitat:** Rainforests (revealed)
 
 ### Diet
-- **Diet Type:** Carnivore (revealed)
+- **Diet Type:** Insectivore (hint)
 
 ### Physical Features
-- **Has Hair:** `[CENSORED]`
-- **Has Tail:** Yes (hint)
-- **Has Teeth:** `[CENSORED]`
-- **Produces Milk:** Yes (hint)
+- **Has Teeth:** Yes (revealed)
 
 ### Biological Traits
 - **Has Backbone:** `[CENSORED]`
 - **Breathes Air:** Yes (revealed)
-- **Warm-Blooded:** `[CENSORED]`
+- **Lays Eggs:** Yes (revealed)
 
 ### Habitat & Environment
-- **Is a Predator:** `[CENSORED]`
-- **Social Structure:** Group-based (hint)
+- **Aquatic:** `[CENSORED]`
+- **Is a Predator:** Yes (revealed)
+- **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center;'><strong>Hints Remaining:</strong> 0 | <strong>Wrong Attempts:</strong> 0/2</p>
 
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Badger</a>
-    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Kangaroo</a>
-    <a class="mcq-card" href="../answer/feature_challenge_answer.html">African Lion</a>
-    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Leopard</a>
-    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Pangolin</a>
-    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Jaguar</a>
+    <a class="mcq-card" href="../answer/feature_challenge_answer.html">Red-Eyed Tree Frog</a>
     <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Ocelot</a>
+    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Wolf</a>
+    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Fox</a>
+    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Kangaroo</a>
+    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Koala</a>
     <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Red Panda</a>
+    <a class="mcq-card" href="../wrong/feature_challenge_wrong_hint3_a1.html">Otter</a>
 </div>
 
 
 [Try Again](../stage_3/feature_challenge_hint3_a0.html) | [Reveal Answer](../answer/feature_challenge_answer.html) | [AI Hint](javascript:toggle_ai_hint())
 
-<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A milk-producing predator, 80-110, weighing 120-250, living 10-14 years.</div>
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A short-lived, toothed, egg-laying vertebrate native to Central America.</div>
 
 <script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>

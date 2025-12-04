@@ -1,6 +1,6 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Lifespan (years)",
+    "feature": "Gestation Period (days)",
     "order": "ascending",
     "animals": [
         {
@@ -12,8 +12,8 @@
             "value": 5.0
         },
         {
-            "name": "Golden Poison Dart Frog",
-            "value": 13.5
+            "name": "Kiwi",
+            "value": 77.5
         },
         {
             "name": "African Lion",
