@@ -1,14 +1,10 @@
 --Zoopocalypse-- 
 
-This program generates an escape room guideline in the form of HTML pages.
-These HTML pages contain 4 challenges with randomly sampled animals from our dataset. 
+This program generate the challenge 4.
 
-The HTML pages are the demos for the challenges, with the challenge and hints to solve them whereas the markdown files contain both the randomly selected animals, hints and the correct answers. 
+The challenge is to order the given animals in the correct order (Ascending) based on the given feature.
 
-Some challenges (Challenge 3 and 4) contain AI generated hints using the google gemini generative model.
-
-To run this program on NCC using slurm, first the project folder must be uploaded to the NCC. Then the slurm script should be ran through a jupyter notebook running on a kernel with the
-requirements in "requirements.txt" installed. 
+The user can also click on the animals' names to reveal AI generated images of the animals to get an idea.
 
 --------------------------
 Example SLURM batch script
@@ -25,9 +21,7 @@ Example SLURM batch script
 
 source /etc/profile
 
-cd ~/Zoopocalypse
-
-python3 game.py
+python3 GAME.py
 
 --------------------------
 
@@ -35,7 +29,7 @@ Save as "enter_job_name.slurm"
 and run with "!sbatch enter_job_name.slurm" 
 
 
-After the program finishes running (Takes from 10 to 45 seconds because of the image hint generations), double click the game.html file. The entire challenge can be navigated from the html page that pops up.
+After the program finishes running (Takes from 5 to 30 seconds because of the image hint generations), double click the challenge.html file in the html folder.
 
 Due to the programs running in root on NCC the program sometimes can't find the proper path for some files such as images when the HTML file is opened through JupyterLab.
 
