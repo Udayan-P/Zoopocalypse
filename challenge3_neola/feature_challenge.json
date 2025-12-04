@@ -1,65 +1,50 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "African Lion",
+  "animal": "Red-Eyed Tree Frog",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Tan"
+      "value": "Green, Red"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "80-110"
+      "value": "5.1-7.5"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "120-250"
+      "value": "Up to 0.1"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "10-14"
+      "value": "Up to 5"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Africa"
+      "value": "Central America"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Vulnerable"
+      "value": "Least Concern"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Grasslands, Savannas"
+      "value": "Rainforests"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Carnivore"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Hair",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Has Tail",
-      "value": "Yes"
+      "value": "Insectivore"
     },
     {
       "category": "Physical Features",
       "label": "Has Teeth",
-      "value": "Yes"
-    },
-    {
-      "category": "Physical Features",
-      "label": "Produces Milk",
       "value": "Yes"
     },
     {
@@ -74,7 +59,12 @@
     },
     {
       "category": "Biological Traits",
-      "label": "Warm-Blooded",
+      "label": "Lays Eggs",
+      "value": "Yes"
+    },
+    {
+      "category": "Habitat & Environment",
+      "label": "Aquatic",
       "value": "Yes"
     },
     {
@@ -85,19 +75,19 @@
     {
       "category": "Habitat & Environment",
       "label": "Social Structure",
-      "value": "Group-based"
+      "value": "Solitary"
     }
   ],
   "initial_hints": [
-    1,
-    2,
     3,
-    11,
-    15
+    4,
+    8,
+    9,
+    11
   ],
   "max_additional_hints": 5,
-  "rarity_score": 0.03225806451612903,
-  "attribute_count": 31,
+  "rarity_score": 0.034482758620689655,
+  "attribute_count": 29,
   "dataset_plot": "plots/attribute_count_distribution.png",
-  "ai_hint_seed": "A milk-producing predator, 80-110, weighing 120-250, living 10-14 years."
+  "ai_hint_seed": "A short-lived, toothed, egg-laying vertebrate native to Central America."
 }

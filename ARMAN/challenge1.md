@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Lifespan (years)**, from **smallest → largest**.
+Sort the animals **by their Gestation Period (days)**, from **smallest → largest**.
 
 ## Animals
 
-- **Polar Bear**
-- **Giant Pacific Octopus**
-- **Golden Poison Dart Frog**
-- **Spectacled Bear**
-- **Australian Fur Seal**
+- **Amazon Rainforest Frog**
+- **Galápagos Tortoise**
+- **Kiwi**
+- **Snow Leopard**
+- **Mountain Gorilla**
 
 ## Correct Order
 
-Giant Pacific Octopus → Golden Poison Dart Frog → Australian Fur Seal → Spectacled Bear → Polar Bear
+Amazon Rainforest Frog → Kiwi → Snow Leopard → Galápagos Tortoise → Mountain Gorilla

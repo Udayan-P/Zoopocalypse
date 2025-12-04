@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Lifespan (years)",
+    "feature": "Gestation Period (days)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Polar Bear",
-            "value": 27.5
+            "name": "Amazon Rainforest Frog",
+            "value": 12.5
         },
         {
-            "name": "Giant Pacific Octopus",
-            "value": 4.0
+            "name": "Gal\u00e1pagos Tortoise",
+            "value": 135.0
         },
         {
-            "name": "Golden Poison Dart Frog",
-            "value": 13.5
+            "name": "Kiwi",
+            "value": 77.5
         },
         {
-            "name": "Spectacled Bear",
-            "value": 17.5
+            "name": "Snow Leopard",
+            "value": 95.0
         },
         {
-            "name": "Australian Fur Seal",
-            "value": 15.5
+            "name": "Mountain Gorilla",
+            "value": 262.5
         }
     ],
     "correct_order": [
-        "Giant Pacific Octopus",
-        "Golden Poison Dart Frog",
-        "Australian Fur Seal",
-        "Spectacled Bear",
-        "Polar Bear"
+        "Amazon Rainforest Frog",
+        "Kiwi",
+        "Snow Leopard",
+        "Gal\u00e1pagos Tortoise",
+        "Mountain Gorilla"
     ]
 }
