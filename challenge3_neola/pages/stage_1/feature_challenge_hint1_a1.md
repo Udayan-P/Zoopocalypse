@@ -12,30 +12,32 @@ You have up to 2 wrong attempts before failure.
 ---
 
 ### Descriptive Profile
-- **Color:** Green, Red (hint)
+- **Color:** Yellowish-brown (revealed)
 - **Height:** `[CENSORED]`
-- **Weight:** `[CENSORED]`
+- **Weight:** 9-14 (hint)
 - **Lifespan:** `[CENSORED]`
 
 ### Geographic & Conservation
-- **Countries Found:** `[CENSORED]`
+- **Countries Found:** Spain, Portugal (revealed)
 - **Conservation Status:** `[CENSORED]`
-- **Habitat:** Rainforests (revealed)
+- **Habitat:** Mediterranean Scrublands (revealed)
 
 ### Diet
-- **Diet Type:** `[CENSORED]`
+- **Diet Type:** Carnivore (revealed)
 
 ### Physical Features
+- **Has Hair:** `[CENSORED]`
+- **Has Tail:** `[CENSORED]`
 - **Has Teeth:** Yes (revealed)
+- **Produces Milk:** `[CENSORED]`
 
 ### Biological Traits
 - **Has Backbone:** `[CENSORED]`
-- **Breathes Air:** Yes (revealed)
-- **Lays Eggs:** Yes (revealed)
+- **Breathes Air:** `[CENSORED]`
+- **Warm-Blooded:** `[CENSORED]`
 
 ### Habitat & Environment
-- **Aquatic:** `[CENSORED]`
-- **Is a Predator:** Yes (revealed)
+- **Is a Predator:** `[CENSORED]`
 - **Social Structure:** `[CENSORED]`
 
 <p style='text-align:center;'><strong>Hints Remaining:</strong> 2 | <strong>Wrong Attempts:</strong> 1/2</p>
@@ -43,19 +45,19 @@ You have up to 2 wrong attempts before failure.
 ## Choose the Species
 
 <div class="mcq-grid">
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wombat</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Kangaroo</a>
-    <a class="mcq-card" href="../answer/feature_challenge_answer.html">Red-Eyed Tree Frog</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Badger</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Otter</a>
     <a class="mcq-card" href="../fail/feature_challenge_fail.html">Jaguar</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Koala</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Red Panda</a>
     <a class="mcq-card" href="../fail/feature_challenge_fail.html">Fox</a>
-    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Wolf</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Koala</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Kangaroo</a>
+    <a class="mcq-card" href="../fail/feature_challenge_fail.html">Pangolin</a>
+    <a class="mcq-card" href="../answer/feature_challenge_answer.html">Iberian Lynx</a>
 </div>
 
 
 [Try Again](../stage_1/feature_challenge_hint1_a1.html) | [Reveal Next Hint](../stage_2/feature_challenge_hint2_a1.html) | [Reveal Answer](../answer/feature_challenge_answer.html) | [AI Hint](javascript:toggle_ai_hint())
 
-<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 A short-lived, toothed, egg-laying vertebrate native to Central America.</div>
+<div id='ai_hint_box' style='display:none; margin:20px auto;padding:16px; background:#e0f2fe; border-left:4px solid #0ea5e9;border-radius:10px; max-width:600px; font-size:1rem;'>💡 Conservation Status: Endangered | Habitat: Mediterranean Scrublands | Has Tail: Yes | Produces Milk: Yes | Is a Predator: Yes</div>
 
 <script>function toggle_ai_hint(){var b=document.getElementById('ai_hint_box');b.style.display=b.style.display==='none'?'block':'none';}</script>

@@ -1,18 +1,13 @@
 {
-    "challenge_id": "hangman-auto-lion",
+    "challenge_id": "hangman-auto-aardvark",
     "challenge_type": "hangman",
-    "word": "lion",
+    "word": "aardvark",
     "max_lives": 5,
     "hints": [
         {
-            "label": "Produces milk",
-            "text": "Yes",
-            "source_column": "Produces milk"
-        },
-        {
-            "label": "Has a tail",
-            "text": "Yes",
-            "source_column": "Has a tail"
+            "label": "Domestic animal",
+            "text": "No",
+            "source_column": "Domestic animal"
         },
         {
             "label": "Number of legs",
@@ -20,13 +15,18 @@
             "source_column": "Number of legs"
         },
         {
-            "label": "Has hair",
+            "label": "Lays eggs",
+            "text": "No",
+            "source_column": "Lays eggs"
+        },
+        {
+            "label": "Big cat sized",
             "text": "Yes",
-            "source_column": "Has hair"
+            "source_column": "Big cat sized"
         }
     ],
     "dataset_metadata": {
         "dataset_name": "Zoo Animals Dataset",
-        "row_index": 2
+        "row_index": 0
     }
 }

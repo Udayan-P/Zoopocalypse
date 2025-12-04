@@ -1,34 +1,34 @@
 {
     "challenge_type": "animal_sorting",
-    "feature": "Gestation Period (days)",
+    "feature": "Height (cm)",
     "order": "ascending",
     "animals": [
         {
-            "name": "Gal\u00e1pagos Tortoise",
-            "value": 125.0
-        },
-        {
-            "name": "Red-Eyed Tree Frog",
-            "value": 5.0
+            "name": "Brown Bear",
+            "value": 95.0
         },
         {
             "name": "Kiwi",
-            "value": 77.5
+            "value": 35.5
         },
         {
-            "name": "African Lion",
-            "value": 12.0
+            "name": "Gal\u00e1pagos Penguin",
+            "value": 50.5
         },
         {
-            "name": "Atlantic Spotted Dolphin",
-            "value": 22.5
+            "name": "Blue-Ringed Octopus",
+            "value": 20.0
+        },
+        {
+            "name": "Aardvark",
+            "value": 117.5
         }
     ],
     "correct_order": [
-        "Red-Eyed Tree Frog",
-        "African Lion",
-        "Golden Poison Dart Frog",
-        "Atlantic Spotted Dolphin",
-        "Gal\u00e1pagos Tortoise"
+        "Blue-Ringed Octopus",
+        "Kiwi",
+        "Gal\u00e1pagos Penguin",
+        "Brown Bear",
+        "Aardvark"
     ]
 }

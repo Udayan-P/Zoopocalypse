@@ -1,50 +1,65 @@
 {
   "challenge_type": "feature_challenge",
-  "animal": "Red-Eyed Tree Frog",
+  "animal": "Iberian Lynx",
   "attributes": [
     {
       "category": "Descriptive Profile",
       "label": "Color",
-      "value": "Green, Red"
+      "value": "Yellowish-brown"
     },
     {
       "category": "Descriptive Profile",
       "label": "Height",
-      "value": "5.1-7.5"
+      "value": "60-70"
     },
     {
       "category": "Descriptive Profile",
       "label": "Weight",
-      "value": "Up to 0.1"
+      "value": "9-14"
     },
     {
       "category": "Descriptive Profile",
       "label": "Lifespan",
-      "value": "Up to 5"
+      "value": "10-13"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Countries Found",
-      "value": "Central America"
+      "value": "Spain, Portugal"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Conservation Status",
-      "value": "Least Concern"
+      "value": "Endangered"
     },
     {
       "category": "Geographic & Conservation",
       "label": "Habitat",
-      "value": "Rainforests"
+      "value": "Mediterranean Scrublands"
     },
     {
       "category": "Diet",
       "label": "Diet Type",
-      "value": "Insectivore"
+      "value": "Carnivore"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Hair",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Has Tail",
+      "value": "Yes"
     },
     {
       "category": "Physical Features",
       "label": "Has Teeth",
+      "value": "Yes"
+    },
+    {
+      "category": "Physical Features",
+      "label": "Produces Milk",
       "value": "Yes"
     },
     {
@@ -59,12 +74,7 @@
     },
     {
       "category": "Biological Traits",
-      "label": "Lays Eggs",
-      "value": "Yes"
-    },
-    {
-      "category": "Habitat & Environment",
-      "label": "Aquatic",
+      "label": "Warm-Blooded",
       "value": "Yes"
     },
     {
@@ -79,15 +89,15 @@
     }
   ],
   "initial_hints": [
-    3,
-    4,
-    8,
+    5,
+    6,
     9,
-    11
+    11,
+    15
   ],
   "max_additional_hints": 5,
-  "rarity_score": 0.034482758620689655,
-  "attribute_count": 29,
+  "rarity_score": 0.03225806451612903,
+  "attribute_count": 31,
   "dataset_plot": "plots/attribute_count_distribution.png",
-  "ai_hint_seed": "A short-lived, toothed, egg-laying vertebrate native to Central America."
+  "ai_hint_seed": "Conservation Status: Endangered | Habitat: Mediterranean Scrublands | Has Tail: Yes | Produces Milk: Yes | Is a Predator: Yes"
 }

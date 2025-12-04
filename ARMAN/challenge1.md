@@ -1,15 +1,15 @@
 # Animal Sorting Challenge
 
-Sort the animals **by their Gestation Period (days)**, from **smallest → largest**.
+Sort the animals **by their Height (cm)**, from **smallest → largest**.
 
 ## Animals
 
-- **Galápagos Tortoise**
-- **Red-Eyed Tree Frog**
-- **Golden Poison Dart Frog**
-- **African Lion**
-- **Atlantic Spotted Dolphin**
+- **Brown Bear**
+- **Kiwi**
+- **Galápagos Penguin**
+- **Blue-Ringed Octopus**
+- **Aardvark**
 
 ## Correct Order
 
-Red-Eyed Tree Frog → African Lion → Golden Poison Dart Frog → Atlantic Spotted Dolphin → Galápagos Tortoise
+Blue-Ringed Octopus → Kiwi → Galápagos Penguin → Brown Bear → Aardvark
