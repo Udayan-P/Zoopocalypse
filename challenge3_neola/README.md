@@ -216,4 +216,9 @@ Output file:
 challenge3_neola/plots/attribute_count_distribution.png
 ```
 
+# Preview of Challenge 3
+
+<img width="766" height="1638" alt="image" src="https://github.com/user-attachments/assets/c7a43064-9b32-494c-b1bd-b63fdc3dc576" />
+
+
 
