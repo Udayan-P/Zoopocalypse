@@ -3,10 +3,14 @@
     "image": "Dataset/Images/Lion.jpg",
     "question": "Which animal is shown in this picture?",
     "options": [
-        "frog",
-        "leopard",
+        "lion",
+        "vulture",
+        "kiwi",
+        "seal",
+        "lynx",
+        "platypus",
         "dolphin",
-        "lion"
+        "aardvark"
     ],
     "answer": "lion",
     "hints": [

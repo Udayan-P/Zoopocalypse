@@ -1,0 +1,22 @@
+{
+    "challenge_id": "animal_001",
+    "image": "/Users/sanskriti/Desktop/durham\ud83c\udf37/animalchallenge/Sans/Dataset/Images/Dolphin.jpg",
+    "question": "Which animal is shown in this picture?",
+    "options": [
+        "lynx",
+        "boar",
+        "oryx",
+        "platypus",
+        "leopard",
+        "dolphin",
+        "termite",
+        "frog"
+    ],
+    "answer": "dolphin",
+    "hints": [
+        "This animal is primarily a carnivore.",
+        "It typically lives in oceans, coastal areas.",
+        "Its main predators include sharks, orcas.",
+        "It belongs to the Delphinidae family."
+    ]
+}

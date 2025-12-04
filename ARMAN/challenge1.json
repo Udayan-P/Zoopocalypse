@@ -4,31 +4,31 @@
     "order": "ascending",
     "animals": [
         {
-            "name": "Amazon Rainforest Frog",
-            "value": 12.5
+            "name": "Gal\u00e1pagos Tortoise",
+            "value": 125.0
         },
         {
-            "name": "Gal\u00e1pagos Tortoise",
-            "value": 135.0
+            "name": "Red-Eyed Tree Frog",
+            "value": 5.0
         },
         {
             "name": "Kiwi",
             "value": 77.5
         },
         {
-            "name": "Snow Leopard",
-            "value": 95.0
+            "name": "African Lion",
+            "value": 12.0
         },
         {
-            "name": "Mountain Gorilla",
-            "value": 262.5
+            "name": "Atlantic Spotted Dolphin",
+            "value": 22.5
         }
     ],
     "correct_order": [
-        "Amazon Rainforest Frog",
-        "Kiwi",
-        "Snow Leopard",
-        "Gal\u00e1pagos Tortoise",
-        "Mountain Gorilla"
+        "Red-Eyed Tree Frog",
+        "African Lion",
+        "Golden Poison Dart Frog",
+        "Atlantic Spotted Dolphin",
+        "Gal\u00e1pagos Tortoise"
     ]
 }

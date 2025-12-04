@@ -4,12 +4,12 @@ Sort the animals **by their Gestation Period (days)**, from **smallest → large
 
 ## Animals
 
-- **Amazon Rainforest Frog**
 - **Galápagos Tortoise**
-- **Kiwi**
-- **Snow Leopard**
-- **Mountain Gorilla**
+- **Red-Eyed Tree Frog**
+- **Golden Poison Dart Frog**
+- **African Lion**
+- **Atlantic Spotted Dolphin**
 
 ## Correct Order
 
-Amazon Rainforest Frog → Kiwi → Snow Leopard → Galápagos Tortoise → Mountain Gorilla
+Red-Eyed Tree Frog → African Lion → Golden Poison Dart Frog → Atlantic Spotted Dolphin → Galápagos Tortoise
